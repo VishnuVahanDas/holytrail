@@ -3,10 +3,15 @@
 import os
 import sys
 
+if "ENVIRONMENT_NAME" in os.environ:
+    environment_name = os.environ['ENVIRONMENT_NAME']
+    environment_settings_file = "holytrail.settings."+environment_name
+else:
+    environment_settings_file = "holytrail.settings.base"
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'holytrail.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', environment_settings_file)
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
