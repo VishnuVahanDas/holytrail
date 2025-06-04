@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
 <div id="__next">
     <div data-overlay-container="true">
         <div class="veho-c-lesPJm veho-c-lesPJm-ijxjtSw-css">
@@ -10,8 +12,8 @@
                         <div
                             class="veho-c-gqwkJN veho-c-gqwkJN-ejCoEP-direction-row veho-c-gqwkJN-jroWjL-align-center veho-c-gqwkJN-awKDG-justify-start veho-c-gqwkJN-kVNAnR-wrap-noWrap veho-c-gqwkJN-iPJLV-css">
                             <a href="/" class="veho-c-biXgFE"><img
-                                    src="https://images.pickyourtrail.com/images/web_app/logo/pickyourtrail-logo-white.svg"
-                                    alt="pickyourtrail_logo" width="252px" height="54px"
+                                    src="{% static 'holy_logo.png'%}"
+                                    alt="holytrail_logo" width="252px" height="54px"
                                     class="veho-c-bRzGSs veho-c-bRzGSs-iehnXme-css" /></a>
                         </div>
                         <div
@@ -14752,29 +14754,29 @@
                   "data": {
                     "id": 4118,
                     "attributes": {
-                      "name": "Pickyourtrail-logo.png",
-                      "alternativeText": "Pickyourtrail-logo",
+                      "name": "holy_logo.png",
+                      "alternativeText": "Holytrail-logo",
                       "caption": null,
                       "width": 276,
                       "height": 276,
                       "formats": {
                         "thumbnail": {
-                          "name": "thumbnail_Pickyourtrail-logo.png",
-                          "hash": "thumbnail_Pickyourtrail_logo_da2eeb5159",
+                          "name": "holy_logo.png",
+                          "hash": "Holytrail_logo_da2eeb5159",
                           "ext": ".png",
                           "mime": "image/png",
                           "path": null,
                           "width": 156,
                           "height": 156,
                           "size": 4.08,
-                          "url": "https://oceanjar-new.s3.ap-south-1.amazonaws.com/thumbnail_Pickyourtrail_logo_da2eeb5159.png"
+                          "url": "{% static 'holy_logo.png' %}"
                         }
                       },
-                      "hash": "Pickyourtrail_logo_da2eeb5159",
+                      "hash": "Holytrail_logo_da2eeb5159",
                       "ext": ".png",
                       "mime": "image/png",
                       "size": 1.32,
-                      "url": "https://oceanjar-new.s3.ap-south-1.amazonaws.com/Pickyourtrail_logo_da2eeb5159.png",
+                      "url": "{% static 'holy_logo.png' %}",
                       "previewUrl": null,
                       "provider": "aws-s3",
                       "provider_metadata": null,
