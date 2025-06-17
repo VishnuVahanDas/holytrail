@@ -22,10 +22,18 @@ from django.urls import path, include, re_path as url
 from django.conf.urls.static import static
 from django.views.static import serve
 
-from .views import  home_view
+from .views import  home_view , about_view , contact_view , team_view , news_view , blog_view , destination_view , tour_view 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", home_view, name="home"),
+    path("about", about_view, name="about"),
+    path("contact", contact_view, name="contact"),
+    path("team", team_view, name="team"),
+    path("news", news_view, name="news"),
+    path("blog", blog_view, name="blog"),
+    path("destination", destination_view, name="destination"),
+    path("tour", tour_view, name="tour"),
+
 
     url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
     url(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
