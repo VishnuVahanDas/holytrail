@@ -23,3 +23,10 @@ def destination_view(request):
 
 def tour_view(request):
       return render(request, "tour-listing-1.html")
+
+def tourdetail_view(request):
+      return render(request, "tour-listing-details-2.html")
+
+def checkout_view(request):
+      return render(request, "checkout.html")
+
