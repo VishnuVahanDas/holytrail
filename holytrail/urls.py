@@ -22,7 +22,7 @@ from django.urls import path, include, re_path as url
 from django.conf.urls.static import static
 from django.views.static import serve
 
-from .views import  home_view , about_view , contact_view , team_view , news_view , blog_view , destination_view , tour_view , tourdetail_view , checkout_view
+from .views import  home_view , about_view , contact_view , team_view , news_view , blog_view , destination_view , tour_view , tourdetail_view , checkout_view, cart_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", home_view, name="home"),
@@ -34,7 +34,8 @@ urlpatterns = [
     path("destination", destination_view, name="destination"),
     path("tour", tour_view, name="tour"),
     path("tour-detail", tourdetail_view, name="tour-detail"),
-    path("checkout", checkout_view, name="checkout-detail"),
+    path("checkout", checkout_view, name="checkout"),
+    path("cart", cart_view, name="cart"),
 
 
     url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
