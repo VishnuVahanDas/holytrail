@@ -1,8 +1,14 @@
 <?php
 //password xrnd ctdp gojl ydng
 // Define some constants
+define( "SMTP_EMAIL", "iskcongkp.it@gmail.com" );
+define( "SMTP_PASSWORD", "xrndctdpgojlydng" );
+
 define( "RECIPIENT_NAME", "Team Holytrail" );
 define( "RECIPIENT_EMAIL", "vishnuvhan.it@gmail.com" );
+
+define("HOST_NAME", "Holytrail");
+define("HOST_EMAIL", "iskcongkp.it@gmail.com");
 
 // Read the form values
 $success = false;
