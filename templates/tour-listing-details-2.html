@@ -50,22 +50,27 @@
         }'>
         <div class="item">
             <div class="tour-one__item">
-                <img src="{% static 'images/gallery/listing-list-g-1-1.webp' %}" alt="tour image">
+                <img src="{% static 'images/resources/gangotri.jpg' %}" alt="tour image">
             </div><!-- /.tour-one__item -->
         </div><!-- /.item -->
         <div class="item">
             <div class="tour-one__item">
-                <img src="{% static 'images/gallery/listing-list-g-1-2.webp' %}" alt="tour image">
+                <img src="{% static 'images/resources/badrinath2.jpg' %}" alt="tour image">
             </div><!-- /.tour-one__item -->
         </div><!-- /.item -->
         <div class="item">
             <div class="tour-one__item">
-                <img src="{% static 'images/gallery/listing-list-g-1-4.webp' %}" alt="tour image">
+                <img src="{% static 'images/resources/badrinath2.jpg' %}" alt="tour image">
             </div><!-- /.tour-one__item -->
         </div><!-- /.item -->
         <div class="item">
             <div class="tour-one__item">
-                <img src="{% static 'images/gallery/listing-list-g-1-5.webp' %}" alt="tour image">
+                <img src="{% static 'images/resources/gangotri2.jpg' %}" alt="tour image">
+            </div><!-- /.tour-one__item -->
+        </div><!-- /.item -->
+        <div class="item">
+            <div class="tour-one__item">
+                <img src="{% static 'images/resources/badrinath.jpg' %}" alt="tour image">
             </div><!-- /.tour-one__item -->
         </div><!-- /.item -->
     </div><!-- /.tour-one__carousel -->
@@ -542,40 +547,39 @@
                             <form class="sidebar-two__form__inner contact-form-validated" action="{% static 'inc/sendemail.php' %}"
                                 novalidate="novalidate">
                                 <div class="sidebar-two__form__control">
-                                    <label for="checkin">From:</label>
-                                    <input class="gotur-datepicker" id="checkin" type="text" name="checkin">
-                                    <i class="icon-calendar"></i>
+                                    <label for="adult">Adult:</label>
+                                    <input  id="adult" type="text" name="adult"  placeholder="Enter Value">
                                 </div>
                                 <div class="sidebar-two__form__control">
-                                    <label for="checkout">Time:</label>
-                                    <input class="gotur-datepicker" id="checkout" type="text" name="checkout">
+                                    <label for="youth">Youth:</label>
+                                    <input  id="youth" type="text" name="youth"  placeholder="Enter Value">
                                 </div>
                                 <div class="sidebar-two__form__control">
                                     <label for="checkout">Tickets:</label>
                                     <input id="checkout" type="text" name="checkout"
-                                        placeholder="Please, Select Date Fist">
+                                        placeholder="Total Count">
                                 </div>
                                 <div class="sidebar-two__form__control sidebar-two__form__control--two">
                                     <label class="sidebar-two__form__control--title" for="guests">Add Extra:</label>
                                     <ul class="list-unstyled sidebar-two__form__checkbox">
                                         <li>
                                             <input type="checkbox" name="check8" id="check8">
-                                            <label for="check8"> <span> Services per booking</span></label>
+                                            <label for="check8"> <span> Yatra with Innova Car</span></label>
 
                                         </li>
                                         <li>
                                             <input type="checkbox" name="check9" id="check9">
-                                            <label for="check9"><span>Services per person</span></label>
+                                            <label for="check9"><span>Yatra with traveller bus</span></label>
 
                                         </li>
                                     </ul><!-- /.list-unstyled -->
                                 </div>
                                 <ul class="list-unstyled sidebar-two__form__add-list">
                                     <li>
-                                        <div class="sidebar-two__form__add">Adult:<span>₹20,000</span></div>
+                                        <div class="sidebar-two__form__add">Yatra with Innova car:<span>₹20,000</span></div>
                                     </li>
                                     <li>
-                                        <div class="sidebar-two__form__add">Adult:<span>₹15,000</span></div>
+                                        <div class="sidebar-two__form__add">Yatra with traveller:<span>₹15,000</span></div>
                                     </li>
                                     <li>
                                         <div class="sidebar-two__form__add">Youth: <span>₹8,000</span></div>
