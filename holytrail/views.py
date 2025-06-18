@@ -32,7 +32,7 @@ def tour_view(request):
     return render(request, "tour-listing-1.html")
 
 def tourdetail_view(request):
-    return render(request, "tour-listing-details-2.html")
+    return render(request, "tour-details.html")
 
 def cart_view(request):
     return render(request, "cart.html")
