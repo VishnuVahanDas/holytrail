@@ -34,7 +34,7 @@ urlpatterns = [
     path("destination", destination_view, name="destination"),
     path("tour", tour_view, name="tour"),
     path("tour-detail", tourdetail_view, name="tour-detail"),
-    path("checkout", checkout_view, name="checkout"),
+    path("checkout/", checkout_view, name="checkout"),
     path("cart", cart_view, name="cart"),
 
 

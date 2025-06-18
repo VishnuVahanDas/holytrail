@@ -28,7 +28,9 @@ def tourdetail_view(request):
       return render(request, "tour-listing-details-2.html")
 
 def checkout_view(request):
-      return render(request, "checkout.html")
+    total = request.GET.get('total', '0')  # default to '0' if not present
+    return render(request, 'checkout.html', {'total_amount': total})
+
 
 def cart_view(request):
       return render(request, "cart.html")

@@ -226,12 +226,14 @@
                         <div class="row gutter-y-20">
                             <div class="col-md-6">
                                 <div class="tour-listing-details__thumb__item">
-                                    <img src="{% static 'images/resources/badrinath.jpg' %}" alt="tour-listing-details">
+                                    <img src="{% static 'images/resources/badrinath.jpg' %}"
+                                        alt="tour-listing-details">
                                 </div><!-- /.tour-listing-details__thumb__item -->
                             </div><!-- /.col-md-6 -->
                             <div class="col-md-6">
                                 <div class="tour-listing-details__thumb__item">
-                                    <img src="{% static 'images/resources/gangotri.jpg' %}" alt="tour-listing-details">
+                                    <img src="{% static 'images/resources/gangotri.jpg' %}"
+                                        alt="tour-listing-details">
                                 </div><!-- /.tour-listing-details__thumb__item -->
                             </div><!-- /.col-md-6 -->
                         </div><!-- /.row -->
@@ -542,63 +544,51 @@
                         <h4 class="tour-listing-details__sidebar__title">Book This Tour</h4>
                         <!-- /.tour-listing-details__sidebar__title -->
                         <div class="sidebar-two__form">
-                            <form class="sidebar-two__form__inner contact-form-validated"
-                                action="checkout" method="POST" novalidate="novalidate">
-                                {% csrf_token %}
+                            <form class="sidebar-two__form__inner contact-form-validated" action="{% static 'inc/sendemail.php' %}"
+                                novalidate="novalidate">
                                 <div class="sidebar-two__form__control">
                                     <label for="adult">Adult:</label>
-                                    <input id="adult" type="number" name="adult" placeholder="Enter Value" value="0"
-                                        min="0">
+                                    <input  id="adult" type="text" name="adult"  placeholder="Enter Value">
                                 </div>
                                 <div class="sidebar-two__form__control">
                                     <label for="youth">Youth:</label>
-                                    <input id="youth" type="number" name="youth" placeholder="Enter Value" value="0"
-                                        min="0">
+                                    <input  id="youth" type="text" name="youth"  placeholder="Enter Value">
                                 </div>
                                 <div class="sidebar-two__form__control">
                                     <label for="checkout">Tickets:</label>
-                                    <input id="checkout" type="number" name="checkout" placeholder="Total Count"
-                                        readonly>
+                                    <input id="checkout" type="text" name="checkout"
+                                        placeholder="Total Count">
                                 </div>
-
                                 <div class="sidebar-two__form__control sidebar-two__form__control--two">
                                     <label class="sidebar-two__form__control--title" for="guests">Add Extra:</label>
                                     <ul class="list-unstyled sidebar-two__form__checkbox">
                                         <li>
-                                            <input type="checkbox" name="check8" id="check8" data-price="20000">
-                                            <label for="check8"><span>Yatra with Innova Car</span></label>
+                                            <input type="checkbox" name="check8" id="check8">
+                                            <label for="check8"> <span> Yatra with Innova Car</span></label>
+
                                         </li>
                                         <li>
-                                            <input type="checkbox" name="check9" id="check9" data-price="15000">
-                                            <label for="check9"><span>Yatra with Traveller Bus</span></label>
-                                        </li>
-                                    </ul>
-                                </div>
+                                            <input type="checkbox" name="check9" id="check9">
+                                            <label for="check9"><span>Yatra with traveller bus</span></label>
 
+                                        </li>
+                                    </ul><!-- /.list-unstyled -->
+                                </div>
                                 <ul class="list-unstyled sidebar-two__form__add-list">
                                     <li>
-                                        <div class="sidebar-two__form__add">Yatra with Innova car: <span>₹20,000</span>
-                                        </div>
+                                        <div class="sidebar-two__form__add">Yatra with Innova car:<span>₹20,000</span></div>
                                     </li>
                                     <li>
-                                        <div class="sidebar-two__form__add">Yatra with traveller: <span>₹15,000</span>
-                                        </div>
+                                        <div class="sidebar-two__form__add">Yatra with traveller:<span>₹15,000</span></div>
                                     </li>
                                     <li>
                                         <div class="sidebar-two__form__add">Youth: <span>₹8,000</span></div>
                                     </li>
                                 </ul>
-
-                                <div class="sidebar-two__form__total">Total: <span id="totalAmount">₹0</span></div>
-
-                                <!-- Hidden input to send final total to payment page -->
-                                <input type="hidden" name="final_amount" id="final_amount">
-                                <button type="button" id="goToCheckout" class="gotur-btn gotur-btn--base" >Book Now <i
+                                <div class="sidebar-two__form__total">Total:<span>₹43000</span></div>
+                                <button type="submit" class="gotur-btn gotur-btn--base">Book Now <i
                                         class="icon-right"></i></button>
                             </form>
-
-
-
                         </div>
                     </div><!-- /.tour-listing-details__sidebar__item -->
                 </div><!-- /.tour-listing-details-details__sidebar -->
@@ -606,69 +596,4 @@
         </div><!-- /.row justify-content-center -->
     </div><!-- /.container -->
 </section><!-- /.tour-listing-details -->
-
-<script>
-    const adultInput = document.getElementById('adult');
-    const youthInput = document.getElementById('youth');
-    const checkInnova = document.getElementById('check8'); // Innova
-    const checkTraveller = document.getElementById('check9'); // Traveller
-    const totalAmountDisplay = document.getElementById('totalAmount');
-    const finalAmountInput = document.getElementById('final_amount');
-    const checkoutInput = document.getElementById('checkout');
-
-    function calculateTotal() {
-        const youthPrice = 8000;
-        let adultPrice = 0;
-
-        if (checkInnova.checked && checkTraveller.checked) {
-            // Prevent both from being selected at once
-            alert("Please select only one transport option.");
-            checkInnova.checked = false;
-            checkTraveller.checked = false;
-            return;
-        } else if (checkInnova.checked) {
-            adultPrice = 20000;
-        } else if (checkTraveller.checked) {
-            adultPrice = 15000;
-        }
-
-        const adults = parseInt(adultInput.value) || 0;
-        const youths = parseInt(youthInput.value) || 0;
-
-        const adultTotal = adults * adultPrice;
-        const youthTotal = youths * youthPrice;
-
-        const total = adultTotal + youthTotal;
-
-        totalAmountDisplay.textContent = `₹${total.toLocaleString()}`;
-        finalAmountInput.value = total;
-        checkoutInput.value = adults + youths;
-    }
-
-    adultInput.addEventListener('input', calculateTotal);
-    youthInput.addEventListener('input', calculateTotal);
-    checkInnova.addEventListener('change', () => {
-        if (checkInnova.checked) checkTraveller.checked = false;
-        calculateTotal();
-    });
-    checkTraveller.addEventListener('change', () => {
-        if (checkTraveller.checked) checkInnova.checked = false;
-        calculateTotal();
-    });
-
-    // Initial run
-    calculateTotal();
-
-
-  const goToCheckoutBtn = document.getElementById('goToCheckout');
-
-  goToCheckoutBtn.addEventListener('click', () => {
-    // Extract the numeric value from totalAmountDisplay, remove ₹ and commas
-    let totalText = totalAmountDisplay.textContent.replace(/[₹,]/g, '');
-    
-    // Redirect to checkout page with total as query parameter
-    window.location.href = `/checkout/?total=${totalText}`;
-  });
-</script>
-
 {% endblock %}
