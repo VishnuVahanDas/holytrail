@@ -1,20 +1,96 @@
-{% extends 'base.html' %}
-{% block doc_title %}Thank You{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Thank You - ISKCON Tour Booking</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-{% block content %}
-<section class="page-header">
-    <div class="container">
-        <div class="page-header__content">
-            <h2 class="page-header__title">Thank You</h2>
-            <p>Your booking has been received, {{ name }}.</p>
-        </div>
-    </div>
-</section>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
 
-<section class="section-space">
-    <div class="container text-center">
-        <p>We’ve sent a confirmation to your email. We’ll contact you shortly regarding the details.</p>
-        <a href="/" class="gotur-btn gotur-btn--base mt-3">Back to Home</a>
+        .thank-you-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px 30px;
+            border-radius: 15px;
+            max-width: 480px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .thank-you-icon {
+            font-size: 72px;
+            color: #00ffab;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+            line-height: 1.5;
+            color: #e0e0e0;
+        }
+
+        .user-name {
+            font-weight: 700;
+            color: #00ffab;
+        }
+
+        .btn-home {
+            display: inline-block;
+            padding: 12px 28px;
+            background: #00ffab;
+            color: #1a1a1a;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 255, 171, 0.5);
+        }
+
+        .btn-home:hover {
+            background: #00cc88;
+            box-shadow: 0 8px 20px rgba(0, 204, 136, 0.7);
+        }
+
+        @media (max-width: 480px) {
+            .thank-you-container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container" role="main" aria-labelledby="thankYouHeading">
+        <div class="thank-you-icon" aria-hidden="true">✅</div>
+        <h1 id="thankYouHeading">Thank You for Your Order!</h1>
+        <p>
+            Dear <span class="user-name">{{ name }}</span>,<br />
+            Your booking request has been successfully received.<br />
+            We will review your payment and send you a confirmation email shortly.
+        </p>
+        <a href="{% url 'home' %}" class="btn-home" role="button" aria-label="Back to Home Page">Back to Home</a>
     </div>
-</section>
-{% endblock %}
+</body>
+</html>
