@@ -4,170 +4,181 @@
 {% block content %}
 
 
-        <section class="page-header">
-            <div class="page-header__bg" style="background-image: url({% static 'images/backgrounds/page-header-bg-1-1.jpg' %});"></div><!-- /.page-header__bg -->
-            <div class="container">
-                <div class="page-header__content">
-                    <h2 class="page-header__title bw-split-in-right">checkout</h2>
-                    <ul class="gotur-breadcrumb list-unstyled">
-                        <li><a href="/">Home</a></li>
-                        <li><span>checkout</span></li>
-                    </ul><!-- /.thm-breadcrumb list-unstyled -->
-                </div><!-- /.page-header__content -->
-            </div><!-- /.container -->
-        </section><!-- /.page-header -->
+<section class="page-header">
+    <div class="page-header__bg"
+        style="background-image: url({% static 'images/backgrounds/page-header-bg-1-1.jpg' %});"></div>
+    <!-- /.page-header__bg -->
+    <div class="container">
+        <div class="page-header__content">
+            <h2 class="page-header__title bw-split-in-right">checkout</h2>
+            <ul class="gotur-breadcrumb list-unstyled">
+                <li><a href="/">Home</a></li>
+                <li><span>checkout</span></li>
+            </ul><!-- /.thm-breadcrumb list-unstyled -->
+        </div><!-- /.page-header__content -->
+    </div><!-- /.container -->
+</section><!-- /.page-header -->
 
-        <!-- Checkout Start -->
-        <section class="checkout-page section-space">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="checkout-page__billing-address">
-                            <h2 class="checkout-page__billing-address__title wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>Billing Details</h2>
-                            <form class="checkout-page__form wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
-                                <div class="row bs-gutter-x-20">
-                                    <div class="col-xl-6">
-                                        <div class="checkout-page__input-box">
-                                            <label for="first-name">first Name *</label>
-                                            <input type="text" id="first-name" name="first_name" value="" required="">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="checkout-page__input-box">
-                                            <label for="last-name">last Name *</label>
-                                            <input type="text" id="last-name" name="last_name" value="" required="">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="checkout-page__input-box">
-                                            <label for="company_name">company name</label>
-                                            <input type="text" id="company_name" name="company_name" value="">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="checkout-page__input-box">
-                                            <label for="select_country">select country *</label>
-                                            <select id="select_country" class="selectpicker" aria-label="Default select example">
-                                                <option selected="">United state america</option>
-                                                <option value="1">Canada</option>
-                                                <option value="2">England</option>
-                                                <option value="3">Australia</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="checkout-page__input-box">
-                                            <label for="street-address">Street Address *</label>
-                                            <input type="text" id="street-address" placeholder="1837 E Homer M Adams Pkwy" required="">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="checkout-page__input-box">
-                                            <label for="address">address 2 *</label>
-                                            <input type="text" id="address" placeholder="1837 E Homer M Adams Pkwy" required="">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="checkout-page__input-box">
-                                            <label for="town-city">City or town</label>
-                                            <input type="text" placeholder="City or town" id="town-city">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="checkout-page__input-box">
-                                            <label for="address">select area</label>
-                                            <select class="selectpicker" aria-label="Default select example">
-                                                <option selected="">Georgia</option>
-                                                <option value="1">Canada</option>
-                                                <option value="2">England</option>
-                                                <option value="3">Australia</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="checkout-page__input-box">
-                                            <label for="zip-code">ZIP Code *</label>
-                                            <input name="zip-code" id="zip-code" type="text" pattern="[0-9]*" required="">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="checkout-page__input-box">
-                                            <label for="phone">Phone *</label>
-                                            <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required="">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12">
-                                        <div class="checkout-page__input-box">
-                                            <label for="email">Email Address *</label>
-                                            <input type="email" id="email" required="">
-                                        </div>
-                                    </div>
+<!-- Checkout Start -->
+<section class="checkout-page section-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6">
+                <div class="checkout-page__billing-address">
+                    <h2 class="checkout-page__billing-address__title wow fadeInUp" data-wow-duration='1500ms'
+                        data-wow-delay='300ms'>Billing Details</h2>
+                    <form class="checkout-page__form wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
+                        <div class="row bs-gutter-x-20">
+                            <div class="col-xl-6">
+                                <div class="checkout-page__input-box">
+                                    <label for="first-name">first Name *</label>
+                                    <input type="text" id="first-name" name="first_name" value="" required="">
                                 </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="checkout-page__shipping-address wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
-                            <form class="checkout-page__form">
-                                <div class="row">
-                                    <h2 class="checkout-page__shipping-address__title">Total amount to pay: ₹{{ total_amount }} </h2>
-                                    <div class="col-xl-12">
-                                        <div class="checkout-page__input-box">
-                                            <textarea name="textarea" id="textarea" placeholder="2801 Lafayette Blvd, Norfolk, Vermont 23509, united state"></textarea>
-                                        </div>
-                                    </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="checkout-page__input-box">
+                                    <label for="last-name">last Name *</label>
+                                    <input type="text" id="last-name" name="last_name" value="" required="">
                                 </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="checkout-page__your-order wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
-                    <h2 class="checkout-page__your-order__title">Your order</h2>
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-6">
-                            <table class="checkout-page__order-table">
-                                <thead class="order_table_head">
-                                    <tr>
-                                        <th>Product</th>
-                                        <th class="right">Sub total</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="pro__title">Pain Relievers</td>
-                                        <td class="pro__price">$15.00 </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="pro__title">sub total</td>
-                                        <td class="pro__price">$15.00 </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="pro__title">shipping</td>
-                                        <td class="pro__price">free</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="pro__title pro__title--total">total</td>
-                                        <td class="pro__price pro__price--total">$15.00 </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="checkout-page__payment wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
-                                <div class="checkout-page__payment__item checkout-page__payment__item--active">
-                                    <h3 class="checkout-page__payment__title">direct bank transfer</h3>
-                                    <div class="checkout-page__payment__content" style="display: none;">Neque porro est qui dolorem ipsum quia quaed inventor veritatis et quasi architecto beatae vitae dicta sunt explicabo. Aelltes port lacus quis enim var sed efficitur</div><!-- /.checkout__payment__content -->
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="checkout-page__input-box">
+                                    <label for="company_name">company name</label>
+                                    <input type="text" id="company_name" name="company_name" value="">
                                 </div>
-                                <div class="checkout-page__payment__item">
-                                    <h3 class="checkout-page__payment__title">Paypal payment</h3>
-                                    <div class="checkout-page__payment__content" style="display: none;">Neque porro est qui dolorem ipsum quia quaed inventor veritatis et quasi architecto beatae vitae dicta sunt explicabo. Aelltes port lacus quis enim var sed efficitur</div><!-- /.checkout__payment__content -->
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="checkout-page__input-box">
+                                    <label for="select_country">select country *</label>
+                                    <select id="select_country" class="selectpicker"
+                                        aria-label="Default select example">
+                                        <option selected="">United state america</option>
+                                        <option value="1">Canada</option>
+                                        <option value="2">England</option>
+                                        <option value="3">Australia</option>
+                                    </select>
                                 </div>
-                                <a href="checkout" class="gotur-btn gotur-btn--base">place your order</a>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="checkout-page__input-box">
+                                    <label for="street-address">Street Address *</label>
+                                    <input type="text" id="street-address" placeholder="1837 E Homer M Adams Pkwy"
+                                        required="">
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="checkout-page__input-box">
+                                    <label for="address">address 2 *</label>
+                                    <input type="text" id="address" placeholder="1837 E Homer M Adams Pkwy" required="">
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="checkout-page__input-box">
+                                    <label for="town-city">City or town</label>
+                                    <input type="text" placeholder="City or town" id="town-city">
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="checkout-page__input-box">
+                                    <label for="address">select area</label>
+                                    <select class="selectpicker" aria-label="Default select example">
+                                        <option selected="">Georgia</option>
+                                        <option value="1">Canada</option>
+                                        <option value="2">England</option>
+                                        <option value="3">Australia</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="checkout-page__input-box">
+                                    <label for="zip-code">ZIP Code *</label>
+                                    <input name="zip-code" id="zip-code" type="text" pattern="[0-9]*" required="">
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="checkout-page__input-box">
+                                    <label for="phone">Phone *</label>
+                                    <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required="">
+                                </div>
+                            </div>
+                            <div class="col-xl-12">
+                                <div class="checkout-page__input-box">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" required="">
+                                </div>
                             </div>
                         </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6">
+                <div class="checkout-page__shipping-address wow fadeInUp" data-wow-duration='1500ms'
+                    data-wow-delay='300ms'>
+                    <form class="checkout-page__form">
+                        <div class="row">
+                            <h2 class="checkout-page__shipping-address__title">Total amount to pay: ₹{{ total_amount }}
+                            </h2>
+                            <div class="col-xl-12">
+                                <div class="checkout-page__input-box">
+                                    <textarea name="textarea" id="textarea"
+                                        placeholder="2801 Lafayette Blvd, Norfolk, Vermont 23509, united state"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="checkout-page__your-order wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
+            <h2 class="checkout-page__your-order__title">Your order</h2>
+            <div class="row">
+                <div class="col-xl-6 col-lg-6">
+                    <table class="checkout-page__order-table">
+                        <thead class="order_table_head">
+                            <tr>
+                                <th>Product</th>
+                                <th class="right">Sub total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="pro__title">For   {{ adults }}   Adult   </td>
+                                <td class="pro__price">₹{{ adult_total }}</td>
+                            </tr>
+                            <tr>
+                                <td class="pro__title">For   {{ youths }}   Youth   </td>
+                                <td class="pro__price">₹{{ youth_total }}</td>
+                            </tr>
+                            <tr>
+                                <td class="pro__title pro__title--total">Total</td>
+                                <td class="pro__price pro__price--total">₹{{ total_amount }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="col-lg-6">
+                    <div class="checkout-page__payment wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
+                        <div class="checkout-page__payment__item checkout-page__payment__item--active">
+                            <h3 class="checkout-page__payment__title">direct bank transfer</h3>
+                            <div class="checkout-page__payment__content" style="display: none;">Neque porro est qui
+                                dolorem ipsum quia quaed inventor veritatis et quasi architecto beatae vitae dicta sunt
+                                explicabo. Aelltes port lacus quis enim var sed efficitur</div>
+                            <!-- /.checkout__payment__content -->
+                        </div>
+                        <div class="checkout-page__payment__item">
+                            <h3 class="checkout-page__payment__title">Paypal payment</h3>
+                            <div class="checkout-page__payment__content" style="display: none;">Neque porro est qui
+                                dolorem ipsum quia quaed inventor veritatis et quasi architecto beatae vitae dicta sunt
+                                explicabo. Aelltes port lacus quis enim var sed efficitur</div>
+                            <!-- /.checkout__payment__content -->
+                        </div>
+                        <a href="checkout" class="gotur-btn gotur-btn--base">place your order</a>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- Checkout End -->
+        </div>
+    </div>
+</section>
+<!-- Checkout End -->
 {% endblock %}

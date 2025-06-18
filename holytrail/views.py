@@ -28,8 +28,21 @@ def tourdetail_view(request):
       return render(request, "tour-listing-details-2.html")
 
 def checkout_view(request):
-    total = request.GET.get('total', '0')  # default to '0' if not present
-    return render(request, 'checkout.html', {'total_amount': total})
+    adults = request.GET.get('adults', '0')
+    youths = request.GET.get('youths', '0')
+    adult_total = request.GET.get('adult_total', '0')
+    youth_total = request.GET.get('youth_total', '0')
+    total_amount = request.GET.get('total_amount', '0')
+
+    context = {
+        'adults': adults,
+        'youths': youths,
+        'adult_total': adult_total,
+        'youth_total': youth_total,
+        'total_amount': total_amount,
+    }
+    return render(request, 'checkout.html', context)
+
 
 
 def cart_view(request):

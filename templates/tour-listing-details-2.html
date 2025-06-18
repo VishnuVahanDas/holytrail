@@ -621,7 +621,6 @@
         let adultPrice = 0;
 
         if (checkInnova.checked && checkTraveller.checked) {
-            // Prevent both from being selected at once
             alert("Please select only one transport option.");
             checkInnova.checked = false;
             checkTraveller.checked = false;
@@ -643,6 +642,15 @@
         totalAmountDisplay.textContent = `₹${total.toLocaleString()}`;
         finalAmountInput.value = total;
         checkoutInput.value = adults + youths;
+
+        // Store values globally for use on checkout
+        window.calculatedValues = {
+            adults,
+            youths,
+            adultTotal,
+            youthTotal,
+            total,
+        };
     }
 
     adultInput.addEventListener('input', calculateTotal);
@@ -659,16 +667,28 @@
     // Initial run
     calculateTotal();
 
+    const goToCheckoutBtn = document.getElementById('goToCheckout');
 
-  const goToCheckoutBtn = document.getElementById('goToCheckout');
+    goToCheckoutBtn.addEventListener('click', () => {
+        const vals = window.calculatedValues || {};
+        const adults = vals.adults || 0;
 
-  goToCheckoutBtn.addEventListener('click', () => {
-    // Extract the numeric value from totalAmountDisplay, remove ₹ and commas
-    let totalText = totalAmountDisplay.textContent.replace(/[₹,]/g, '');
-    
-    // Redirect to checkout page with total as query parameter
-    window.location.href = `/checkout/?total=${totalText}`;
-  });
+        // ✅ Only require transport if adults > 0
+        if (adults > 0 && !checkInnova.checked && !checkTraveller.checked) {
+            alert("Please select a transport option (Innova or Traveller) for adult bookings.");
+            return; // Stop navigation
+        }
+
+        const params = new URLSearchParams({
+            adults: vals.adults || 0,
+            youths: vals.youths || 0,
+            adult_total: vals.adultTotal || 0,
+            youth_total: vals.youthTotal || 0,
+            total_amount: vals.total || 0,
+        });
+
+        window.location.href = `/checkout/?${params.toString()}`;
+    });
 </script>
 
 {% endblock %}
