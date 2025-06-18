@@ -102,7 +102,14 @@ def checkout_view(request):
         Youths: {youths} (₹{youth_total})
         Total: ₹{total_amount}
         '''
-        admin_email = EmailMultiAlternatives(admin_subject, admin_message, settings.DEFAULT_FROM_EMAIL, ['vipul57612@gmail.com'])
+        
+        admin_email = EmailMultiAlternatives(
+            admin_subject, 
+            admin_message, 
+            settings.DEFAULT_FROM_EMAIL, 
+            ['vipul57612@gmail.com'],  # To (admin email)
+            cc=['vishnuvahan.it@gmail.com']  # CC email(s)
+            )
         if screenshot_content:
             admin_email.attach(screenshot_name, screenshot_content, screenshot_type)
         admin_email.send()
