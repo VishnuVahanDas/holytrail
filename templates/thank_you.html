@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block doc_title %}Thank You{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <div class="page-header__content">
+            <h2 class="page-header__title">Thank You</h2>
+            <p>Your booking has been received, {{ name }}.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-space">
+    <div class="container text-center">
+        <p>We’ve sent a confirmation to your email. We’ll contact you shortly regarding the details.</p>
+        <a href="/" class="gotur-btn gotur-btn--base mt-3">Back to Home</a>
+    </div>
+</section>
+{% endblock %}
