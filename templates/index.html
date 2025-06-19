@@ -4,27 +4,29 @@
 {% block content %}
 
 
-    <section class="main-slider-one" id="home">
-        <div class="main-slider-one__item">
+<section class="main-slider-one" id="home">
+    <div class="main-slider-one__item">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-7 col-lg-8 col-md-10">
+                    <div class="main-slider-one__content">
+                        <h5 class="main-slider-one__sub-title main-three bw-split-in-top">Discover Your</h5>
+                        <!-- slider-sub-title -->
+                        <h2 class="main-slider-one__title main-three bw-split-in-down">Next Step <br> Destination
+                        </h2><!-- slider-title -->
+                        <p class="main-slider-one__text main-three bw-split-in-down">Embark on a Sacred Journey to
+                            India’s Most Soulful Destinations. <br>Book & Experience Spiritual Tours with Ease and Trust
+                        </p><!-- /.main-slider-one__text -->
+                    </div><!-- /.main-slider-one__content -->
+                </div><!-- /.col-xl-6 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+        <div class="main-slider-one__destinations">
             <div class="container">
-                <div class="row">
-                    <div class="col-xl-7 col-lg-8 col-md-10">
-                        <div class="main-slider-one__content">
-                            <h5 class="main-slider-one__sub-title main-three bw-split-in-top">Discover Your</h5>
-                            <!-- slider-sub-title -->
-                            <h2 class="main-slider-one__title main-three bw-split-in-down">Next Step <br> Destination
-                            </h2><!-- slider-title -->
-                            <p class="main-slider-one__text main-three bw-split-in-down">Embark on a Sacred Journey to India’s Most Soulful Destinations. <br>Book & Experience Spiritual Tours with Ease and Trust</p><!-- /.main-slider-one__text -->
-                        </div><!-- /.main-slider-one__content -->
-                    </div><!-- /.col-xl-6 -->
-                </div><!-- /.row -->
-            </div><!-- /.container -->
-            <div class="main-slider-one__destinations">
-                <div class="container">
-                    <div class="destinations-two__inner">
-                        <div class="destinations-two__carousel gotur-owl__carousel gotur-owl__carousel--custom-nav gotur-owl__carousel--with-shadow owl-carousel owl-theme"
-                            data-owl-nav-prev=".main-slider-one__carousel__nav--left"
-                            data-owl-nav-next=".main-slider-one__carousel__nav--right" data-owl-options='{
+                <div class="destinations-two__inner">
+                    <div class="destinations-two__carousel gotur-owl__carousel gotur-owl__carousel--custom-nav gotur-owl__carousel--with-shadow owl-carousel owl-theme"
+                        data-owl-nav-prev=".main-slider-one__carousel__nav--left"
+                        data-owl-nav-next=".main-slider-one__carousel__nav--right" data-owl-options='{
                             "items": 1,
                             "margin": 30,
                             "loop": true,
@@ -47,242 +49,248 @@
                                 }
                             }
                         }'>
-                            <div class="item">
-                                <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms'
-                                    data-wow-delay='100ms'>
-                                    <div class="destinations-card-two__thumb">
-                                        <img src="{% static 'images/main-slider/hero-1-1-image.jpg' %}"
-                                            alt="destinations image">
-                                    </div><!-- /.destinations-card-two__thumb -->
-                                </div><!-- /.destinations-card-two -->
-                            </div><!-- /.item -->
-                            <div class="item">
-                                <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms'
-                                    data-wow-delay='100ms'>
-                                    <div class="destinations-card-two__thumb">
-                                        <img src="{% static 'images/main-slider/hero-1-2-image.jpg' %}"
-                                            alt="destinations image">
-                                    </div><!-- /.destinations-card-two__thumb -->
-                                </div><!-- /.destinations-card-two -->
-                            </div><!-- /.item -->
-                            <div class="item">
-                                <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms'
-                                    data-wow-delay='100ms'>
-                                    <div class="destinations-card-two__thumb">
-                                        <img src="{% static 'images/main-slider/hero-1-3-image.jpg' %}"
-                                            alt="destinations image">
-                                    </div><!-- /.destinations-card-two__thumb -->
-                                </div><!-- /.destinations-card-two -->
-                            </div><!-- /.item -->
-                            <div class="item">
-                                <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms'
-                                    data-wow-delay='100ms'>
-                                    <div class="destinations-card-two__thumb">
-                                        <img src="{% static 'images/main-slider/hero-1-1-image.jpg' %}"
-                                            alt="destinations image">
-                                    </div><!-- /.destinations-card-two__thumb -->
-                                </div><!-- /.destinations-card-two -->
-                            </div><!-- /.item -->
-                            <div class="item">
-                                <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms'
-                                    data-wow-delay='100ms'>
-                                    <div class="destinations-card-two__thumb">
-                                        <img src="{% static 'images/main-slider/hero-1-2-image.jpg' %}"
-                                            alt="destinations image">
-                                    </div><!-- /.destinations-card-two__thumb -->
-                                </div><!-- /.destinations-card-two -->
-                            </div><!-- /.item -->
-                            <div class="item">
-                                <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms'
-                                    data-wow-delay='100ms'>
-                                    <div class="destinations-card-two__thumb">
-                                        <img src="{% static 'images/main-slider/hero-1-3-image.jpg' %}"
-                                            alt="destinations image">
-                                    </div><!-- /.destinations-card-two__thumb -->
-                                </div><!-- /.destinations-card-two -->
-                            </div><!-- /.item -->
-                        </div><!-- /.destinations-two__carousel -->
-                    </div><!-- /.destinations-two__inner -->
-                </div><!-- /.container -->
-                <div class="main-slider-one__destinations__hover">
-                    <img src="{% static 'images/shapes/hero-1-1-hover.png' %}" alt="destinations image">
-                </div><!-- /.destinations-card-two__group-card -->
-            </div><!-- /.main-slider-one__dep -->
-            <div class="main-slider-one__bottom__nav">
-                <button class="main-slider-one__carousel__nav--left"><span class="icon-arrow-left"></span></button>
-                <button class="main-slider-one__carousel__nav--right"><span class="icon-arrow-right"></span></button>
-            </div>
-            <div class="main-slider-one__action-form">
-                <div class="container">
-                    <div class="main-slider-one__form">
-                        <div class="banner-form wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
-                            <div class="container">
-                                <form class="banner-form__wrapper" action="tour-listing-2.html">
-                                    <div class="banner-form row gutter-x-30 align-items-center">
-                                        <div class="banner-form__control banner-form__col--1">
-                                            <i class="icon icon-location"></i>
-                                            <label for="location">Location</label>
-                                            <select name="location" class="selectpicker" id="location">
-                                                <option value="select">Vrindavan</option>
-                                                <option value="spain">Mayapur</option>
-                                                <option value="africa">Ayodhya</option>
-                                                <option value="europe">GEV</option>
-                                            </select>
-                                        </div>
-                                        <div class="banner-form__control banner-form__col--2">
-                                            <i class="icon icon-travle"></i>
-                                            <label for="type2">Activities Type</label>
-                                            <select name="type" class="selectpicker" id="type2">
-                                                <option value="select">Adventure</option>
-                                                <option value="spanis">Booking Type</option>
-                                                <option value="africa">Beach</option>
-                                                <option value="europe">Discovery</option>
-                                            </select>
-                                        </div>
-                                        <div
-                                            class="banner-form__control banner-form__control--date banner-form__col--3">
-                                            <i class="icon icon-clock"></i>
-                                            <label for="date">Activate Day</label>
-                                            <input class="gotur-multi-datepicker" id="date" type="text" name="date"
-                                                placeholder="Fev 5 - 5">
-                                        </div>
-                                        <div class="banner-form__control banner-form__col--4">
-                                            <i class="icon icon-group"></i><!-- / -->
-                                            <label for="guests">Traveler</label>
-                                            <button type="button" class="banner-form__qty-minus sub">
-                                                <i class="icon-down-arrow"></i>
-                                            </button>
-                                            <input id="guests" type="number" value="2" name="guests" placeholder="2">
-                                            <button type="button" class="banner-form__qty-plus add">
-                                                <i class="icon-down-arrow"></i>
-                                            </button>
-                                        </div>
-                                        <div class="banner-form__control banner-form__button banner-form__col--5">
-                                            <button class="gotur-btn" type="submit">Search</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <!-- banner-form -->
-                    </div><!-- /.main-slider-four__form -->
-                </div><!-- /.container -->
-            </div><!-- /.main-slider-one__action-form -->
-            <div class="main-slider-one__element">
-                <img src="{% static 'images/shapes/hero-1-2-hover.png' %}" alt="element">
-            </div><!-- /.main-slider-one__element -->
-            <div class="main-slider-one__element-one">
-                <img src="{% static 'images/shapes/hero-shapr-1-2-2.png' %}" alt="element">
-            </div><!-- /.main-slider-one__element -->
-            <div class="main-slider-one__element-two">
-                <img src="{% static 'images/shapes/hero-shapr-1-3.png' %}" alt="element">
-            </div><!-- /.main-slider-one__element -->
-            <div class="main-slider-one__element-three">
-                <img src="{% static 'images/shapes/hero-shapr-1-2-1.png' %}" alt="element">
-            </div><!-- /.main-slider-one__element -->
-            <div class="main-slider-one__element-four"></div><!-- /.main-slider-one__element -->
-            <div class="main-slider-one__element-five">
-                <img src="{% static 'images/shapes/hero-shapr-1-2-a.png' %}" alt="element">
-            </div><!-- /.main-slider-one__element -->
-        </div><!-- /.main-slider-one__item -->
-    </section><!-- /.main-slider-one -->
-
-
-
-    <section class="about-two about-two--two section-space" id="about">
-        <div class="container">
-            <div class="row gutter-y-40">
-                <div class="col-lg-6">
-                    <div class="about-two__thumb wow fadeInLeft" data-wow-duration='1500ms' data-wow-delay='300ms'>
-                        <div class="about-two__thumb__item  ">
-                            <img src="{% static 'images/about/about-2-1.jpg' %}" alt="gotur image">
-                        </div><!-- /.about-two__thumb__item -->
-                        <div class="about-two__thumb__item-small  ">
-                            <img src="{% static 'images/about/about-s-2-1.jpg' %}" alt="gotur image">
-                        </div><!-- /.about-two__thumb__item -->
-                        <div class="about-two__thumb__funfact">
-                            <div class="about-two__thumb__funfact__icon">
-                                <i class="icon-icon-4"></i>
-                            </div><!-- /.about-two__thumb__funfact__icon -->
-                            <div class="about-two__thumb__funfact__content count-box">
-                                <h2 class="about-two__thumb__funfact__count">
-                                    <span class="count-text" data-stop="150" data-speed="2000"></span>
-                                    <span>+</span>
-                                </h2><!-- /.about-two__thumb__funfact__count -->
-                                <p class="about-two__thumb__funfact__text"> Happy Travelers</p>
-                                <!-- /.about-two__thumb__funfact__text -->
-                            </div><!-- /.about-two__thumb__funfact__content -->
-                        </div><!-- /.about-two__thumb__funfact -->
-                        <div class="about-two__thumb__item-element">
-                            <img src="{% static 'images/shapes/corki.png' %}" alt="gotur image">
-                        </div><!-- /.about-two__thumb__item -->
-                    </div><!-- /.about-two__left -->
-                </div><!-- /.col-lg-6 -->
-                <div class="col-lg-6">
-                    <div class="about-two__right">
-                        <div class="sec-title  ">
-                            <h6 class="sec-title__tagline bw-split-in-right">About company</h6>
-                            <!-- /.sec-title__tagline -->
-                            <h3 class="sec-title__title bw-split-in-left">Great Opportunity for Adventure & Travels</h3>
-                            <!-- /.sec-title__title -->
-                        </div><!-- /.sec-title -->
-                        <p class="about-two__top__text wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
-                            Explore the world with purpose. From sacred sites to thrilling getaways, HolyTrail connects you to unforgettable journeys.
-                        </p><!-- /.about-two__top__text -->
-                        <div class="about-two__feature">
-                            <div class="row gutter-y-20 gutter-x-20">
-                                <div class="col-xl-6 col-lg-12 col-md-6 wow fadeInUp" data-wow-duration='1500ms'
-                                    data-wow-delay='300ms'>
-                                    <div class="about-two__feature-vestion">
-                                        <div class="about-two__feature_icon">
-                                            <i class="icon-flag"></i>
-                                        </div><!-- /.about-two__feature_icon -->
-                                        <div class="about-two__feature-content">
-                                            <h5 class="about-two__feature-title">Trusted travel guide</h5>
-                                            <!-- /.about-two__feature-title -->
-                                            <p class="about-two__feature-text">Your journey, our guidance. With expert-curated itineraries and local insights, travel confidently and meaningfully.
-                                            </p><!-- /.about-two__feature-text -->
-                                        </div><!-- /.about-two__feature-content -->
-                                    </div><!-- /.about-two__feature-vestion -->
-                                </div><!-- /.col-xl-6 col-lg-12 col-md-6 -->
-                                <div class="col-xl-6 col-lg-12 col-md-6">
-                                    <div class="about-two__feature-vestion wow fadeInUp" data-wow-duration='1500ms'
-                                        data-wow-delay='400ms'>
-                                        <div class="about-two__feature_icon">
-                                            <i class="icon-misstion"></i>
-                                        </div><!-- /.about-two__feature_icon -->
-                                        <div class="about-two__feature-content">
-                                            <h5 class="about-two__feature-title">Mission & Vision</h5>
-                                            <!-- /.about-two__feature-title -->
-                                            <p class="about-two__feature-text">Connecting souls to sacred journeys with trusted, meaningful travel experiences</p>
-                                            <!-- /.about-two__feature-text -->
-                                        </div><!-- /.about-two__feature-content -->
-                                    </div><!-- /.about-two__feature-vestion -->
-                                </div><!-- /.col-xl-6 col-lg-12 col-md-6 -->
-                            </div><!-- /.row -->
-                        </div><!-- /.about-two__feature -->
-                        <div class="about-two__button wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
-                            <a href="blog-details-left.html" class="gotur-btn gotur-btn--primary">Discover More <span
-                                    class="icon"><i class="icon-right"></i></span><!-- /.icon --></a>
-                            <div class="about-two__button__author">
-                                <div class="about-two__button__author__thumb">
-                                    <img src="{% static 'images/resources/about-author-1-1.jpg' %}" alt="author">
-                                </div><!-- /.about-two__button__call__icon -->
-                                <div class="about-two__button__author__content">
-                                    <h5 class="about-two__button__author__name">Rishabh Pandey</h5>
-                                    <span class="about-two__button__author__dec">Co,
-                                        Founder</span><!-- /.about-two__button__author__dec -->
-                                </div><!-- /.about-two__button__call__content -->
-                            </div><!-- /.about-two__button__call -->
-                        </div><!-- /.about-two__button -->
-                    </div><!-- /.about-two__right -->
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-        <div class="client-carousel  wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
+                        <div class="item">
+                            <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms'
+                                data-wow-delay='100ms'>
+                                <div class="destinations-card-two__thumb">
+                                    <img src="{% static 'images/main-slider/hero-1-1-image.jpg' %}"
+                                        alt="destinations image">
+                                </div><!-- /.destinations-card-two__thumb -->
+                            </div><!-- /.destinations-card-two -->
+                        </div><!-- /.item -->
+                        <div class="item">
+                            <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms'
+                                data-wow-delay='100ms'>
+                                <div class="destinations-card-two__thumb">
+                                    <img src="{% static 'images/main-slider/hero-1-2-image.jpg' %}"
+                                        alt="destinations image">
+                                </div><!-- /.destinations-card-two__thumb -->
+                            </div><!-- /.destinations-card-two -->
+                        </div><!-- /.item -->
+                        <div class="item">
+                            <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms'
+                                data-wow-delay='100ms'>
+                                <div class="destinations-card-two__thumb">
+                                    <img src="{% static 'images/main-slider/hero-1-3-image.jpg' %}"
+                                        alt="destinations image">
+                                </div><!-- /.destinations-card-two__thumb -->
+                            </div><!-- /.destinations-card-two -->
+                        </div><!-- /.item -->
+                        <div class="item">
+                            <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms'
+                                data-wow-delay='100ms'>
+                                <div class="destinations-card-two__thumb">
+                                    <img src="{% static 'images/main-slider/hero-1-1-image.jpg' %}"
+                                        alt="destinations image">
+                                </div><!-- /.destinations-card-two__thumb -->
+                            </div><!-- /.destinations-card-two -->
+                        </div><!-- /.item -->
+                        <div class="item">
+                            <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms'
+                                data-wow-delay='100ms'>
+                                <div class="destinations-card-two__thumb">
+                                    <img src="{% static 'images/main-slider/hero-1-2-image.jpg' %}"
+                                        alt="destinations image">
+                                </div><!-- /.destinations-card-two__thumb -->
+                            </div><!-- /.destinations-card-two -->
+                        </div><!-- /.item -->
+                        <div class="item">
+                            <div class="destinations-card-two wow fadeInUp" data-wow-duration='1500ms'
+                                data-wow-delay='100ms'>
+                                <div class="destinations-card-two__thumb">
+                                    <img src="{% static 'images/main-slider/hero-1-3-image.jpg' %}"
+                                        alt="destinations image">
+                                </div><!-- /.destinations-card-two__thumb -->
+                            </div><!-- /.destinations-card-two -->
+                        </div><!-- /.item -->
+                    </div><!-- /.destinations-two__carousel -->
+                </div><!-- /.destinations-two__inner -->
+            </div><!-- /.container -->
+            <div class="main-slider-one__destinations__hover">
+                <img src="{% static 'images/shapes/hero-1-1-hover.png' %}" alt="destinations image">
+            </div><!-- /.destinations-card-two__group-card -->
+        </div><!-- /.main-slider-one__dep -->
+        <div class="main-slider-one__bottom__nav">
+            <button class="main-slider-one__carousel__nav--left"><span class="icon-arrow-left"></span></button>
+            <button class="main-slider-one__carousel__nav--right"><span class="icon-arrow-right"></span></button>
+        </div>
+        <div class="main-slider-one__action-form">
             <div class="container">
-                <h6 class="client-carousel__title">1k + Brands Trust Us</h6><!-- /.client-carousel__title -->
-                <div class="client-carousel__one gotur-owl__carousel owl-theme owl-carousel" data-owl-options='{
+                <div class="main-slider-one__form">
+                    <div class="banner-form wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
+                        <div class="container">
+                            <form class="banner-form__wrapper" action="tour-listing-2.html">
+                                <div class="banner-form row gutter-x-30 align-items-center">
+                                    <div class="banner-form__control banner-form__col--1">
+                                        <i class="icon icon-location"></i>
+                                        <label for="location">Location</label>
+                                        <select name="location" class="selectpicker" id="location">
+                                            <option value="select">Vrindavan</option>
+                                            <option value="spain">Mayapur</option>
+                                            <option value="africa">Ayodhya</option>
+                                            <option value="europe">GEV</option>
+                                        </select>
+                                    </div>
+                                    <div class="banner-form__control banner-form__col--2">
+                                        <i class="icon icon-travle"></i>
+                                        <label for="type2">Activities Type</label>
+                                        <select name="type" class="selectpicker" id="type2">
+                                            <option value="select">Adventure</option>
+                                            <option value="spanis">Booking Type</option>
+                                            <option value="africa">Beach</option>
+                                            <option value="europe">Discovery</option>
+                                        </select>
+                                    </div>
+                                    <div class="banner-form__control banner-form__control--date banner-form__col--3">
+                                        <i class="icon icon-clock"></i>
+                                        <label for="date">Activate Day</label>
+                                        <input class="gotur-multi-datepicker" id="date" type="text" name="date"
+                                            placeholder="Fev 5 - 5">
+                                    </div>
+                                    <div class="banner-form__control banner-form__col--4">
+                                        <i class="icon icon-group"></i><!-- / -->
+                                        <label for="guests">Traveler</label>
+                                        <button type="button" class="banner-form__qty-minus sub">
+                                            <i class="icon-down-arrow"></i>
+                                        </button>
+                                        <input id="guests" type="number" value="2" name="guests" placeholder="2">
+                                        <button type="button" class="banner-form__qty-plus add">
+                                            <i class="icon-down-arrow"></i>
+                                        </button>
+                                    </div>
+                                    <div class="banner-form__control banner-form__button banner-form__col--5">
+                                        <button class="gotur-btn" type="submit">Search</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- banner-form -->
+                </div><!-- /.main-slider-four__form -->
+            </div><!-- /.container -->
+        </div><!-- /.main-slider-one__action-form -->
+        <div class="main-slider-one__element">
+            <img src="{% static 'images/shapes/hero-1-2-hover.png' %}" alt="element">
+        </div><!-- /.main-slider-one__element -->
+        <div class="main-slider-one__element-one">
+            <img src="{% static 'images/shapes/hero-shapr-1-2-2.png' %}" alt="element">
+        </div><!-- /.main-slider-one__element -->
+        <div class="main-slider-one__element-two">
+            <img src="{% static 'images/shapes/hero-shapr-1-3.png' %}" alt="element">
+        </div><!-- /.main-slider-one__element -->
+        <div class="main-slider-one__element-three">
+            <img src="{% static 'images/shapes/hero-shapr-1-2-1.png' %}" alt="element">
+        </div><!-- /.main-slider-one__element -->
+        <div class="main-slider-one__element-four"></div><!-- /.main-slider-one__element -->
+        <div class="main-slider-one__element-five">
+            <img src="{% static 'images/shapes/hero-shapr-1-2-a.png' %}" alt="element">
+        </div><!-- /.main-slider-one__element -->
+    </div><!-- /.main-slider-one__item -->
+</section><!-- /.main-slider-one -->
+
+
+
+<section class="about-two about-two--two section-space" id="about">
+    <div class="container">
+        <div class="row gutter-y-40">
+            <div class="col-lg-6">
+                <div class="about-two__thumb wow fadeInLeft" data-wow-duration='1500ms' data-wow-delay='300ms'>
+                    <div class="about-two__thumb__item">
+                        <img src="{% static 'images/about/about-1.png' %}" alt="gotur image"
+                            style="max-width: 386px; max-height: 415px; width: 100%; height: auto;">
+                    </div>
+                    <!-- /.about-two__thumb__item -->
+                    <div class="about-two__thumb__item-small  ">
+                        <img src="{% static 'images/about/about-2.jpg' %}" alt="gotur image"
+                        style="max-width: 386px; max-height: 271px; width: 100%; height: auto;">
+                    </div><!-- /.about-two__thumb__item -->
+                    <div class="about-two__thumb__funfact">
+                        <div class="about-two__thumb__funfact__icon">
+                            <i class="icon-icon-4"></i>
+                        </div><!-- /.about-two__thumb__funfact__icon -->
+                        <div class="about-two__thumb__funfact__content count-box">
+                            <h2 class="about-two__thumb__funfact__count">
+                                <span class="count-text" data-stop="150" data-speed="2000"></span>
+                                <span>+</span>
+                            </h2><!-- /.about-two__thumb__funfact__count -->
+                            <p class="about-two__thumb__funfact__text"> Happy Travelers</p>
+                            <!-- /.about-two__thumb__funfact__text -->
+                        </div><!-- /.about-two__thumb__funfact__content -->
+                    </div><!-- /.about-two__thumb__funfact -->
+                    <div class="about-two__thumb__item-element">
+                        <img src="{% static 'images/shapes/corki.png' %}" alt="gotur image">
+                    </div><!-- /.about-two__thumb__item -->
+                </div><!-- /.about-two__left -->
+            </div><!-- /.col-lg-6 -->
+            <div class="col-lg-6">
+                <div class="about-two__right">
+                    <div class="sec-title  ">
+                        <h6 class="sec-title__tagline bw-split-in-right">About company</h6>
+                        <!-- /.sec-title__tagline -->
+                        <h3 class="sec-title__title bw-split-in-left">Great Opportunity for Adventure & Travels</h3>
+                        <!-- /.sec-title__title -->
+                    </div><!-- /.sec-title -->
+                    <p class="about-two__top__text wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
+                        Explore the world with purpose. From sacred sites to thrilling getaways, HolyTrail connects you
+                        to unforgettable journeys.
+                    </p><!-- /.about-two__top__text -->
+                    <div class="about-two__feature">
+                        <div class="row gutter-y-20 gutter-x-20">
+                            <div class="col-xl-6 col-lg-12 col-md-6 wow fadeInUp" data-wow-duration='1500ms'
+                                data-wow-delay='300ms'>
+                                <div class="about-two__feature-vestion">
+                                    <div class="about-two__feature_icon">
+                                        <i class="icon-flag"></i>
+                                    </div><!-- /.about-two__feature_icon -->
+                                    <div class="about-two__feature-content">
+                                        <h5 class="about-two__feature-title">Trusted travel guide</h5>
+                                        <!-- /.about-two__feature-title -->
+                                        <p class="about-two__feature-text">Your journey, our guidance. With
+                                            expert-curated itineraries and local insights, travel confidently and
+                                            meaningfully.
+                                        </p><!-- /.about-two__feature-text -->
+                                    </div><!-- /.about-two__feature-content -->
+                                </div><!-- /.about-two__feature-vestion -->
+                            </div><!-- /.col-xl-6 col-lg-12 col-md-6 -->
+                            <div class="col-xl-6 col-lg-12 col-md-6">
+                                <div class="about-two__feature-vestion wow fadeInUp" data-wow-duration='1500ms'
+                                    data-wow-delay='400ms'>
+                                    <div class="about-two__feature_icon">
+                                        <i class="icon-misstion"></i>
+                                    </div><!-- /.about-two__feature_icon -->
+                                    <div class="about-two__feature-content">
+                                        <h5 class="about-two__feature-title">Mission & Vision</h5>
+                                        <!-- /.about-two__feature-title -->
+                                        <p class="about-two__feature-text">Connecting souls to sacred journeys with
+                                            trusted, meaningful travel experiences</p>
+                                        <!-- /.about-two__feature-text -->
+                                    </div><!-- /.about-two__feature-content -->
+                                </div><!-- /.about-two__feature-vestion -->
+                            </div><!-- /.col-xl-6 col-lg-12 col-md-6 -->
+                        </div><!-- /.row -->
+                    </div><!-- /.about-two__feature -->
+                    <div class="about-two__button wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
+                        <a href="blog-details-left.html" class="gotur-btn gotur-btn--primary">Discover More <span
+                                class="icon"><i class="icon-right"></i></span><!-- /.icon --></a>
+                        <div class="about-two__button__author">
+                            <div class="about-two__button__author__thumb">
+                                <img src="{% static 'images/resources/about-author-1-1.jpg' %}" alt="author">
+                            </div><!-- /.about-two__button__call__icon -->
+                            <div class="about-two__button__author__content">
+                                <h5 class="about-two__button__author__name">Rishabh Pandey</h5>
+                                <span class="about-two__button__author__dec">Co,
+                                    Founder</span><!-- /.about-two__button__author__dec -->
+                            </div><!-- /.about-two__button__call__content -->
+                        </div><!-- /.about-two__button__call -->
+                    </div><!-- /.about-two__button -->
+                </div><!-- /.about-two__right -->
+            </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+    <div class="client-carousel  wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
+        <div class="container">
+            <h6 class="client-carousel__title">1k + Brands Trust Us</h6><!-- /.client-carousel__title -->
+            <div class="client-carousel__one gotur-owl__carousel owl-theme owl-carousel" data-owl-options='{
             "items": 5,
             "margin": 65,
             "smartSpeed": 700,
@@ -318,417 +326,400 @@
                 }
             }
             }'>
-                    <div class="client-carousel__one__item">
-                        <img src="{% static 'images/brand/brand-1-1.png' %}" alt="gotur"
-                            class="client-carousel__one__image">
-                        <img src="{% static 'images/brand/brand-hover-1-1.png' %}" alt="gotur"
-                            class="client-carousel__one__hover-image">
-                    </div><!-- /.owl-slide-item-->
-                    <div class="client-carousel__one__item">
-                        <img src="{% static 'images/brand/brand-1-1.png' %}" alt="gotur"
-                            class="client-carousel__one__image">
-                        <img src="{% static 'images/brand/brand-hover-1-1.png' %}" alt="gotur"
-                            class="client-carousel__one__hover-image">
-                    </div><!-- /.owl-slide-item-->
-                    <div class="client-carousel__one__item">
-                        <img src="{% static 'images/brand/brand-1-1.png' %}" alt="gotur"
-                            class="client-carousel__one__image">
-                        <img src="{% static 'images/brand/brand-hover-1-1.png' %}" alt="gotur"
-                            class="client-carousel__one__hover-image">
-                    </div><!-- /.owl-slide-item-->
-                    <div class="client-carousel__one__item">
-                        <img src="{% static 'images/brand/brand-1-1.png' %}" alt="gotur"
-                            class="client-carousel__one__image">
-                        <img src="{% static 'images/brand/brand-hover-1-1.png' %}" alt="gotur"
-                            class="client-carousel__one__hover-image">
-                    </div><!-- /.owl-slide-item-->
-                    <div class="client-carousel__one__item">
-                        <img src="{% static 'images/brand/brand-1-1.png' %}" alt="gotur"
-                            class="client-carousel__one__image">
-                        <img src="{% static 'images/brand/brand-hover-1-1.png' %}" alt="gotur"
-                            class="client-carousel__one__hover-image">
-                    </div><!-- /.owl-slide-item-->
-                    <div class="client-carousel__one__item">
-                        <img src="{% static 'images/brand/brand-1-1.png' %}" alt="gotur"
-                            class="client-carousel__one__image">
-                        <img src="{% static 'images/brand/brand-hover-1-1.png' %}" alt="gotur"
-                            class="client-carousel__one__hover-image">
-                    </div><!-- /.owl-slide-item-->
-                </div><!-- /.thm-owl__slider -->
-            </div><!-- /.container -->
-        </div><!-- /.client-carousel -->
-        <div class="about-two__element-one">
-            <img src="{% static 'images/shapes/about-1-1.png' %}" alt>
-        </div><!-- /.about-two__element-one -->
-        <div class="about-two__element-two">
-            <img src="{% static 'images/shapes/corki.png' %}" alt="gotur image">
-        </div><!-- /.about-two__element-one -->
-    </section><!-- /.about-two -->
-
-    <section class="destination-filter section-space" id="destination">
-        <div class="container">
-            <div class="destination-filter__top">
-                <div class="sec-title text-center">
-                    <h6 class="sec-title__tagline bw-split-in-right">Popular Destination</h6>
-                    <!-- /.sec-title__tagline -->
-                    <h3 class="sec-title__title bw-split-in-left">Popular <span> Destinations</span></h3>
-                    <!-- /.sec-title__title -->
-                </div><!-- /.sec-title -->
-                <p class="destination-filter__top__text">From sacred sites to scenic escapes – discover handpicked destinations that blend culture, nature, and soul-stirring beauty.
-
-                </p><!-- /.destination-filter__top__text -->
-            </div><!-- /.destination-filter__top -->
-            <div class="tabs-box">
-                <div class="destination-filter__btn tab-buttons">
-                    <button data-tab="#itemOne" class="tab-btn gotur-btn ">Mayapur</button>
-                    <button data-tab="#itemTwo" class="tab-btn gotur-btn active-btn">Vrindavan</button>
-                    <button data-tab="#itemThree" class="tab-btn gotur-btn">Dwarika</button>
-                    <button data-tab="#itemFour" class="tab-btn gotur-btn">Ayodhya</button>
-                </div><!-- /.tab-buttons -->
-                <div class="tabs-content">
-                    <div class="item tab active-tab" id="itemTwo">
-                        <div class="row gutter-y-20 gutter-x-20">
-                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                    data-wow-delay='100ms'>
-                                    <div class="destination-card-one__thumb">
-                                        <img src="{% static 'images/destination/govind-dev.jpg' %}"
-                                            alt="destination">
-                                        <a href="" class="destination-card-one__overly"></a>
-                                    </div><!-- /.destination-card-one__thumb -->
-                                    <div class="destination-card-one__content">
-                                        <h3 class="destination-card-one__title"><a
-                                                href="destination-details.html">Govind Dev</a></h3>
-                                        <!-- /.destination-card-one__title -->
-                                    </div><!-- /.destination-one__content -->
-                                </div><!-- /.destination-one -->
-                            </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                    data-wow-delay='300ms'>
-                                    <div class="destination-card-one__thumb">
-                                        <img src="{% static 'images/destination/radha-raman.jpg' %}"
-                                            alt="destination">
-                                        <a href="" class="destination-card-one__overly"></a>
-                                    </div><!-- /.destination-card-one__thumb -->
-                                    <div class="destination-card-one__content">
-                                        <h3 class="destination-card-one__title"><a
-                                                href="destination-details.html">Radha Raman</a></h3>
-                                        <!-- /.destination-card-one__title -->
-                                    </div><!-- /.destination-one__content -->
-                                </div><!-- /.destination-one -->
-                            </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                    data-wow-delay='500ms'>
-                                    <div class="destination-card-one__thumb">
-                                        <img src="{% static 'images/destination/madan-mohan.jpg' %}"
-                                            alt="destination">
-                                        <a href="" class="destination-card-one__overly"></a>
-                                    </div><!-- /.destination-card-one__thumb -->
-                                    <div class="destination-card-one__content">
-                                        <h3 class="destination-card-one__title"><a
-                                                href="destination-details.html">Madan Mohan</a></h3>
-                                        <!-- /.destination-card-one__title -->
-                                    </div><!-- /.destination-one__content -->
-                                </div><!-- /.destination-one -->
-                            </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                    data-wow-delay='600ms'>
-                                    <div class="destination-card-one__thumb">
-                                        <img src="{% static 'images/destination/ISKCON-vrindavan.jpg' %}"
-                                            alt="destination">
-                                        <a href="" class="destination-card-one__overly"></a>
-                                    </div><!-- /.destination-card-one__thumb -->
-                                    <div class="destination-card-one__content">
-                                        <h3 class="destination-card-one__title"><a
-                                                href="destination-details.html">ISKCON</a></h3>
-                                        <!-- /.destination-card-one__title -->
-                                    </div><!-- /.destination-one__content -->
-                                </div><!-- /.destination-one -->
-                            </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                        </div><!-- /.row -->
-                    </div><!-- /.item -->
-                    <div class="item tab " id="itemOne">
-                        <div class="row gutter-y-20 gutter-x-20">
-                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                    data-wow-delay='100ms'>
-                                    <div class="destination-card-one__thumb">
-                                        <img src="{% static 'images/destination/gaudiya-math.webp' %}"
-                                            alt="destination">
-                                        <a href="" class="destination-card-one__overly"></a>
-                                    </div><!-- /.destination-card-one__thumb -->
-                                    <div class="destination-card-one__content">
-                                        <h3 class="destination-card-one__title"><a
-                                                href="destination-details.html">Chaitanya math</a></h3>
-                                        <!-- /.destination-card-one__title -->
-                                    </div><!-- /.destination-one__content -->
-                                </div><!-- /.destination-one -->
-                            </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                    data-wow-delay='300ms'>
-                                    <div class="destination-card-one__thumb">
-                                        <img src="{% static 'images/destination/ISKCON-mayapur.jpg' %}"
-                                            alt="destination">
-                                        <a href="" class="destination-card-one__overly"></a>
-                                    </div><!-- /.destination-card-one__thumb -->
-                                    <div class="destination-card-one__content">
-                                        <h3 class="destination-card-one__title"><a
-                                                href="destination-details.html">TOVP</a></h3>
-                                        <!-- /.destination-card-one__title -->
-                                    </div><!-- /.destination-one__content -->
-                                </div><!-- /.destination-one -->
-                            </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                         
-                          
-                        </div><!-- /.row -->
-                    </div><!-- /.item -->
-                    <div class="item tab" id="itemThree">
-                        <div class="row gutter-y-20 gutter-x-20">
-                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                    data-wow-delay='100ms'>
-                                    <div class="destination-card-one__thumb">
-                                        <img src="{% static '/images/destination/dwarika.jpg' %}"
-                                            alt="destination">
-                                        <a href="" class="destination-card-one__overly"></a>
-                                    </div><!-- /.destination-card-one__thumb -->
-                                    <div class="destination-card-one__content">
-                                        <h3 class="destination-card-one__title"><a
-                                                href="/">Dwarkadhish</a></h3>
-                                        <!-- /.destination-card-one__title -->
-                                    </div><!-- /.destination-one__content -->
-                                </div><!-- /.destination-one -->
-                            </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                    data-wow-delay='300ms'>
-                                    <div class="destination-card-one__thumb">
-                                        <img src="{% static 'images/destination/rukmani-devi.jpg' %}"
-                                            alt="destination">
-                                        <a href="" class="destination-card-one__overly"></a>
-                                    </div><!-- /.destination-card-one__thumb -->
-                                    <div class="destination-card-one__content">
-                                        <h3 class="destination-card-one__title"><a
-                                                href="/">Rukmani Devi</a></h3>
-                                        <!-- /.destination-card-one__title -->
-                                    </div><!-- /.destination-one__content -->
-                                </div><!-- /.destination-one -->
-                            </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                    data-wow-delay='500ms'>
-                                    <div class="destination-card-one__thumb">
-                                        <img src="{% static 'images/destination/nageshwar.jpg' %}"
-                                            alt="destination">
-                                        <a href="" class="destination-card-one__overly"></a>
-                                    </div><!-- /.destination-card-one__thumb -->
-                                    <div class="destination-card-one__content">
-                                        <h3 class="destination-card-one__title"><a
-                                                href="/">Nageshwar</a></h3>
-                                        <!-- /.destination-card-one__title -->
-                                    </div><!-- /.destination-one__content -->
-                                </div><!-- /.destination-one -->
-                            </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                    data-wow-delay='600ms'>
-                                    <div class="destination-card-one__thumb">
-                                        <img src="{% static 'images/destination/beyt-dwarika.jpg' %}"
-                                            alt="destination">
-                                        <a href="" class="destination-card-one__overly"></a>
-                                    </div><!-- /.destination-card-one__thumb -->
-                                    <div class="destination-card-one__content">
-                                        <h3 class="destination-card-one__title"><a
-                                                href="/">Beyt Dwarika</a></h3>
-                                        <!-- /.destination-card-one__title -->
-                                    </div><!-- /.destination-one__content -->
-                                </div><!-- /.destination-one -->
-                            </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                        </div><!-- /.row -->
-                    </div><!-- /.item -->
-                    <div class="item tab" id="itemFour">
-                        <div class="row gutter-y-20 gutter-x-20">
-                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                    data-wow-delay='100ms'>
-                                    <div class="destination-card-one__thumb">
-                                        <img src="{% static 'images/destination/ayodhya.jpg' %}"
-                                            alt="destination">
-                                        <a href="" class="destination-card-one__overly"></a>
-                                    </div><!-- /.destination-card-one__thumb -->
-                                    <div class="destination-card-one__content">
-                                        <h3 class="destination-card-one__title"><a
-                                                href="destination-details.html">Ram Mandir</a></h3>
-                                        <!-- /.destination-card-one__title -->
-                                    </div><!-- /.destination-one__content -->
-                                </div><!-- /.destination-one -->
-                            </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                    data-wow-delay='300ms'>
-                                    <div class="destination-card-one__thumb">
-                                        <img src="{% static 'images/destination/hanuman-garhi.jpg' %}"
-                                            alt="destination">
-                                        <a href="" class="destination-card-one__overly"></a>
-                                    </div><!-- /.destination-card-one__thumb -->
-                                    <div class="destination-card-one__content">
-                                        <h3 class="destination-card-one__title"><a
-                                                href="destination-details.html">Hanuman garhi</a></h3>
-                                        <!-- /.destination-card-one__title -->
-                                    </div><!-- /.destination-one__content -->
-                                </div><!-- /.destination-one -->
-                            </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                    data-wow-delay='500ms'>
-                                    <div class="destination-card-one__thumb">
-                                        <img src="{% static 'images/destination/guptar-ghat.jpg' %}"
-                                            alt="destination">
-                                        <a href="" class="destination-card-one__overly"></a>
-                                    </div><!-- /.destination-card-one__thumb -->
-                                    <div class="destination-card-one__content">
-                                        <h3 class="destination-card-one__title"><a
-                                                href="destination-details.html">Guptar Ghat</a></h3>
-                                        <!-- /.destination-card-one__title -->
-                                    </div><!-- /.destination-one__content -->
-                                </div><!-- /.destination-one -->
-                            </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
-                                    data-wow-delay='600ms'>
-                                    <div class="destination-card-one__thumb">
-                                        <img src="{% static 'images/destination/saryu-ghat.jpg' %}"
-                                            alt="destination">
-                                        <a href="" class="destination-card-one__overly"></a>
-                                    </div><!-- /.destination-card-one__thumb -->
-                                    <div class="destination-card-one__content">
-                                        <h3 class="destination-card-one__title"><a
-                                                href="destination-details.html">Saryu Ghat</a></h3>
-                                        <!-- /.destination-card-one__title -->
-                                    </div><!-- /.destination-one__content -->
-                                </div><!-- /.destination-one -->
-                            </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
-                        </div><!-- /.row -->
-                    </div><!-- /.item -->
-
-
-                </div><!-- /.tabs-content -->
-            </div><!-- /.tabs-box -->
+                <div class="client-carousel__one__item">
+                    <img src="{% static 'images/brand/brand-1-1.png' %}" alt="gotur"
+                        class="client-carousel__one__image">
+                    <img src="{% static 'images/brand/brand-hover-1-1.png' %}" alt="gotur"
+                        class="client-carousel__one__hover-image">
+                </div><!-- /.owl-slide-item-->
+                <div class="client-carousel__one__item">
+                    <img src="{% static 'images/brand/brand-1-1.png' %}" alt="gotur"
+                        class="client-carousel__one__image">
+                    <img src="{% static 'images/brand/brand-hover-1-1.png' %}" alt="gotur"
+                        class="client-carousel__one__hover-image">
+                </div><!-- /.owl-slide-item-->
+                <div class="client-carousel__one__item">
+                    <img src="{% static 'images/brand/brand-1-1.png' %}" alt="gotur"
+                        class="client-carousel__one__image">
+                    <img src="{% static 'images/brand/brand-hover-1-1.png' %}" alt="gotur"
+                        class="client-carousel__one__hover-image">
+                </div><!-- /.owl-slide-item-->
+                <div class="client-carousel__one__item">
+                    <img src="{% static 'images/brand/brand-1-1.png' %}" alt="gotur"
+                        class="client-carousel__one__image">
+                    <img src="{% static 'images/brand/brand-hover-1-1.png' %}" alt="gotur"
+                        class="client-carousel__one__hover-image">
+                </div><!-- /.owl-slide-item-->
+                <div class="client-carousel__one__item">
+                    <img src="{% static 'images/brand/brand-1-1.png' %}" alt="gotur"
+                        class="client-carousel__one__image">
+                    <img src="{% static 'images/brand/brand-hover-1-1.png' %}" alt="gotur"
+                        class="client-carousel__one__hover-image">
+                </div><!-- /.owl-slide-item-->
+                <div class="client-carousel__one__item">
+                    <img src="{% static 'images/brand/brand-1-1.png' %}" alt="gotur"
+                        class="client-carousel__one__image">
+                    <img src="{% static 'images/brand/brand-hover-1-1.png' %}" alt="gotur"
+                        class="client-carousel__one__hover-image">
+                </div><!-- /.owl-slide-item-->
+            </div><!-- /.thm-owl__slider -->
         </div><!-- /.container -->
-        <div class="destination-filter__element">
-            <img src="{% static 'images/shapes/plan.png' %}" alt>
-        </div><!-- /.destination-filter__element -->
-        <div class="destination-filter__element-two">
-            <img src="{% static 'images/shapes/monjil.png' %}" alt>
-        </div><!-- /.destination-filter__element -->
-    </section><!-- /.destination-filter -->
+    </div><!-- /.client-carousel -->
+    <div class="about-two__element-one">
+        <img src="{% static 'images/shapes/about-1-1.png' %}" alt>
+    </div><!-- /.about-two__element-one -->
+    <div class="about-two__element-two">
+        <img src="{% static 'images/shapes/corki.png' %}" alt="gotur image">
+    </div><!-- /.about-two__element-one -->
+</section><!-- /.about-two -->
 
-    <section class="cta-five section-space">
-        <div class="cta-five__inner">
-            <div class="cta-five__bg wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="300ms"
-                style="background-image: url({% static 'tovp.jpg' %});"></div><!-- /.cta-five__bg -->
-            <div class="container">
-                <div class="row justify-content-between align-items-center">
-                    <div class="col-lg-6">
-                        <div class="cta-five__funfact wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="400ms">
-                            <ul class="cta-five__funfact__list list-unstyled">
-                                <li class="cta-five__funfact__item">
-                                    <div class="cta-five__funfact__icon">
-                                        <i class="icon-travel-and-tourism"></i>
-                                    </div><!-- /.cta-five__funfact__icon -->
-                                    <div class="cta-five__funfact__content count-box">
-                                        <h3 class="cta-five__funfact__count">
-                                            <span class="count-text" data-stop="20" data-speed="1500"></span>
-                                            <span>+</span>
-                                        </h3><!-- /.cta-five__funfact__count -->
-                                        <p class="cta-five__funfact__text">Tours success</p>
-                                        <!-- /.cta-five__funfact__text -->
-                                    </div><!-- /.cta-five__funfact__content -->
-                                </li><!-- /.cta-five__funfact__item -->
-                                <li class="cta-five__funfact__item">
-                                    <div class="cta-five__funfact__icon">
-                                        <i class="icon-tourist"></i>
-                                    </div><!-- /.cta-five__funfact__icon -->
-                                    <div class="cta-five__funfact__content count-box">
-                                        <h3 class="cta-five__funfact__count">
-                                            <span class="count-text" data-stop="500" data-speed="1500"></span>
-                                            <span>+</span>
-                                        </h3><!-- /.cta-five__funfact__count -->
-                                        <p class="cta-five__funfact__text">Happy Traveler</p>
-                                        <!-- /.cta-five__funfact__text -->
-                                    </div><!-- /.cta-five__funfact__content -->
-                                </li><!-- /.cta-five__funfact__item -->
-                                <li class="cta-five__funfact__item">
-                                    <div class="cta-five__funfact__icon">
-                                        <i class="icon-trophy"></i>
-                                    </div><!-- /.cta-five__funfact__icon -->
-                                    <div class="cta-five__funfact__content count-box">
-                                        <h3 class="cta-five__funfact__count">
-                                            <span class="count-text" data-stop="15" data-speed="1500"></span>
-                                            <span>+</span>
-                                        </h3><!-- /.cta-five__funfact__count -->
-                                        <p class="cta-five__funfact__text">Awards Winning</p>
-                                        <!-- /.cta-five__funfact__text -->
-                                    </div><!-- /.cta-five__funfact__content -->
-                                </li><!-- /.cta-five__funfact__item -->
-                                <li class="cta-five__funfact__item">
-                                    <div class="cta-five__funfact__icon">
-                                        <i class="icon-quality"></i>
-                                    </div><!-- /.cta-five__funfact__icon -->
-                                    <div class="cta-five__funfact__content count-box">
-                                        <h3 class="cta-five__funfact__count">
-                                            <span class="count-text" data-stop="10" data-speed="1500"></span>
-                                            <span>+</span>
-                                        </h3><!-- /.cta-five__funfact__count -->
-                                        <p class="cta-five__funfact__text">Our Experience</p>
-                                        <!-- /.cta-five__funfact__text -->
-                                    </div><!-- /.cta-five__funfact__content -->
-                                </li><!-- /.cta-five__funfact__item -->
-                            </ul><!-- /.cta-five__funfact__list -->
-                        </div><!-- /.cta-five__thumb -->
-                    </div><!-- /.col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="cta-five__shape wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="400ms">
-                            <img src="{% static 'images/shapes/cta-1-1.png' %}" alt>
-                        </div><!-- /.cta-five__content -->
-                    </div><!-- /.col-lg-6 -->
-                </div><!-- /.row -->
-            </div><!-- /.container -->
-        </div><!-- /.cta-five__inner -->
-    </section><!-- /.cta-five -->
+<section class="destination-filter section-space" id="destination">
+    <div class="container">
+        <div class="destination-filter__top">
+            <div class="sec-title text-center">
+                <h6 class="sec-title__tagline bw-split-in-right">Popular Destination</h6>
+                <!-- /.sec-title__tagline -->
+                <h3 class="sec-title__title bw-split-in-left">Popular <span> Destinations</span></h3>
+                <!-- /.sec-title__title -->
+            </div><!-- /.sec-title -->
+            <p class="destination-filter__top__text">From sacred sites to scenic escapes – discover handpicked
+                destinations that blend culture, nature, and soul-stirring beauty.
 
-    <section class="feature-package feature-package--two" id="guide">
+            </p><!-- /.destination-filter__top__text -->
+        </div><!-- /.destination-filter__top -->
+        <div class="tabs-box">
+            <div class="destination-filter__btn tab-buttons">
+                <button data-tab="#itemOne" class="tab-btn gotur-btn ">Mayapur</button>
+                <button data-tab="#itemTwo" class="tab-btn gotur-btn active-btn">Vrindavan</button>
+                <button data-tab="#itemThree" class="tab-btn gotur-btn">Dwarika</button>
+                <button data-tab="#itemFour" class="tab-btn gotur-btn">Ayodhya</button>
+            </div><!-- /.tab-buttons -->
+            <div class="tabs-content">
+                <div class="item tab active-tab" id="itemTwo">
+                    <div class="row gutter-y-20 gutter-x-20">
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                            <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
+                                data-wow-delay='100ms'>
+                                <div class="destination-card-one__thumb">
+                                    <img src="{% static 'images/destination/govind-dev.jpg' %}" alt="destination">
+                                    <a href="" class="destination-card-one__overly"></a>
+                                </div><!-- /.destination-card-one__thumb -->
+                                <div class="destination-card-one__content">
+                                    <h3 class="destination-card-one__title"><a href="destination-details.html">Govind
+                                            Dev</a></h3>
+                                    <!-- /.destination-card-one__title -->
+                                </div><!-- /.destination-one__content -->
+                            </div><!-- /.destination-one -->
+                        </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                            <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
+                                data-wow-delay='300ms'>
+                                <div class="destination-card-one__thumb">
+                                    <img src="{% static 'images/destination/radha-raman.jpg' %}" alt="destination">
+                                    <a href="" class="destination-card-one__overly"></a>
+                                </div><!-- /.destination-card-one__thumb -->
+                                <div class="destination-card-one__content">
+                                    <h3 class="destination-card-one__title"><a href="destination-details.html">Radha
+                                            Raman</a></h3>
+                                    <!-- /.destination-card-one__title -->
+                                </div><!-- /.destination-one__content -->
+                            </div><!-- /.destination-one -->
+                        </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                            <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
+                                data-wow-delay='500ms'>
+                                <div class="destination-card-one__thumb">
+                                    <img src="{% static 'images/destination/madan-mohan.jpg' %}" alt="destination">
+                                    <a href="" class="destination-card-one__overly"></a>
+                                </div><!-- /.destination-card-one__thumb -->
+                                <div class="destination-card-one__content">
+                                    <h3 class="destination-card-one__title"><a href="destination-details.html">Madan
+                                            Mohan</a></h3>
+                                    <!-- /.destination-card-one__title -->
+                                </div><!-- /.destination-one__content -->
+                            </div><!-- /.destination-one -->
+                        </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                            <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
+                                data-wow-delay='600ms'>
+                                <div class="destination-card-one__thumb">
+                                    <img src="{% static 'images/destination/ISKCON-vrindavan.jpg' %}" alt="destination">
+                                    <a href="" class="destination-card-one__overly"></a>
+                                </div><!-- /.destination-card-one__thumb -->
+                                <div class="destination-card-one__content">
+                                    <h3 class="destination-card-one__title"><a
+                                            href="destination-details.html">ISKCON</a></h3>
+                                    <!-- /.destination-card-one__title -->
+                                </div><!-- /.destination-one__content -->
+                            </div><!-- /.destination-one -->
+                        </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
+                    </div><!-- /.row -->
+                </div><!-- /.item -->
+                <div class="item tab " id="itemOne">
+                    <div class="row gutter-y-20 gutter-x-20">
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                            <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
+                                data-wow-delay='100ms'>
+                                <div class="destination-card-one__thumb">
+                                    <img src="{% static 'images/destination/gaudiya-math.webp' %}" alt="destination">
+                                    <a href="" class="destination-card-one__overly"></a>
+                                </div><!-- /.destination-card-one__thumb -->
+                                <div class="destination-card-one__content">
+                                    <h3 class="destination-card-one__title"><a href="destination-details.html">Chaitanya
+                                            math</a></h3>
+                                    <!-- /.destination-card-one__title -->
+                                </div><!-- /.destination-one__content -->
+                            </div><!-- /.destination-one -->
+                        </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                            <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
+                                data-wow-delay='300ms'>
+                                <div class="destination-card-one__thumb">
+                                    <img src="{% static 'images/destination/ISKCON-mayapur.jpg' %}" alt="destination">
+                                    <a href="" class="destination-card-one__overly"></a>
+                                </div><!-- /.destination-card-one__thumb -->
+                                <div class="destination-card-one__content">
+                                    <h3 class="destination-card-one__title"><a href="destination-details.html">TOVP</a>
+                                    </h3>
+                                    <!-- /.destination-card-one__title -->
+                                </div><!-- /.destination-one__content -->
+                            </div><!-- /.destination-one -->
+                        </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
+
+
+                    </div><!-- /.row -->
+                </div><!-- /.item -->
+                <div class="item tab" id="itemThree">
+                    <div class="row gutter-y-20 gutter-x-20">
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                            <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
+                                data-wow-delay='100ms'>
+                                <div class="destination-card-one__thumb">
+                                    <img src="{% static '/images/destination/dwarika.jpg' %}" alt="destination">
+                                    <a href="" class="destination-card-one__overly"></a>
+                                </div><!-- /.destination-card-one__thumb -->
+                                <div class="destination-card-one__content">
+                                    <h3 class="destination-card-one__title"><a href="/">Dwarkadhish</a></h3>
+                                    <!-- /.destination-card-one__title -->
+                                </div><!-- /.destination-one__content -->
+                            </div><!-- /.destination-one -->
+                        </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                            <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
+                                data-wow-delay='300ms'>
+                                <div class="destination-card-one__thumb">
+                                    <img src="{% static 'images/destination/rukmani-devi.jpg' %}" alt="destination">
+                                    <a href="" class="destination-card-one__overly"></a>
+                                </div><!-- /.destination-card-one__thumb -->
+                                <div class="destination-card-one__content">
+                                    <h3 class="destination-card-one__title"><a href="/">Rukmani Devi</a></h3>
+                                    <!-- /.destination-card-one__title -->
+                                </div><!-- /.destination-one__content -->
+                            </div><!-- /.destination-one -->
+                        </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                            <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
+                                data-wow-delay='500ms'>
+                                <div class="destination-card-one__thumb">
+                                    <img src="{% static 'images/destination/nageshwar.jpg' %}" alt="destination">
+                                    <a href="" class="destination-card-one__overly"></a>
+                                </div><!-- /.destination-card-one__thumb -->
+                                <div class="destination-card-one__content">
+                                    <h3 class="destination-card-one__title"><a href="/">Nageshwar</a></h3>
+                                    <!-- /.destination-card-one__title -->
+                                </div><!-- /.destination-one__content -->
+                            </div><!-- /.destination-one -->
+                        </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                            <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
+                                data-wow-delay='600ms'>
+                                <div class="destination-card-one__thumb">
+                                    <img src="{% static 'images/destination/beyt-dwarika.jpg' %}" alt="destination">
+                                    <a href="" class="destination-card-one__overly"></a>
+                                </div><!-- /.destination-card-one__thumb -->
+                                <div class="destination-card-one__content">
+                                    <h3 class="destination-card-one__title"><a href="/">Beyt Dwarika</a></h3>
+                                    <!-- /.destination-card-one__title -->
+                                </div><!-- /.destination-one__content -->
+                            </div><!-- /.destination-one -->
+                        </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
+                    </div><!-- /.row -->
+                </div><!-- /.item -->
+                <div class="item tab" id="itemFour">
+                    <div class="row gutter-y-20 gutter-x-20">
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                            <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
+                                data-wow-delay='100ms'>
+                                <div class="destination-card-one__thumb">
+                                    <img src="{% static 'images/destination/ayodhya.jpg' %}" alt="destination">
+                                    <a href="" class="destination-card-one__overly"></a>
+                                </div><!-- /.destination-card-one__thumb -->
+                                <div class="destination-card-one__content">
+                                    <h3 class="destination-card-one__title"><a href="destination-details.html">Ram
+                                            Mandir</a></h3>
+                                    <!-- /.destination-card-one__title -->
+                                </div><!-- /.destination-one__content -->
+                            </div><!-- /.destination-one -->
+                        </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                            <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
+                                data-wow-delay='300ms'>
+                                <div class="destination-card-one__thumb">
+                                    <img src="{% static 'images/destination/hanuman-garhi.jpg' %}" alt="destination">
+                                    <a href="" class="destination-card-one__overly"></a>
+                                </div><!-- /.destination-card-one__thumb -->
+                                <div class="destination-card-one__content">
+                                    <h3 class="destination-card-one__title"><a href="destination-details.html">Hanuman
+                                            garhi</a></h3>
+                                    <!-- /.destination-card-one__title -->
+                                </div><!-- /.destination-one__content -->
+                            </div><!-- /.destination-one -->
+                        </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                            <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
+                                data-wow-delay='500ms'>
+                                <div class="destination-card-one__thumb">
+                                    <img src="{% static 'images/destination/guptar-ghat.jpg' %}" alt="destination">
+                                    <a href="" class="destination-card-one__overly"></a>
+                                </div><!-- /.destination-card-one__thumb -->
+                                <div class="destination-card-one__content">
+                                    <h3 class="destination-card-one__title"><a href="destination-details.html">Guptar
+                                            Ghat</a></h3>
+                                    <!-- /.destination-card-one__title -->
+                                </div><!-- /.destination-one__content -->
+                            </div><!-- /.destination-one -->
+                        </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
+                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                            <div class="destination-card-one wow fadeInUp" data-wow-duration='1500ms'
+                                data-wow-delay='600ms'>
+                                <div class="destination-card-one__thumb">
+                                    <img src="{% static 'images/destination/saryu-ghat.jpg' %}" alt="destination">
+                                    <a href="" class="destination-card-one__overly"></a>
+                                </div><!-- /.destination-card-one__thumb -->
+                                <div class="destination-card-one__content">
+                                    <h3 class="destination-card-one__title"><a href="destination-details.html">Saryu
+                                            Ghat</a></h3>
+                                    <!-- /.destination-card-one__title -->
+                                </div><!-- /.destination-one__content -->
+                            </div><!-- /.destination-one -->
+                        </div><!-- /.col-xl-3 col-lg-4 col-md-4 col-sm-6 -->
+                    </div><!-- /.row -->
+                </div><!-- /.item -->
+
+
+            </div><!-- /.tabs-content -->
+        </div><!-- /.tabs-box -->
+    </div><!-- /.container -->
+    <div class="destination-filter__element">
+        <img src="{% static 'images/shapes/plan.png' %}" alt>
+    </div><!-- /.destination-filter__element -->
+    <div class="destination-filter__element-two">
+        <img src="{% static 'images/shapes/monjil.png' %}" alt>
+    </div><!-- /.destination-filter__element -->
+</section><!-- /.destination-filter -->
+
+<section class="cta-five section-space">
+    <div class="cta-five__inner">
+        <div class="cta-five__bg wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="300ms"
+            style="background-image: url({% static 'tovp.jpg' %});"></div><!-- /.cta-five__bg -->
         <div class="container">
-            <div class="feature-package__top">
-                <div class="row align-items-end">
-                    <div class="col-lg-8">
-                        <div class="sec-title ">
-                            <h6 class="sec-title__tagline bw-split-in-right">popular tours</h6>
-                            <!-- /.sec-title__tagline -->
-                            <h3 class="sec-title__title bw-split-in-left">Most Popular <span>Tours</span></h3>
-                            <!-- /.sec-title__title -->
-                        </div><!-- /.sec-title -->
-                    </div><!-- /.col-lg-8 -->
-                    <div class="col-lg-4">
-                        <div class="feature-package__bottom__nav">
-                            <button class="feature-package__carousel__nav--left"><span
-                                    class="icon-arrow-left"></span></button>
-                            <button class="feature-package__carousel__nav--right"><span
-                                    class="icon-arrow-right"></span></button>
-                        </div>
-                    </div><!-- /.col-lg-4 -->
-                </div><!-- /.row -->
-            </div><!-- /.feature-package__top -->
+            <div class="row justify-content-between align-items-center">
+                <div class="col-lg-6">
+                    <div class="cta-five__funfact wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="400ms">
+                        <ul class="cta-five__funfact__list list-unstyled">
+                            <li class="cta-five__funfact__item">
+                                <div class="cta-five__funfact__icon">
+                                    <i class="icon-travel-and-tourism"></i>
+                                </div><!-- /.cta-five__funfact__icon -->
+                                <div class="cta-five__funfact__content count-box">
+                                    <h3 class="cta-five__funfact__count">
+                                        <span class="count-text" data-stop="20" data-speed="1500"></span>
+                                        <span>+</span>
+                                    </h3><!-- /.cta-five__funfact__count -->
+                                    <p class="cta-five__funfact__text">Tours success</p>
+                                    <!-- /.cta-five__funfact__text -->
+                                </div><!-- /.cta-five__funfact__content -->
+                            </li><!-- /.cta-five__funfact__item -->
+                            <li class="cta-five__funfact__item">
+                                <div class="cta-five__funfact__icon">
+                                    <i class="icon-tourist"></i>
+                                </div><!-- /.cta-five__funfact__icon -->
+                                <div class="cta-five__funfact__content count-box">
+                                    <h3 class="cta-five__funfact__count">
+                                        <span class="count-text" data-stop="500" data-speed="1500"></span>
+                                        <span>+</span>
+                                    </h3><!-- /.cta-five__funfact__count -->
+                                    <p class="cta-five__funfact__text">Happy Traveler</p>
+                                    <!-- /.cta-five__funfact__text -->
+                                </div><!-- /.cta-five__funfact__content -->
+                            </li><!-- /.cta-five__funfact__item -->
+                            <li class="cta-five__funfact__item">
+                                <div class="cta-five__funfact__icon">
+                                    <i class="icon-trophy"></i>
+                                </div><!-- /.cta-five__funfact__icon -->
+                                <div class="cta-five__funfact__content count-box">
+                                    <h3 class="cta-five__funfact__count">
+                                        <span class="count-text" data-stop="15" data-speed="1500"></span>
+                                        <span>+</span>
+                                    </h3><!-- /.cta-five__funfact__count -->
+                                    <p class="cta-five__funfact__text">Awards Winning</p>
+                                    <!-- /.cta-five__funfact__text -->
+                                </div><!-- /.cta-five__funfact__content -->
+                            </li><!-- /.cta-five__funfact__item -->
+                            <li class="cta-five__funfact__item">
+                                <div class="cta-five__funfact__icon">
+                                    <i class="icon-quality"></i>
+                                </div><!-- /.cta-five__funfact__icon -->
+                                <div class="cta-five__funfact__content count-box">
+                                    <h3 class="cta-five__funfact__count">
+                                        <span class="count-text" data-stop="10" data-speed="1500"></span>
+                                        <span>+</span>
+                                    </h3><!-- /.cta-five__funfact__count -->
+                                    <p class="cta-five__funfact__text">Our Experience</p>
+                                    <!-- /.cta-five__funfact__text -->
+                                </div><!-- /.cta-five__funfact__content -->
+                            </li><!-- /.cta-five__funfact__item -->
+                        </ul><!-- /.cta-five__funfact__list -->
+                    </div><!-- /.cta-five__thumb -->
+                </div><!-- /.col-lg-6 -->
+                <div class="col-lg-6">
+                    <div class="cta-five__shape wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="400ms">
+                        <img src="{% static 'images/shapes/cta-1-1.png' %}" alt>
+                    </div><!-- /.cta-five__content -->
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
         </div><!-- /.container -->
-        <div class="container-fluid">
-            <div class="feature-package__inner">
-                <div class="feature-package__carousel gotur-owl__carousel gotur-owl__carousel--custom-nav gotur-owl__carousel--with-shadow owl-carousel owl-theme"
-                    data-owl-nav-prev=".feature-package__carousel__nav--left"
-                    data-owl-nav-next=".feature-package__carousel__nav--right" data-owl-options='{
+    </div><!-- /.cta-five__inner -->
+</section><!-- /.cta-five -->
+
+<section class="feature-package feature-package--two" id="guide">
+    <div class="container">
+        <div class="feature-package__top">
+            <div class="row align-items-end">
+                <div class="col-lg-8">
+                    <div class="sec-title ">
+                        <h6 class="sec-title__tagline bw-split-in-right">popular tours</h6>
+                        <!-- /.sec-title__tagline -->
+                        <h3 class="sec-title__title bw-split-in-left">Most Popular <span>Tours</span></h3>
+                        <!-- /.sec-title__title -->
+                    </div><!-- /.sec-title -->
+                </div><!-- /.col-lg-8 -->
+                <div class="col-lg-4">
+                    <div class="feature-package__bottom__nav">
+                        <button class="feature-package__carousel__nav--left"><span
+                                class="icon-arrow-left"></span></button>
+                        <button class="feature-package__carousel__nav--right"><span
+                                class="icon-arrow-right"></span></button>
+                    </div>
+                </div><!-- /.col-lg-4 -->
+            </div><!-- /.row -->
+        </div><!-- /.feature-package__top -->
+    </div><!-- /.container -->
+    <div class="container-fluid">
+        <div class="feature-package__inner">
+            <div class="feature-package__carousel gotur-owl__carousel gotur-owl__carousel--custom-nav gotur-owl__carousel--with-shadow owl-carousel owl-theme"
+                data-owl-nav-prev=".feature-package__carousel__nav--left"
+                data-owl-nav-next=".feature-package__carousel__nav--right" data-owl-options='{
                     "items": 1,
                     "margin": 30,
                     "loop": false,
@@ -757,322 +748,323 @@
                         }
                     }
                 }'>
-                    <div class="item">
-                        <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
-                            <div class="listing-card-four__image">
-                                <img src="{% static 'images/blog/2dham.jpeg' %}"
-                                    alt="2dham">
-                                <div class="listing-card-four__btn-group">
+                <div class="item">
+                    <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
+                        <div class="listing-card-four__image">
+                            <img src="{% static 'images/blog/2dham.jpeg' %}" alt="2dham">
+                            <div class="listing-card-four__btn-group">
 
-                                    <div class="listing-card-four__discount">Featured</div>
-                                    <!-- /.listing-card-four__discount -->
+                                <div class="listing-card-four__discount">Featured</div>
+                                <!-- /.listing-card-four__discount -->
 
-                                    <div class="listing-card-four__featured">Congregation</div>
-                                    <!-- /.listing-card-four__featured -->
+                                <div class="listing-card-four__featured">Congregation</div>
+                                <!-- /.listing-card-four__featured -->
 
 
-                                </div><!-- /.listing-card-four__btn-group -->
-                                <div class="listing-card-four__btns">
-                                    <a href="#"><i class="far fa-heart"></i></a>
-                                    <div class="listing-card-four__btns__hover">
-                                        <a href="#" class="listing-card-four__popup card__popup" data-gallery-options='{
+                            </div><!-- /.listing-card-four__btn-group -->
+                            <div class="listing-card-four__btns">
+                                <a href="#"><i class="far fa-heart"></i></a>
+                                <div class="listing-card-four__btns__hover">
+                                    <a href="#" class="listing-card-four__popup card__popup" data-gallery-options='{
                     "items": [
                         {
                             "src": "{% static ' images/blog/listing-1-1.jpg' %}" }, { "src"
-                                            : "{% static 'images/blog/listing-1-2.jpg' %}" }, { "src"
-                                            : "{% static 'images/blog/listing-1-3.jpg' %}" } ], "gallery" : { "enabled"
-                                            : true }, "type" : "image" }'>
-                                            <span class="icon-image"></span>
-                                        </a>
-                                        <a class="video-popup" href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
-                                                class="icon-video"></span></a>
-                                    </div><!-- /.listing-card-four__btns__hover -->
-                                </div>
-                                <ul class="listing-card-four__meta list-unstyled">
-                                    <li>
-                                        <a href="tour-detail"> <span
-                                                class="listing-card-four__meta__icon"> <i class="icon-pin1"></i>
-                                            </span>Uttarakhand</a>
-                                    </li>
-                                    <li>
-                                        <a href="tour-detail"> <span
-                                                class="listing-card-four__meta__icon"> <i class="icon-calendar"></i>
-                                            </span>6 Days, 6 Night</a>
-                                    </li>
-                                </ul><!-- /.listing-card-four__meta -->
-                                <a href="tour-detail" class="listing-card-four__image__overly"></a>
-                            </div><!-- /.listing-card-four__image -->
-                            <div class="listing-card-four__content">
-                                <div class="listing-card-four__rating">
-                                    <span>(10 Review)</span>
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star"></i>
-                                </div><!-- /.listing-card-four__rating -->
-                                <h3 class="listing-card-four__title"><a href="tour-detail">2 Dham yatra</a></h3>
-                                <!-- /.listing-card-four__title -->
+                                        : "{% static 'images/blog/listing-1-2.jpg' %}" }, { "src"
+                                        : "{% static 'images/blog/listing-1-3.jpg' %}" } ], "gallery" : { "enabled" :
+                                        true }, "type" : "image" }'>
+                                        <span class="icon-image"></span>
+                                    </a>
+                                    <a class="video-popup" href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
+                                            class="icon-video"></span></a>
+                                </div><!-- /.listing-card-four__btns__hover -->
+                            </div>
+                            <ul class="listing-card-four__meta list-unstyled">
+                                <li>
+                                    <a href="tour-detail"> <span class="listing-card-four__meta__icon"> <i
+                                                class="icon-pin1"></i>
+                                        </span>Uttarakhand</a>
+                                </li>
+                                <li>
+                                    <a href="tour-detail"> <span class="listing-card-four__meta__icon"> <i
+                                                class="icon-calendar"></i>
+                                        </span>6 Days, 6 Night</a>
+                                </li>
+                            </ul><!-- /.listing-card-four__meta -->
+                            <a href="tour-detail" class="listing-card-four__image__overly"></a>
+                        </div><!-- /.listing-card-four__image -->
+                        <div class="listing-card-four__content">
+                            <div class="listing-card-four__rating">
+                                <span>(10 Review)</span>
+                                <i class="icon-star"></i>
+                                <i class="icon-star"></i>
+                                <i class="icon-star"></i>
+                                <i class="icon-star"></i>
+                                <i class="icon-star"></i>
+                            </div><!-- /.listing-card-four__rating -->
+                            <h3 class="listing-card-four__title"><a href="tour-detail">2 Dham yatra</a></h3>
+                            <!-- /.listing-card-four__title -->
 
-                                <div class="listing-card-four__content__btn">
-                                    <div class="listing-card-four__price">
-                                        <span class="listing-card-four__price__sub">Per person</span>
-                                        <span class="listing-card-four__price__number">₹8k-₹20k</span>
-                                    </div><!-- /.listing-card-four__price -->
-                                    <a href="tour-detail" class="listing-card-four__btn gotur-btn"> Book
-                                        Now <span class="icon"><i class="icon-right"></i> </span></a>
-                                </div><!-- /.listing-card-four__content__btn -->
-                            </div><!-- /.listing-card-four__content -->
-                        </div><!-- /.listing-card-four -->
-                    </div><!-- /.item -->
-                    <div class="item">
-                        <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
-                            <div class="listing-card-four__image">
-                                <img src="{% static 'images/blog/hampii.jpg' %}"
-                                    alt="Molokini and Turtle Town Snorkeling Adventure Aboard">
-                                <div class="listing-card-four__btn-group">
+                            <div class="listing-card-four__content__btn">
+                                <div class="listing-card-four__price">
+                                    <span class="listing-card-four__price__sub">Per person</span>
+                                    <span class="listing-card-four__price__number">₹8k-₹20k</span>
+                                </div><!-- /.listing-card-four__price -->
+                                <a href="tour-detail" class="listing-card-four__btn gotur-btn"> Book
+                                    Now <span class="icon"><i class="icon-right"></i> </span></a>
+                            </div><!-- /.listing-card-four__content__btn -->
+                        </div><!-- /.listing-card-four__content -->
+                    </div><!-- /.listing-card-four -->
+                </div><!-- /.item -->
+                <div class="item">
+                    <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
+                        <div class="listing-card-four__image">
+                            <img src="{% static 'images/blog/hampii.jpg' %}"
+                                alt="Molokini and Turtle Town Snorkeling Adventure Aboard">
+                            <div class="listing-card-four__btn-group">
 
-                                    <div class="listing-card-four__discount">-40% Off</div>
-                                    <!-- /.listing-card-four__discount -->
+                                <div class="listing-card-four__discount">-40% Off</div>
+                                <!-- /.listing-card-four__discount -->
 
 
-                                    <div class="listing-card-four__featured">Upcoming</div>
-                                    <!-- /.listing-card-four__featured -->
-                                     
+                                <div class="listing-card-four__featured">Upcoming</div>
+                                <!-- /.listing-card-four__featured -->
 
-                                </div><!-- /.listing-card-four__btn-group -->
-                                <div class="listing-card-four__btns">
-                                    <a href="#"><i class="far fa-heart"></i></a>
-                                    <div class="listing-card-four__btns__hover">
-                                        <a href="#" class="listing-card-four__popup card__popup" data-gallery-options='{
+
+                            </div><!-- /.listing-card-four__btn-group -->
+                            <div class="listing-card-four__btns">
+                                <a href="#"><i class="far fa-heart"></i></a>
+                                <div class="listing-card-four__btns__hover">
+                                    <a href="#" class="listing-card-four__popup card__popup" data-gallery-options='{
                     "items": [
                         {
                             "src": "{% static ' images/blog/listing-1-1.jpg' %}" }, { "src"
-                                            : "{% static 'images/blog/listing-1-2.jpg' %}" }, { "src"
-                                            : "{% static 'images/blog/listing-1-3.jpg' %}" } ], "gallery" : { "enabled"
-                                            : true }, "type" : "image" }'>
-                                            <span class="icon-image"></span>
-                                        </a>
-                                        <a class="video-popup" href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
-                                                class="icon-video"></span></a>
-                                    </div><!-- /.listing-card-four__btns__hover -->
-                                </div>
-                                <ul class="listing-card-four__meta list-unstyled">
-                                    <li>
-                                        <a href="tour-listing-details-2.html"> <span
-                                                class="listing-card-four__meta__icon"> <i class="icon-pin1"></i>
-                                            </span>Karnataka</a>
-                                    </li>
-                                    <li>
-                                        <a href="tour-listing-details-2.html"> <span
-                                                class="listing-card-four__meta__icon"> <i class="icon-calendar"></i>
-                                            </span>6 Days, 3 Night</a>
-                                    </li>
-                                </ul><!-- /.listing-card-four__meta -->
-                                <a href="tour-listing-details-2.html" class="listing-card-four__image__overly"></a>
-                            </div><!-- /.listing-card-four__image -->
-                            <div class="listing-card-four__content">
-                                <div class="listing-card-four__rating">
-                                    <span>(10 Review)</span>
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star"></i>
-                                </div><!-- /.listing-card-four__rating -->
-                                <h3 class="listing-card-four__title"><a href="tour-listing-details-2.html">Hampi Yatra</a></h3>
-                                <!-- /.listing-card-four__title -->
+                                        : "{% static 'images/blog/listing-1-2.jpg' %}" }, { "src"
+                                        : "{% static 'images/blog/listing-1-3.jpg' %}" } ], "gallery" : { "enabled" :
+                                        true }, "type" : "image" }'>
+                                        <span class="icon-image"></span>
+                                    </a>
+                                    <a class="video-popup" href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
+                                            class="icon-video"></span></a>
+                                </div><!-- /.listing-card-four__btns__hover -->
+                            </div>
+                            <ul class="listing-card-four__meta list-unstyled">
+                                <li>
+                                    <a href="tour-listing-details-2.html"> <span class="listing-card-four__meta__icon">
+                                            <i class="icon-pin1"></i>
+                                        </span>Karnataka</a>
+                                </li>
+                                <li>
+                                    <a href="tour-listing-details-2.html"> <span class="listing-card-four__meta__icon">
+                                            <i class="icon-calendar"></i>
+                                        </span>6 Days, 3 Night</a>
+                                </li>
+                            </ul><!-- /.listing-card-four__meta -->
+                            <a href="tour-listing-details-2.html" class="listing-card-four__image__overly"></a>
+                        </div><!-- /.listing-card-four__image -->
+                        <div class="listing-card-four__content">
+                            <div class="listing-card-four__rating">
+                                <span>(10 Review)</span>
+                                <i class="icon-star"></i>
+                                <i class="icon-star"></i>
+                                <i class="icon-star"></i>
+                                <i class="icon-star"></i>
+                                <i class="icon-star"></i>
+                            </div><!-- /.listing-card-four__rating -->
+                            <h3 class="listing-card-four__title"><a href="tour-listing-details-2.html">Hampi Yatra</a>
+                            </h3>
+                            <!-- /.listing-card-four__title -->
 
-                                <div class="listing-card-four__content__btn">
-                                    <div class="listing-card-four__price">
-                                        <span class="listing-card-four__price__sub">Per Day</span>
-                                        <span class="listing-card-four__price__number">₹0.00</span>
-                                    </div><!-- /.listing-card-four__price -->
-                                    <a href="tour-listing-details-2.html" class="listing-card-four__btn gotur-btn"> Book
-                                        Now <span class="icon"><i class="icon-right"></i> </span></a>
-                                </div><!-- /.listing-card-four__content__btn -->
-                            </div><!-- /.listing-card-four__content -->
-                        </div><!-- /.listing-card-four -->
-                    </div><!-- /.item -->
-                    
+                            <div class="listing-card-four__content__btn">
+                                <div class="listing-card-four__price">
+                                    <span class="listing-card-four__price__sub">Per Day</span>
+                                    <span class="listing-card-four__price__number">₹0.00</span>
+                                </div><!-- /.listing-card-four__price -->
+                                <a href="tour-listing-details-2.html" class="listing-card-four__btn gotur-btn"> Book
+                                    Now <span class="icon"><i class="icon-right"></i> </span></a>
+                            </div><!-- /.listing-card-four__content__btn -->
+                        </div><!-- /.listing-card-four__content -->
+                    </div><!-- /.listing-card-four -->
+                </div><!-- /.item -->
 
-                </div><!-- /.feature-package__carousel -->
-            </div><!-- /.feature-package__inner -->
 
-        </div><!-- /.container -->
+            </div><!-- /.feature-package__carousel -->
+        </div><!-- /.feature-package__inner -->
 
-        <div class="feature-package__element">
-            <img src="{% static 'images/shapes/love-1-2.png' %}" alt>
-        </div><!-- /.feature-package__element -->
-    </section><!-- /.feature-package -->
+    </div><!-- /.container -->
 
-    <section class="offer-one section-space">
-        <div class="container">
-            <div class="sec-title text-center">
-                <h6 class="sec-title__tagline bw-split-in-right">Special Offers</h6><!-- /.sec-title__tagline -->
-                <h3 class="sec-title__title bw-split-in-left">Offers To <span> Inspire You</span></h3>
-                <!-- /.sec-title__title -->
-            </div><!-- /.sec-title -->
-            <div class="row gutter-y-30 gutter-x-30">
-                <div class="col-lg-6 wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
-                    <div class="offer-one__card">
-                        <div class="offer-one__card__content">
-                            <div class="sec-title ">
-                                <h6 class="sec-title__tagline bw-split-in-right">Special Offer</h6>
-                                <!-- /.sec-title__tagline -->
-                                <h3 class="sec-title__title bw-split-in-left">Explore All Tour Of The <br> World With Us
-                                </h3><!-- /.sec-title__title -->
-                            </div><!-- /.sec-title -->
-                            <div class="offer-one__card__btn">
-                                <a href="tour-listing-details-1.html" class="gotur-btn">Book Now <span class="icon"><i
-                                            class="icon-right"></i></span></a>
-                            </div><!-- /.offer-one__card__btn -->
-                        </div><!-- /.offer-one__card__content -->
-                        <div class="offer-one__card__left">
-                            <div class="offer-one__card__thumb">
-                                <img src="{% static 'images/resources/offer-1-1.webp' %}" alt="shape">
-                            </div><!-- /.offer-one__card__thumb -->
-                        </div><!-- /.offer-one__card__left -->
-                    </div><!-- /.offer-one__card -->
-                </div><!-- /.col-lg-6 -->
-                <div class="col-lg-6 wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
-                    <div class="offer-one__card offer-one__card--two">
-                        <div class="offer-one__card__left">
-                            <div class="offer-one__card__thumb">
-                                <img src="{% static 'images/resources/offer-1-2.webp' %}" alt="shape">
-                            </div><!-- /.offer-one__card__thumb -->
-                        </div><!-- /.offer-one__card__left -->
-                        <div class="offer-one__card__content">
-                            <div class="sec-title text-end">
-                                <h6 class="sec-title__tagline bw-split-in-right">Get 40% Offer</h6>
-                                <!-- /.sec-title__tagline -->
-                                <h3 class="sec-title__title bw-split-in-left">Tours and Trip <br> Packages, Globally
-                                </h3><!-- /.sec-title__title -->
-                            </div><!-- /.sec-title -->
-                            <div class="offer-one__card__btn">
-                                <a href="tour-listing-details-1.html" class="gotur-btn gotur-btn--primary">Book Now
-                                    <span class="icon"><i class="icon-right"></i></span></a>
-                            </div><!-- /.offer-one__card__btn -->
-                        </div><!-- /.offer-one__card__content -->
-                    </div><!-- /.offer-one__card -->
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-        <div class="offer-one__element">
-            <img src="{% static 'images/resources/about-3-1.webp' %}" alt>
-        </div><!-- /.offer-one__element -->
-    </section><!-- /.offer-one -->
+    <div class="feature-package__element">
+        <img src="{% static 'images/shapes/love-1-2.png' %}" alt>
+    </div><!-- /.feature-package__element -->
+</section><!-- /.feature-package -->
 
-    <section class="why-choose-one section-space-bottom">
-        <div class="container">
-            <div class="row align-items-center gutter-y-40">
-                <div class="col-lg-6">
-                    <div class="why-choose-one__thumb wow fadeInLeft" data-wow-duration='1500ms' data-wow-delay='400ms'>
-                        <div class="row align-items-center gutter-y-30">
-                            <div class="col-lg-6">
-                                <div class="why-choose-one__thumb__item-one  ">
-                                    <img src="{% static 'images/about/about-s-8-2.jpg' %}" alt="image">
-                                </div><!-- /.why-choose-one__thumb__item -->
-                                <div class="why-choose-one__thumb__item-one  ">
-                                    <img src="{% static 'images/about/about-s-8-1.jpg' %}" alt="image">
-                                </div><!-- /.why-choose-one__thumb__item -->
-                            </div><!-- /.col-lg-6 -->
-                            <div class="col-lg-6">
-                                <div class="why-choose-one__thumb__item-two  ">
-                                    <img src="{% static 'images/about/about-8-1.jpg' %}" alt="image">
-                                </div><!-- /.why-choose-one__thumb__item -->
-                            </div><!-- /.col-lg-6 -->
-                        </div><!-- /.row -->
-                    </div><!-- /.why-choose-one__thumb -->
-                </div><!-- /.col-lg-6 -->
-                <div class="col-lg-6">
-                    <div class="why-choose-one__content">
+<section class="offer-one section-space">
+    <div class="container">
+        <div class="sec-title text-center">
+            <h6 class="sec-title__tagline bw-split-in-right">Special Offers</h6><!-- /.sec-title__tagline -->
+            <h3 class="sec-title__title bw-split-in-left">Offers To <span> Inspire You</span></h3>
+            <!-- /.sec-title__title -->
+        </div><!-- /.sec-title -->
+        <div class="row gutter-y-30 gutter-x-30">
+            <div class="col-lg-6 wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
+                <div class="offer-one__card">
+                    <div class="offer-one__card__content">
                         <div class="sec-title ">
-                            <h6 class="sec-title__tagline bw-split-in-right">Why Choose Us</h6>
+                            <h6 class="sec-title__tagline bw-split-in-right">Special Offer</h6>
                             <!-- /.sec-title__tagline -->
-                            <h3 class="sec-title__title bw-split-in-left"> Get The <span>Best Travel</span> Experience
-                                With Holytrail</h3><!-- /.sec-title__title -->
+                            <h3 class="sec-title__title bw-split-in-left">Explore All Tour Of The <br> World With Us
+                            </h3><!-- /.sec-title__title -->
                         </div><!-- /.sec-title -->
-                        <p class="why-choose-one__content__text wow fadeInLeft" data-wow-duration='1500ms'
-                            data-wow-delay='400ms'>Seamless bookings, spiritual insights, and curated tours — everything you need for a fulfilling journey is just a click away.
-                        </p>
-                        <!-- /.why-choose-one__content__text -->
-                        <ul class="why-choose-one__list">
-                            <li>
-                                <div class="why-choose-one__list__item wow fadeInLeft" data-wow-duration='1500ms'
-                                    data-wow-delay='200ms'>
-                                    <div class="why-choose-one__icon">
-                                        <i class="icon-flag"></i>
-                                    </div><!-- /.why-choose-one__icon -->
-                                    <h5 class="why-choose-one__title">Trusted travel guide</h5>
-                                    <!-- /.why-choose-one__title -->
-                                </div><!-- /.why-choose-one__list__item -->
-                            </li>
-                            <li>
-                                <div class="why-choose-one__list__item wow fadeInLeft" data-wow-duration='1500ms'
-                                    data-wow-delay='400ms'>
-                                    <div class="why-choose-one__icon">
-                                        <i class="icon-calender"></i>
-                                    </div><!-- /.why-choose-one__icon -->
-                                    <h5 class="why-choose-one__title">Instant Booking</h5>
-                                    <!-- /.why-choose-one__title -->
-                                </div><!-- /.why-choose-one__list__item -->
-                            </li>
-                            <li>
-                                <div class="why-choose-one__list__item wow fadeInLeft" data-wow-duration='1500ms'
-                                    data-wow-delay='600ms'>
-                                    <div class="why-choose-one__icon">
-                                        <i class="icon-travle1"></i>
-                                    </div><!-- /.why-choose-one__icon -->
-                                    <h5 class="why-choose-one__title">World Class Travel</h5>
-                                    <!-- /.why-choose-one__title -->
-                                </div><!-- /.why-choose-one__list__item -->
-                            </li>
-                            <li>
-                                <div class="why-choose-one__list__item wow fadeInLeft" data-wow-duration='1500ms'
-                                    data-wow-delay='800ms'>
-                                    <div class="why-choose-one__icon">
-                                        <i class="icon-perasut"></i>
-                                    </div><!-- /.why-choose-one__icon -->
-                                    <h5 class="why-choose-one__title">Paragliding Tour</h5>
-                                    <!-- /.why-choose-one__title -->
-                                </div><!-- /.why-choose-one__list__item -->
-                            </li>
-                        </ul><!-- /.why-choose-one__list -->
-                    </div><!-- /.why-choose-one__content -->
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-        <div class="why-choose-one__element">
-            <img src="{% static 'images/shapes/perasut-1-1.png' %}" alt>
-        </div><!-- /.why-choose-one__element -->
-    </section><!-- /.why-choose-one -->
+                        <div class="offer-one__card__btn">
+                            <a href="tour-listing-details-1.html" class="gotur-btn">Book Now <span class="icon"><i
+                                        class="icon-right"></i></span></a>
+                        </div><!-- /.offer-one__card__btn -->
+                    </div><!-- /.offer-one__card__content -->
+                    <div class="offer-one__card__left">
+                        <div class="offer-one__card__thumb">
+                            <img src="{% static 'images/resources/offer-1-1.webp' %}" alt="shape">
+                        </div><!-- /.offer-one__card__thumb -->
+                    </div><!-- /.offer-one__card__left -->
+                </div><!-- /.offer-one__card -->
+            </div><!-- /.col-lg-6 -->
+            <div class="col-lg-6 wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
+                <div class="offer-one__card offer-one__card--two">
+                    <div class="offer-one__card__left">
+                        <div class="offer-one__card__thumb">
+                            <img src="{% static 'images/resources/offer-1-2.webp' %}" alt="shape">
+                        </div><!-- /.offer-one__card__thumb -->
+                    </div><!-- /.offer-one__card__left -->
+                    <div class="offer-one__card__content">
+                        <div class="sec-title text-end">
+                            <h6 class="sec-title__tagline bw-split-in-right">Get 40% Offer</h6>
+                            <!-- /.sec-title__tagline -->
+                            <h3 class="sec-title__title bw-split-in-left">Tours and Trip <br> Packages, Globally
+                            </h3><!-- /.sec-title__title -->
+                        </div><!-- /.sec-title -->
+                        <div class="offer-one__card__btn">
+                            <a href="tour-listing-details-1.html" class="gotur-btn gotur-btn--primary">Book Now
+                                <span class="icon"><i class="icon-right"></i></span></a>
+                        </div><!-- /.offer-one__card__btn -->
+                    </div><!-- /.offer-one__card__content -->
+                </div><!-- /.offer-one__card -->
+            </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+    <div class="offer-one__element">
+        <img src="{% static 'images/resources/about-3-1.webp' %}" alt>
+    </div><!-- /.offer-one__element -->
+</section><!-- /.offer-one -->
 
-    <section class="testimonials-three testimonials-three--two section-space" id="testimonials">
-        <div class="testimonials-three__bg"
-            style="background-image: url({% static 'images/backgrounds/testi-3-1.webp' %});"></div>
-        <!-- /.testimonials-three__bg -->
-        <div class="container-fluid">
-            <div class="row align-items-center gutter-y-40">
-                <div class="col-xl-6">
-                    <div class="testimonials-three__top">
-                        <div class="testimonials-three__thumb wow fadeInLeft" data-wow-duration='1500ms'
-                            data-wow-delay='400ms'>
-                            <img src="{% static 'images/resources/testi--3-1.png' %}" alt="gotur image">
-                        </div><!-- /.testimonials-three__thumb -->
-                        <div class="testimonials-three__bottom__nav">
-                            <button class="testimonials-three__carousel__nav--left"><span
-                                    class="icon-arrow-left"></span></button>
-                            <button class="testimonials-three__carousel__nav--right"><span
-                                    class="icon-arrow-right"></span></button>
-                        </div>
-                    </div><!-- /.testimonials-three__top -->
-                </div><!-- /.col-xl-4 -->
-                <div class="col-xl-6">
-                    <div class="testimonials-three__inner">
-                        <div class="testimonials-three__carousel gotur-owl__carousel gotur-owl__carousel--custom-nav gotur-owl__carousel--basic-nav owl-carousel owl-theme"
-                            data-owl-nav-prev=".testimonials-three__carousel__nav--left"
-                            data-owl-nav-next=".testimonials-three__carousel__nav--right" data-owl-options='{
+<section class="why-choose-one section-space-bottom">
+    <div class="container">
+        <div class="row align-items-center gutter-y-40">
+            <div class="col-lg-6">
+                <div class="why-choose-one__thumb wow fadeInLeft" data-wow-duration='1500ms' data-wow-delay='400ms'>
+                    <div class="row align-items-center gutter-y-30">
+                        <div class="col-lg-6">
+                            <div class="why-choose-one__thumb__item-one  ">
+                                <img src="{% static 'images/about/about-s-8-2.jpg' %}" alt="image">
+                            </div><!-- /.why-choose-one__thumb__item -->
+                            <div class="why-choose-one__thumb__item-one  ">
+                                <img src="{% static 'images/about/about-s-8-1.jpg' %}" alt="image">
+                            </div><!-- /.why-choose-one__thumb__item -->
+                        </div><!-- /.col-lg-6 -->
+                        <div class="col-lg-6">
+                            <div class="why-choose-one__thumb__item-two  ">
+                                <img src="{% static 'images/about/about-8-1.jpg' %}" alt="image">
+                            </div><!-- /.why-choose-one__thumb__item -->
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                </div><!-- /.why-choose-one__thumb -->
+            </div><!-- /.col-lg-6 -->
+            <div class="col-lg-6">
+                <div class="why-choose-one__content">
+                    <div class="sec-title ">
+                        <h6 class="sec-title__tagline bw-split-in-right">Why Choose Us</h6>
+                        <!-- /.sec-title__tagline -->
+                        <h3 class="sec-title__title bw-split-in-left"> Get The <span>Best Travel</span> Experience
+                            With Holytrail</h3><!-- /.sec-title__title -->
+                    </div><!-- /.sec-title -->
+                    <p class="why-choose-one__content__text wow fadeInLeft" data-wow-duration='1500ms'
+                        data-wow-delay='400ms'>Seamless bookings, spiritual insights, and curated tours — everything you
+                        need for a fulfilling journey is just a click away.
+                    </p>
+                    <!-- /.why-choose-one__content__text -->
+                    <ul class="why-choose-one__list">
+                        <li>
+                            <div class="why-choose-one__list__item wow fadeInLeft" data-wow-duration='1500ms'
+                                data-wow-delay='200ms'>
+                                <div class="why-choose-one__icon">
+                                    <i class="icon-flag"></i>
+                                </div><!-- /.why-choose-one__icon -->
+                                <h5 class="why-choose-one__title">Trusted travel guide</h5>
+                                <!-- /.why-choose-one__title -->
+                            </div><!-- /.why-choose-one__list__item -->
+                        </li>
+                        <li>
+                            <div class="why-choose-one__list__item wow fadeInLeft" data-wow-duration='1500ms'
+                                data-wow-delay='400ms'>
+                                <div class="why-choose-one__icon">
+                                    <i class="icon-calender"></i>
+                                </div><!-- /.why-choose-one__icon -->
+                                <h5 class="why-choose-one__title">Instant Booking</h5>
+                                <!-- /.why-choose-one__title -->
+                            </div><!-- /.why-choose-one__list__item -->
+                        </li>
+                        <li>
+                            <div class="why-choose-one__list__item wow fadeInLeft" data-wow-duration='1500ms'
+                                data-wow-delay='600ms'>
+                                <div class="why-choose-one__icon">
+                                    <i class="icon-travle1"></i>
+                                </div><!-- /.why-choose-one__icon -->
+                                <h5 class="why-choose-one__title">World Class Travel</h5>
+                                <!-- /.why-choose-one__title -->
+                            </div><!-- /.why-choose-one__list__item -->
+                        </li>
+                        <li>
+                            <div class="why-choose-one__list__item wow fadeInLeft" data-wow-duration='1500ms'
+                                data-wow-delay='800ms'>
+                                <div class="why-choose-one__icon">
+                                    <i class="icon-perasut"></i>
+                                </div><!-- /.why-choose-one__icon -->
+                                <h5 class="why-choose-one__title">Paragliding Tour</h5>
+                                <!-- /.why-choose-one__title -->
+                            </div><!-- /.why-choose-one__list__item -->
+                        </li>
+                    </ul><!-- /.why-choose-one__list -->
+                </div><!-- /.why-choose-one__content -->
+            </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+    <div class="why-choose-one__element">
+        <img src="{% static 'images/shapes/perasut-1-1.png' %}" alt>
+    </div><!-- /.why-choose-one__element -->
+</section><!-- /.why-choose-one -->
+
+<section class="testimonials-three testimonials-three--two section-space" id="testimonials">
+    <div class="testimonials-three__bg"
+        style="background-image: url({% static 'images/backgrounds/testi-3-1.webp' %});"></div>
+    <!-- /.testimonials-three__bg -->
+    <div class="container-fluid">
+        <div class="row align-items-center gutter-y-40">
+            <div class="col-xl-6">
+                <div class="testimonials-three__top">
+                    <div class="testimonials-three__thumb wow fadeInLeft" data-wow-duration='1500ms'
+                        data-wow-delay='400ms'>
+                        <img src="{% static 'images/resources/testi--3-1.webp' %}" alt="gotur image">
+                    </div><!-- /.testimonials-three__thumb -->
+                    <div class="testimonials-three__bottom__nav">
+                        <button class="testimonials-three__carousel__nav--left"><span
+                                class="icon-arrow-left"></span></button>
+                        <button class="testimonials-three__carousel__nav--right"><span
+                                class="icon-arrow-right"></span></button>
+                    </div>
+                </div><!-- /.testimonials-three__top -->
+            </div><!-- /.col-xl-4 -->
+            <div class="col-xl-6">
+                <div class="testimonials-three__inner">
+                    <div class="testimonials-three__carousel gotur-owl__carousel gotur-owl__carousel--custom-nav gotur-owl__carousel--basic-nav owl-carousel owl-theme"
+                        data-owl-nav-prev=".testimonials-three__carousel__nav--left"
+                        data-owl-nav-next=".testimonials-three__carousel__nav--right" data-owl-options='{
                             "items": 1,
                             "margin": 30,
                             "loop": true,
@@ -1095,222 +1087,222 @@
                                 }
                             }
                         }'>
-                            <div class="item">
-                                <div class="testimonials-two-card testimonials-two-card--two  wow fadeInUp"
-                                    data-wow-duration='1500ms' data-wow-delay='00ms'>
-                                    <div class="testimonials-two-card__inner">
-                                        <div class="testimonials-two-card__top">
-                                            <img src="{% static 'images/resources/testimonials-2-1.png' %}"
-                                                alt="testiomonials author">
-                                        </div><!-- /.testimonials-two-card__top -->
-                                        <div class="testimonials-two-card__content testimonials-two-card__content--two">
-                                            <div class="testimonials-two-card__author">
-                                                <h4 class="testimonials-two-card__author__name">Courtney Henry</h4>
-                                                <!-- /.testimonials-two-card__author__name -->
-                                                <p class="testimonials-two-card__author__dec">Marketing Coordinator</p>
-                                                <!-- /.testimonials-two-card__author__dec -->
-                                            </div><!-- /.testimonials-two-card__author -->
-                                            <p class="testimonials-two-card__text">Consectetur adipiscing elit. Integer
-                                                nunc viverra laoreet est the is porta pretium metus aliquam eget
-                                                maecenas porta is nunc viverra Aenean pulvinar maximus leo</p>
-                                            <!-- /.testimonials-two-card__text -->
-                                        </div><!-- /.testimonials-two-card__content -->
-                                        <div class="testimonials-two-card__star testimonials-two-card__star--two">
-                                            <div class="testimonials-two-card__star__item">
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                            </div><!-- /.testimonials-two-card__star__item -->
-                                        </div><!-- /.testimonials-two-card__star -->
-                                        <div class="testimonials-two-card__quite">
-                                            <i class="icon-straight-quotes"></i>
-                                        </div><!-- /.testimonials-two-card__quite -->
-                                    </div><!-- /.testimonials-two-card__inner -->
-                                </div><!-- /.testimonials-two-card -->
-                            </div><!-- /.item -->
-                            <div class="item">
-                                <div class="testimonials-two-card testimonials-two-card--two  wow fadeInUp"
-                                    data-wow-duration='1500ms' data-wow-delay='00ms'>
-                                    <div class="testimonials-two-card__inner">
-                                        <div class="testimonials-two-card__top">
-                                            <img src="{% static 'images/resources/testimonials-2-2.png' %}"
-                                                alt="testiomonials author">
-                                        </div><!-- /.testimonials-two-card__top -->
-                                        <div class="testimonials-two-card__content testimonials-two-card__content--two">
-                                            <div class="testimonials-two-card__author">
-                                                <h4 class="testimonials-two-card__author__name">Jacob Jones</h4>
-                                                <!-- /.testimonials-two-card__author__name -->
-                                                <p class="testimonials-two-card__author__dec">Web Designer</p>
-                                                <!-- /.testimonials-two-card__author__dec -->
-                                            </div><!-- /.testimonials-two-card__author -->
-                                            <p class="testimonials-two-card__text">Consectetur adipiscing elit. Integer
-                                                nunc viverra laoreet est the is porta pretium metus aliquam eget
-                                                maecenas porta is nunc viverra Aenean pulvinar maximus leo</p>
-                                            <!-- /.testimonials-two-card__text -->
-                                        </div><!-- /.testimonials-two-card__content -->
-                                        <div class="testimonials-two-card__star testimonials-two-card__star--two">
-                                            <div class="testimonials-two-card__star__item">
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                            </div><!-- /.testimonials-two-card__star__item -->
-                                        </div><!-- /.testimonials-two-card__star -->
-                                        <div class="testimonials-two-card__quite">
-                                            <i class="icon-straight-quotes"></i>
-                                        </div><!-- /.testimonials-two-card__quite -->
-                                    </div><!-- /.testimonials-two-card__inner -->
-                                </div><!-- /.testimonials-two-card -->
-                            </div><!-- /.item -->
-                            <div class="item">
-                                <div class="testimonials-two-card testimonials-two-card--two  wow fadeInUp"
-                                    data-wow-duration='1500ms' data-wow-delay='00ms'>
-                                    <div class="testimonials-two-card__inner">
-                                        <div class="testimonials-two-card__top">
-                                            <img src="{% static 'images/resources/testimonials-2-1.png' %}"
-                                                alt="testiomonials author">
-                                        </div><!-- /.testimonials-two-card__top -->
-                                        <div class="testimonials-two-card__content testimonials-two-card__content--two">
-                                            <div class="testimonials-two-card__author">
-                                                <h4 class="testimonials-two-card__author__name">Courtney Henry</h4>
-                                                <!-- /.testimonials-two-card__author__name -->
-                                                <p class="testimonials-two-card__author__dec">Marketing Coordinator</p>
-                                                <!-- /.testimonials-two-card__author__dec -->
-                                            </div><!-- /.testimonials-two-card__author -->
-                                            <p class="testimonials-two-card__text">Consectetur adipiscing elit. Integer
-                                                nunc viverra laoreet est the is porta pretium metus aliquam eget
-                                                maecenas porta is nunc viverra Aenean pulvinar maximus leo</p>
-                                            <!-- /.testimonials-two-card__text -->
-                                        </div><!-- /.testimonials-two-card__content -->
-                                        <div class="testimonials-two-card__star testimonials-two-card__star--two">
-                                            <div class="testimonials-two-card__star__item">
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                            </div><!-- /.testimonials-two-card__star__item -->
-                                        </div><!-- /.testimonials-two-card__star -->
-                                        <div class="testimonials-two-card__quite">
-                                            <i class="icon-straight-quotes"></i>
-                                        </div><!-- /.testimonials-two-card__quite -->
-                                    </div><!-- /.testimonials-two-card__inner -->
-                                </div><!-- /.testimonials-two-card -->
-                            </div><!-- /.item -->
-                            <div class="item">
-                                <div class="testimonials-two-card testimonials-two-card--two  wow fadeInUp"
-                                    data-wow-duration='1500ms' data-wow-delay='00ms'>
-                                    <div class="testimonials-two-card__inner">
-                                        <div class="testimonials-two-card__top">
-                                            <img src="{% static 'images/resources/testimonials-2-2.png' %}"
-                                                alt="testiomonials author">
-                                        </div><!-- /.testimonials-two-card__top -->
-                                        <div class="testimonials-two-card__content testimonials-two-card__content--two">
-                                            <div class="testimonials-two-card__author">
-                                                <h4 class="testimonials-two-card__author__name">Jacob Jones</h4>
-                                                <!-- /.testimonials-two-card__author__name -->
-                                                <p class="testimonials-two-card__author__dec">Web Designer</p>
-                                                <!-- /.testimonials-two-card__author__dec -->
-                                            </div><!-- /.testimonials-two-card__author -->
-                                            <p class="testimonials-two-card__text">Consectetur adipiscing elit. Integer
-                                                nunc viverra laoreet est the is porta pretium metus aliquam eget
-                                                maecenas porta is nunc viverra Aenean pulvinar maximus leo</p>
-                                            <!-- /.testimonials-two-card__text -->
-                                        </div><!-- /.testimonials-two-card__content -->
-                                        <div class="testimonials-two-card__star testimonials-two-card__star--two">
-                                            <div class="testimonials-two-card__star__item">
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                            </div><!-- /.testimonials-two-card__star__item -->
-                                        </div><!-- /.testimonials-two-card__star -->
-                                        <div class="testimonials-two-card__quite">
-                                            <i class="icon-straight-quotes"></i>
-                                        </div><!-- /.testimonials-two-card__quite -->
-                                    </div><!-- /.testimonials-two-card__inner -->
-                                </div><!-- /.testimonials-two-card -->
-                            </div><!-- /.item -->
-                            <div class="item">
-                                <div class="testimonials-two-card testimonials-two-card--two  wow fadeInUp"
-                                    data-wow-duration='1500ms' data-wow-delay='00ms'>
-                                    <div class="testimonials-two-card__inner">
-                                        <div class="testimonials-two-card__top">
-                                            <img src="{% static 'images/resources/testimonials-2-1.png' %}"
-                                                alt="testiomonials author">
-                                        </div><!-- /.testimonials-two-card__top -->
-                                        <div class="testimonials-two-card__content testimonials-two-card__content--two">
-                                            <div class="testimonials-two-card__author">
-                                                <h4 class="testimonials-two-card__author__name">Courtney Henry</h4>
-                                                <!-- /.testimonials-two-card__author__name -->
-                                                <p class="testimonials-two-card__author__dec">Marketing Coordinator</p>
-                                                <!-- /.testimonials-two-card__author__dec -->
-                                            </div><!-- /.testimonials-two-card__author -->
-                                            <p class="testimonials-two-card__text">Consectetur adipiscing elit. Integer
-                                                nunc viverra laoreet est the is porta pretium metus aliquam eget
-                                                maecenas porta is nunc viverra Aenean pulvinar maximus leo</p>
-                                            <!-- /.testimonials-two-card__text -->
-                                        </div><!-- /.testimonials-two-card__content -->
-                                        <div class="testimonials-two-card__star testimonials-two-card__star--two">
-                                            <div class="testimonials-two-card__star__item">
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                            </div><!-- /.testimonials-two-card__star__item -->
-                                        </div><!-- /.testimonials-two-card__star -->
-                                        <div class="testimonials-two-card__quite">
-                                            <i class="icon-straight-quotes"></i>
-                                        </div><!-- /.testimonials-two-card__quite -->
-                                    </div><!-- /.testimonials-two-card__inner -->
-                                </div><!-- /.testimonials-two-card -->
-                            </div><!-- /.item -->
-                            <div class="item">
-                                <div class="testimonials-two-card testimonials-two-card--two  wow fadeInUp"
-                                    data-wow-duration='1500ms' data-wow-delay='00ms'>
-                                    <div class="testimonials-two-card__inner">
-                                        <div class="testimonials-two-card__top">
-                                            <img src="{% static 'images/resources/testimonials-2-2.png' %}"
-                                                alt="testiomonials author">
-                                        </div><!-- /.testimonials-two-card__top -->
-                                        <div class="testimonials-two-card__content testimonials-two-card__content--two">
-                                            <div class="testimonials-two-card__author">
-                                                <h4 class="testimonials-two-card__author__name">Jacob Jones</h4>
-                                                <!-- /.testimonials-two-card__author__name -->
-                                                <p class="testimonials-two-card__author__dec">Web Designer</p>
-                                                <!-- /.testimonials-two-card__author__dec -->
-                                            </div><!-- /.testimonials-two-card__author -->
-                                            <p class="testimonials-two-card__text">Consectetur adipiscing elit. Integer
-                                                nunc viverra laoreet est the is porta pretium metus aliquam eget
-                                                maecenas porta is nunc viverra Aenean pulvinar maximus leo</p>
-                                            <!-- /.testimonials-two-card__text -->
-                                        </div><!-- /.testimonials-two-card__content -->
-                                        <div class="testimonials-two-card__star testimonials-two-card__star--two">
-                                            <div class="testimonials-two-card__star__item">
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                                <i class="icon-star"></i>
-                                            </div><!-- /.testimonials-two-card__star__item -->
-                                        </div><!-- /.testimonials-two-card__star -->
-                                        <div class="testimonials-two-card__quite">
-                                            <i class="icon-straight-quotes"></i>
-                                        </div><!-- /.testimonials-two-card__quite -->
-                                    </div><!-- /.testimonials-two-card__inner -->
-                                </div><!-- /.testimonials-two-card -->
-                            </div><!-- /.item -->
-                        </div><!-- /.testimonials-three__carousel -->
-                    </div><!-- /.testimonials-three__inner -->
-                </div><!-- /.col-xl-8 -->
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-    </section><!-- /.testimonials-three -->
+                        <div class="item">
+                            <div class="testimonials-two-card testimonials-two-card--two  wow fadeInUp"
+                                data-wow-duration='1500ms' data-wow-delay='00ms'>
+                                <div class="testimonials-two-card__inner">
+                                    <div class="testimonials-two-card__top">
+                                        <img src="{% static 'images/resources/testimonials-2-1.png' %}"
+                                            alt="testiomonials author">
+                                    </div><!-- /.testimonials-two-card__top -->
+                                    <div class="testimonials-two-card__content testimonials-two-card__content--two">
+                                        <div class="testimonials-two-card__author">
+                                            <h4 class="testimonials-two-card__author__name">Courtney Henry</h4>
+                                            <!-- /.testimonials-two-card__author__name -->
+                                            <p class="testimonials-two-card__author__dec">Marketing Coordinator</p>
+                                            <!-- /.testimonials-two-card__author__dec -->
+                                        </div><!-- /.testimonials-two-card__author -->
+                                        <p class="testimonials-two-card__text">Consectetur adipiscing elit. Integer
+                                            nunc viverra laoreet est the is porta pretium metus aliquam eget
+                                            maecenas porta is nunc viverra Aenean pulvinar maximus leo</p>
+                                        <!-- /.testimonials-two-card__text -->
+                                    </div><!-- /.testimonials-two-card__content -->
+                                    <div class="testimonials-two-card__star testimonials-two-card__star--two">
+                                        <div class="testimonials-two-card__star__item">
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                        </div><!-- /.testimonials-two-card__star__item -->
+                                    </div><!-- /.testimonials-two-card__star -->
+                                    <div class="testimonials-two-card__quite">
+                                        <i class="icon-straight-quotes"></i>
+                                    </div><!-- /.testimonials-two-card__quite -->
+                                </div><!-- /.testimonials-two-card__inner -->
+                            </div><!-- /.testimonials-two-card -->
+                        </div><!-- /.item -->
+                        <div class="item">
+                            <div class="testimonials-two-card testimonials-two-card--two  wow fadeInUp"
+                                data-wow-duration='1500ms' data-wow-delay='00ms'>
+                                <div class="testimonials-two-card__inner">
+                                    <div class="testimonials-two-card__top">
+                                        <img src="{% static 'images/resources/testimonials-2-2.png' %}"
+                                            alt="testiomonials author">
+                                    </div><!-- /.testimonials-two-card__top -->
+                                    <div class="testimonials-two-card__content testimonials-two-card__content--two">
+                                        <div class="testimonials-two-card__author">
+                                            <h4 class="testimonials-two-card__author__name">Jacob Jones</h4>
+                                            <!-- /.testimonials-two-card__author__name -->
+                                            <p class="testimonials-two-card__author__dec">Web Designer</p>
+                                            <!-- /.testimonials-two-card__author__dec -->
+                                        </div><!-- /.testimonials-two-card__author -->
+                                        <p class="testimonials-two-card__text">Consectetur adipiscing elit. Integer
+                                            nunc viverra laoreet est the is porta pretium metus aliquam eget
+                                            maecenas porta is nunc viverra Aenean pulvinar maximus leo</p>
+                                        <!-- /.testimonials-two-card__text -->
+                                    </div><!-- /.testimonials-two-card__content -->
+                                    <div class="testimonials-two-card__star testimonials-two-card__star--two">
+                                        <div class="testimonials-two-card__star__item">
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                        </div><!-- /.testimonials-two-card__star__item -->
+                                    </div><!-- /.testimonials-two-card__star -->
+                                    <div class="testimonials-two-card__quite">
+                                        <i class="icon-straight-quotes"></i>
+                                    </div><!-- /.testimonials-two-card__quite -->
+                                </div><!-- /.testimonials-two-card__inner -->
+                            </div><!-- /.testimonials-two-card -->
+                        </div><!-- /.item -->
+                        <div class="item">
+                            <div class="testimonials-two-card testimonials-two-card--two  wow fadeInUp"
+                                data-wow-duration='1500ms' data-wow-delay='00ms'>
+                                <div class="testimonials-two-card__inner">
+                                    <div class="testimonials-two-card__top">
+                                        <img src="{% static 'images/resources/testimonials-2-1.png' %}"
+                                            alt="testiomonials author">
+                                    </div><!-- /.testimonials-two-card__top -->
+                                    <div class="testimonials-two-card__content testimonials-two-card__content--two">
+                                        <div class="testimonials-two-card__author">
+                                            <h4 class="testimonials-two-card__author__name">Courtney Henry</h4>
+                                            <!-- /.testimonials-two-card__author__name -->
+                                            <p class="testimonials-two-card__author__dec">Marketing Coordinator</p>
+                                            <!-- /.testimonials-two-card__author__dec -->
+                                        </div><!-- /.testimonials-two-card__author -->
+                                        <p class="testimonials-two-card__text">Consectetur adipiscing elit. Integer
+                                            nunc viverra laoreet est the is porta pretium metus aliquam eget
+                                            maecenas porta is nunc viverra Aenean pulvinar maximus leo</p>
+                                        <!-- /.testimonials-two-card__text -->
+                                    </div><!-- /.testimonials-two-card__content -->
+                                    <div class="testimonials-two-card__star testimonials-two-card__star--two">
+                                        <div class="testimonials-two-card__star__item">
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                        </div><!-- /.testimonials-two-card__star__item -->
+                                    </div><!-- /.testimonials-two-card__star -->
+                                    <div class="testimonials-two-card__quite">
+                                        <i class="icon-straight-quotes"></i>
+                                    </div><!-- /.testimonials-two-card__quite -->
+                                </div><!-- /.testimonials-two-card__inner -->
+                            </div><!-- /.testimonials-two-card -->
+                        </div><!-- /.item -->
+                        <div class="item">
+                            <div class="testimonials-two-card testimonials-two-card--two  wow fadeInUp"
+                                data-wow-duration='1500ms' data-wow-delay='00ms'>
+                                <div class="testimonials-two-card__inner">
+                                    <div class="testimonials-two-card__top">
+                                        <img src="{% static 'images/resources/testimonials-2-2.png' %}"
+                                            alt="testiomonials author">
+                                    </div><!-- /.testimonials-two-card__top -->
+                                    <div class="testimonials-two-card__content testimonials-two-card__content--two">
+                                        <div class="testimonials-two-card__author">
+                                            <h4 class="testimonials-two-card__author__name">Jacob Jones</h4>
+                                            <!-- /.testimonials-two-card__author__name -->
+                                            <p class="testimonials-two-card__author__dec">Web Designer</p>
+                                            <!-- /.testimonials-two-card__author__dec -->
+                                        </div><!-- /.testimonials-two-card__author -->
+                                        <p class="testimonials-two-card__text">Consectetur adipiscing elit. Integer
+                                            nunc viverra laoreet est the is porta pretium metus aliquam eget
+                                            maecenas porta is nunc viverra Aenean pulvinar maximus leo</p>
+                                        <!-- /.testimonials-two-card__text -->
+                                    </div><!-- /.testimonials-two-card__content -->
+                                    <div class="testimonials-two-card__star testimonials-two-card__star--two">
+                                        <div class="testimonials-two-card__star__item">
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                        </div><!-- /.testimonials-two-card__star__item -->
+                                    </div><!-- /.testimonials-two-card__star -->
+                                    <div class="testimonials-two-card__quite">
+                                        <i class="icon-straight-quotes"></i>
+                                    </div><!-- /.testimonials-two-card__quite -->
+                                </div><!-- /.testimonials-two-card__inner -->
+                            </div><!-- /.testimonials-two-card -->
+                        </div><!-- /.item -->
+                        <div class="item">
+                            <div class="testimonials-two-card testimonials-two-card--two  wow fadeInUp"
+                                data-wow-duration='1500ms' data-wow-delay='00ms'>
+                                <div class="testimonials-two-card__inner">
+                                    <div class="testimonials-two-card__top">
+                                        <img src="{% static 'images/resources/testimonials-2-1.png' %}"
+                                            alt="testiomonials author">
+                                    </div><!-- /.testimonials-two-card__top -->
+                                    <div class="testimonials-two-card__content testimonials-two-card__content--two">
+                                        <div class="testimonials-two-card__author">
+                                            <h4 class="testimonials-two-card__author__name">Courtney Henry</h4>
+                                            <!-- /.testimonials-two-card__author__name -->
+                                            <p class="testimonials-two-card__author__dec">Marketing Coordinator</p>
+                                            <!-- /.testimonials-two-card__author__dec -->
+                                        </div><!-- /.testimonials-two-card__author -->
+                                        <p class="testimonials-two-card__text">Consectetur adipiscing elit. Integer
+                                            nunc viverra laoreet est the is porta pretium metus aliquam eget
+                                            maecenas porta is nunc viverra Aenean pulvinar maximus leo</p>
+                                        <!-- /.testimonials-two-card__text -->
+                                    </div><!-- /.testimonials-two-card__content -->
+                                    <div class="testimonials-two-card__star testimonials-two-card__star--two">
+                                        <div class="testimonials-two-card__star__item">
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                        </div><!-- /.testimonials-two-card__star__item -->
+                                    </div><!-- /.testimonials-two-card__star -->
+                                    <div class="testimonials-two-card__quite">
+                                        <i class="icon-straight-quotes"></i>
+                                    </div><!-- /.testimonials-two-card__quite -->
+                                </div><!-- /.testimonials-two-card__inner -->
+                            </div><!-- /.testimonials-two-card -->
+                        </div><!-- /.item -->
+                        <div class="item">
+                            <div class="testimonials-two-card testimonials-two-card--two  wow fadeInUp"
+                                data-wow-duration='1500ms' data-wow-delay='00ms'>
+                                <div class="testimonials-two-card__inner">
+                                    <div class="testimonials-two-card__top">
+                                        <img src="{% static 'images/resources/testimonials-2-2.png' %}"
+                                            alt="testiomonials author">
+                                    </div><!-- /.testimonials-two-card__top -->
+                                    <div class="testimonials-two-card__content testimonials-two-card__content--two">
+                                        <div class="testimonials-two-card__author">
+                                            <h4 class="testimonials-two-card__author__name">Jacob Jones</h4>
+                                            <!-- /.testimonials-two-card__author__name -->
+                                            <p class="testimonials-two-card__author__dec">Web Designer</p>
+                                            <!-- /.testimonials-two-card__author__dec -->
+                                        </div><!-- /.testimonials-two-card__author -->
+                                        <p class="testimonials-two-card__text">Consectetur adipiscing elit. Integer
+                                            nunc viverra laoreet est the is porta pretium metus aliquam eget
+                                            maecenas porta is nunc viverra Aenean pulvinar maximus leo</p>
+                                        <!-- /.testimonials-two-card__text -->
+                                    </div><!-- /.testimonials-two-card__content -->
+                                    <div class="testimonials-two-card__star testimonials-two-card__star--two">
+                                        <div class="testimonials-two-card__star__item">
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                        </div><!-- /.testimonials-two-card__star__item -->
+                                    </div><!-- /.testimonials-two-card__star -->
+                                    <div class="testimonials-two-card__quite">
+                                        <i class="icon-straight-quotes"></i>
+                                    </div><!-- /.testimonials-two-card__quite -->
+                                </div><!-- /.testimonials-two-card__inner -->
+                            </div><!-- /.testimonials-two-card -->
+                        </div><!-- /.item -->
+                    </div><!-- /.testimonials-three__carousel -->
+                </div><!-- /.testimonials-three__inner -->
+            </div><!-- /.col-xl-8 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section><!-- /.testimonials-three -->
 
 
 
