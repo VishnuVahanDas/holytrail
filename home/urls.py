@@ -12,8 +12,6 @@ urlpatterns = [
     path("blog", views.blog_view, name="blog"),
     path("destination", views.destination_view, name="destination"),
     path("tour", views.tour_view, name="tour"),
-    path("checkout/", views.checkout_view, name="checkout"),
-    path("cart",  views.cart_view, name="cart"),
-    path("thank-you/",  views.thank_you_view, name="thank_you"),
     path("tour-detail/", views.tourdetail_view, name="tour-detail"),
+    path("cart",  views.cart_view, name="cart"),
 ]

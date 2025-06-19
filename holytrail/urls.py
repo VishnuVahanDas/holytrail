@@ -21,10 +21,13 @@ from django.contrib import admin
 from django.urls import path, include, re_path as url
 from django.conf.urls.static import static
 from django.views.static import serve
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("home.urls")),
+    path("checkout/", views.checkout_view, name="checkout"),
+    path("thank-you/",  views.thank_you_view, name="thank_you"),
 
     # media/static serving in development
     url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
