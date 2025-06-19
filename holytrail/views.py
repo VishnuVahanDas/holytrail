@@ -54,7 +54,7 @@ def checkout_view(request):
         text_content = strip_tags(html_content)
 
         # Send confirmation email to user
-        subject = 'Order Confirmation - ISKCON Tour Booking'
+        subject = 'Order Confirmation - Holytrail Tour Booking'
         client_email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, [email])
         client_email.attach_alternative(html_content, "text/html")
         client_email.send()
