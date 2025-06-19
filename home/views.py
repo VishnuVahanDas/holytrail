@@ -126,7 +126,7 @@ def checkout_view(request):
             admin_email.attach(screenshot_name, screenshot_content, screenshot_type)
         admin_email.send()
 
-        return redirect('thank_you')
+        return redirect('home:thank_you')
 
     else:
         # GET request
