@@ -18335,3 +18335,28 @@ body.boxed-wrapper .testimonials-three__inner {
   margin-right: -250px;
 }
 /*# sourceMappingURL=gotur.css.map */
+.sidebar-two__form__control input[type="number"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 10px; /* Smooth rounded corners */
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: none;
+}
+
+.sidebar-two__form__control input[type="number"]:focus {
+    border-color: #FFFFFF; /* Green border on focus */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.4); /* Subtle green glow */
+    outline: none;
+}
+
+.sidebar-two__form__control {
+    margin-bottom: 15px;
+}
+.sidebar-two__form__control label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #333;
+}
