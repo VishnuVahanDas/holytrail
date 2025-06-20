@@ -6,10 +6,11 @@ from django.utils.html import strip_tags
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponseRedirect
 from .models import Review
-
+from .models import Blog
 
 def home_view(request):
-    return render(request, "index.html")
+    blogs = Blog.objects.all().order_by('-date')
+    return render(request, "index.html", {'blogs': blogs})
 
 def about_view(request):
     return render(request, "about.html")
@@ -51,5 +52,7 @@ def tourdetail_view(request):
     })
 
 
-def blogdetails_view(request):
-    return render(request, "blog-details.html")
+def blog_detail_view(request, slug):
+    blog = Blog.objects.get(slug=slug)
+    return render(request, "blog-details.html", {'blog': blog})
+
