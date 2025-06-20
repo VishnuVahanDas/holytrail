@@ -14,4 +14,5 @@ urlpatterns = [
     path("tour", views.tour_view, name="tour"),
     path("tour-detail/", views.tourdetail_view, name="tour-detail"),
     path("cart",  views.cart_view, name="cart"),
+    path("blog-details/",  views.blogdetails_view, name="blog-details")
 ]

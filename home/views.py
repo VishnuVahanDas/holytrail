@@ -49,3 +49,7 @@ def tourdetail_view(request):
     return render(request, "tour-detail.html", {
         "reviews": reviews
     })
+
+
+def blogdetails_view(request):
+    return render(request, "blog-details.html")
