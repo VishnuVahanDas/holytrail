@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(
 SECRET_KEY = 'django-insecure-864p+t^0re3pz01cp1fcfj!@sh7)j)z*cj+6#+z*(8xq55pv^&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # local apps
     "home",
+    "blog",
 
 ]
 

@@ -76,7 +76,7 @@ def checkout_view(request):
             admin_message, 
             settings.DEFAULT_FROM_EMAIL, 
             ['vipul57612@gmail.com'],  # To (admin email)
-            cc=['vishnuvahan.it@gmail.com']  # CC email(s)
+            cc=['rishabhpandey101@gmail.com']  # CC email(s)
             )
         if screenshot_content:
             admin_email.attach(screenshot_name, screenshot_content, screenshot_type)

@@ -26,6 +26,7 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("home.urls")),
+    path('blogs/', include('blog.urls', namespace='blog')),
     path("checkout/", views.checkout_view, name="checkout"),
     path("thank-you/",  views.thank_you_view, name="thank_you"),
 

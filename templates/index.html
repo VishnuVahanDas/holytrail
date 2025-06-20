@@ -1318,7 +1318,7 @@
                 <div class="blog-card-two blog-card-two--two wow fadeInUp">
                     <div class="blog-card-two__image">
                         <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
-                        <a href="{% url 'home:blog-details' slug=blog.slug %}" class="blog-card-two__image__link">
+                        <a href="{% url 'blog:blog-details' slug=blog.slug %}" class="blog-card-two__image__link">
                             <span class="sr-only">{{ blog.title }}</span>
                         </a>
                     </div>
@@ -1334,9 +1334,9 @@
                             </ul>
                         </div>
                         <h3 class="blog-card-two__title">
-                            <a href="{% url 'home:blog-details' slug=blog.slug %}">{{ blog.title }}</a>
+                            <a href="{% url 'blog:blog-details' slug=blog.slug %}">{{ blog.title }}</a>
                         </h3>
-                        <a href="{% url 'home:blog-details' slug=blog.slug %}" class="blog-card-two__content__btn">Read More <i
+                        <a href="{% url 'blog:blog-details' slug=blog.slug %}" class="blog-card-two__content__btn">Read More <i
                                 class="icon-arrow-right"></i></a>
                     </div>
                 </div>
