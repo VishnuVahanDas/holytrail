@@ -22,7 +22,7 @@
                         <div class="blog-details">
                             <div class="blog-details-card wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
                                 <div class="blog-details-card__image">
-                                    <img src="{% static 'images/blog/blog-d-1-1.jpg' %}" alt="">
+                                    <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
                                     <div class="blog-details-card__date">
                                         <span class="blog-details-card__date__day">20</span>
                                         <span class="blog-details-card__date__month">Fab</span>
@@ -35,11 +35,10 @@
                                         <li> <a href="blog-details"> <span class="blog-card__meta__icon"> <i class="icon-price-tag"></i> </span> Travel</a></li>
                                     </ul><!-- /.list-unstyled blog-details-card__meta -->
 
-                                    <h3 class="blog-details-card__title wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">Get Best Advertiser in Your Side Pocket</h3>
+                                    <h3 class="blog-details-card__title wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">{{ blog.title }}</h3>
                                     <!-- /.blog-card__title -->
                                     <div class="blog-details-card__content__inner">
-                                        <p class="blog-details-card__text wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore of magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea dolor commodo consequat. Duis aute irure and dolor in reprehenderit.</p><!-- /.blog-details-card__text -->
-                                        <p class="blog-details-card__text wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">The is ipsum dolor sit amet consectetur adipiscing elit. Fusce eleifend porta arcu In hac habitasse the is platea augue thelorem turpoi dictumst. In lacus libero faucibus at malesuada sagittis placerat eros sed istincidunt augue ac ante rutrum sed the is sodales augue consequat.</p><!-- /.blog-details-card__text -->
+                                        <p class="blog-details-card__text wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">{{ blog.content }}</p><!-- /.blog-details-card__text -->
                                     </div><!-- /.blog-details-card__content__inner -->
                                 </div><!-- /.blog-details-card-four__content -->
                             </div><!-- /.blog-details-card -->
