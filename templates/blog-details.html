@@ -38,7 +38,7 @@
                                     <h3 class="blog-details-card__title wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">{{ blog.title }}</h3>
                                     <!-- /.blog-card__title -->
                                     <div class="blog-details-card__content__inner">
-                                        <p class="blog-details-card__text wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">{{ blog.content }}</p><!-- /.blog-details-card__text -->
+                                        <p class="blog-details-card__text wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">{{ blog.content |safe}}</p><!-- /.blog-details-card__text -->
                                     </div><!-- /.blog-details-card__content__inner -->
                                 </div><!-- /.blog-details-card-four__content -->
                             </div><!-- /.blog-details-card -->
