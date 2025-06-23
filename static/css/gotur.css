@@ -18360,3 +18360,28 @@ body.boxed-wrapper .testimonials-three__inner {
     margin-bottom: 6px;
     color: #333;
 }
+.ck-editor__editable {
+  min-height: 200px;
+  max-width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.ck-editor__editable_inline {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.ck-editor__main {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .ck-editor__editable {
+    font-size: 14px;
+    padding: 0.75rem;
+  }
+}

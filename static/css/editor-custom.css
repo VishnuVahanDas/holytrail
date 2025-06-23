@@ -1,0 +1,16 @@
+/* Will be injected into editor content */
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #222;
+}
+
+h2, h3 {
+  color: #444;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
