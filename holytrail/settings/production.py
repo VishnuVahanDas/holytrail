@@ -231,28 +231,12 @@ MEDIA_URL = "/media/"  # django storage
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 CKEDITOR_5_CONFIGS = {
-    "default": {
-        "toolbar": [
-            "heading", "|",
-            "bold", "italic", "link", "|",
-            "alignment", "imageUpload", "blockQuote", "codeBlock", "|",
-            "undo", "redo"
+    'default': {
+        'toolbar': [
+            'heading', '|', 'bold', 'italic', 'link', 'alignment',
+            'imageUpload', 'blockQuote', 'undo', 'redo'
         ],
-        "language": "en",
-        "alignment": {
-            "options": ['left', 'center', 'right', 'justify']
-        },
-        "image": {
-            "toolbar": ["imageStyle:alignLeft", "imageStyle:alignCenter", "imageStyle:alignRight", "|", "imageTextAlternative", "imageResize"],
-            "styles": ["alignLeft", "alignCenter", "alignRight"],
-            "resizeUnit": "%",
-            "resizeOptions": [
-                {"name": "resizeImage:original", "label": "Original", "value": None},
-                {"name": "resizeImage:25", "label": "25%", "value": "25"},
-                {"name": "resizeImage:50", "label": "50%", "value": "50"},
-                {"name": "resizeImage:75", "label": "75%", "value": "75"}
-            ]
-        }
+        'language': 'en',
     }
 }
 
