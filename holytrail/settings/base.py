@@ -141,12 +141,20 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 CKEDITOR_5_CONFIGS = {
     'default': {
-        'toolbar': ['heading', '|', 'bold', 'italic', 'link', 'imageUpload', 'blockQuote', 'codeBlock', 'undo', 'redo'],
+        'toolbar': [
+            'heading', '|',
+            'bold', 'italic', 'underline', '|',
+            'link', 'bulletedList', 'numberedList', '|',
+            'imageUpload', 'blockQuote', 'undo', 'redo'
+        ],
         'language': 'en',
     }
 }
 
-CKEDITOR_5_UPLOADS_PATH = 'uploads/'
+CKEDITOR_5_UPLOADS_PATH = 'uploads/'  # This handles image/file uploads in editor
+
+CKEDITOR_5_CUSTOM_CSS = 'css/editor-custom.css'  # This applies your own styles to editor content
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
