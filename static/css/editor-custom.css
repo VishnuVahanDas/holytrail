@@ -67,3 +67,9 @@ img {
     border-radius: 6px;
     box-shadow: 0 1px 5px rgba(0,0,0,0.1);
 }
+.ck-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1em auto;
+}
