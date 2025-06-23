@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,6 +46,15 @@ INSTALLED_APPS = [
     "blog",
 
 ]
+JAZZMIN_SETTINGS = {
+    "site_title": "HolyTrail Admin",
+    "site_header": "HolyTrail Admin Portal",
+    "welcome_sign": "Welcome to HolyTrail Admin",
+    "copyright": "HolyTrail © 2025",
+    "search_model": "auth.User",
+    "show_ui_builder": True,
+    # add more options here if needed
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
