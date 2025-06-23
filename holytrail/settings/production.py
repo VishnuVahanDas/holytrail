@@ -38,9 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Third-party apps (like CKEditor)
-    'ckeditor',
-    'ckeditor_uploader',
-
+    'ckeditor5',
     # local apps
     "home",
     "blog",
@@ -134,7 +132,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 MEDIA_URL = "/media/"  # django storage
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR5_CONFIGS = {
+    'default': {
+        'toolbar': ['heading', '|', 'bold', 'italic', 'link', 'imageUpload', 'blockQuote', 'codeBlock', 'undo', 'redo'],
+        'language': 'en',
+    }
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
