@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(
 SECRET_KEY = 'django-insecure-864p+t^0re3pz01cp1fcfj!@sh7)j)z*cj+6#+z*(8xq55pv^&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -130,14 +130,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 MEDIA_URL = "/media/"  # django storage
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-CKEDITOR5_UPLOADS_PATH = 'uploads/'
-
 CKEDITOR_5_CONFIGS = {
     'default': {
         'toolbar': ['heading', '|', 'bold', 'italic', 'link', 'imageUpload', 'blockQuote', 'codeBlock', 'undo', 'redo'],
         'language': 'en',
     }
 }
+
+CKEDITOR_5_UPLOADS_PATH = 'uploads/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
