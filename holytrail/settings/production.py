@@ -133,7 +133,9 @@ MEDIA_URL = "/media/"  # django storage
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 CKEDITOR_5_CONFIGS = {
-    'default': {'toolbar': ['heading', '|', 'bold', 'italic', 'link', 'imageUpload', 'blockQuote', 'codeBlock', 'undo', 'redo'], 'language': 'en'
+    'default': {
+        'toolbar': ['heading', '|', 'bold', 'italic', 'link', 'imageUpload', 'blockQuote', 'codeBlock', 'undo', 'redo'],
+        'language': 'en',
     }
 }
 CKEDITOR_5_UPLOADS_PATH = 'uploads/'
