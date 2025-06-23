@@ -29,8 +29,6 @@ urlpatterns = [
     path('blogs/', include('blog.urls', namespace='blog')),
     path("checkout/", views.checkout_view, name="checkout"),
     path("thank-you/",  views.thank_you_view, name="thank_you"),
-    path('ckeditor/', include('ckeditor_uploader.urls')),
-
 
     # media/static serving in development
     url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
