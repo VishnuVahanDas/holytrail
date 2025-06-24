@@ -32,6 +32,7 @@ urlpatterns = [
     path("i18n", include("django.conf.urls.i18n")),
     path('admin/', admin.site.urls),
     path("", include("home.urls")),
+    path("tour/", include("tour.urls")),
     path('blogs/', include('blog.urls', namespace='blog')),
     path("checkout/", views.checkout_view, name="checkout"),
     path("thank-you/",  views.thank_you_view, name="thank_you"),
