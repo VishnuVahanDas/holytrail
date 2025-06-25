@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django_ckeditor_5.fields import CKEditor5Field
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -17,7 +18,7 @@ class Blog(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
     image = models.ImageField(upload_to='blogs/')
-    content = models.TextField()
+    content = CKEditor5Field('Text', config_name='default')
     author = models.CharField(max_length=100, default='Admin')
     
     # ✅ Link to Category model
