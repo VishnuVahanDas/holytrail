@@ -5,7 +5,7 @@ from .models import Blog, Category
 def category_blog_view(request, category_slug):
     category = get_object_or_404(Category, slug=category_slug)
     blogs = Blog.objects.filter(category=category)
-    return render(request, 'category-blogs.html', {
+    return render(request, 'category-blog.html', {
         'category': category,
         'blogs': blogs,
     })
