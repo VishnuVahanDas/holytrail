@@ -1,9 +1,10 @@
 from django.urls import path
+from .views import category_blog_view, blog_detail_view
 
-from . import views
+app_name = 'blog'
 
-app_name = "home"
 urlpatterns = [
-    path("<slug:slug>/", views.blog_detail_view, name="blog-details"),
-
+    
+    path('category/<slug:category_slug>/', category_blog_view, name='category-blogs'),
+    path('<slug:slug>/', blog_detail_view, name='blog-details'),
 ]

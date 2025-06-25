@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block doc_title %} Blogs in {{ category.name }} {% endblock %}
+{% block content %}
+
+<section class="page-header">
+    <div class="page-header__bg" style="background-image: url({% static 'images/backgrounds/page-header-bg-1-1.jpg' %});"></div>
+    <div class="container">
+        <div class="page-header__content">
+            <h2 class="page-header__title bw-split-in-right">Blog Category</h2>
+            <ul class="gotur-breadcrumb list-unstyled">
+                <li><a href="/">Home</a></li>
+                <li><span>Our Blogs</span></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="blog-page section-space">
+    <div class="container">
+        <div class="blog-page__carousel gotur-owl__carousel gotur-owl__carousel--with-shadow gotur-owl__carousel--basic-nav owl-carousel owl-theme"
+             data-owl-options='{
+                 "items": 1,
+                 "margin": 30,
+                 "loop": false,
+                 "smartSpeed": 700,
+                 "nav": true,
+                 "navText": ["<span class=\"icon-arrow-left\"></span>","<span class=\"icon-arrow-right\"></span>"],
+                 "dots": false,
+                 "autoplay": false,
+                 "responsive": {
+                     "0": { "items": 1 },
+                     "768": { "items": 2 },
+                     "992": { "items": 3 }
+                 }
+             }'>
+            {% for blog in blogs %}
+            <div class="item">
+                <div class="blog-card wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                    <div class="blog-card__image">
+                        <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
+                        <a href="{% url 'blog:blog-details' slug=blog.slug %}" class="blog-card__image__link">
+                            <span class="sr-only">{{ blog.title }}</span>
+                        </a>
+                    </div>
+                    <div class="blog-card__content">
+                        <div class="blog-card__content__top">
+                            <div class="blog-card__date">
+                                <span class="blog-card__date__day">{{ blog.date|date:"d" }}</span>
+                                <span class="blog-card__date__month">{{ blog.date|date:"M" }}</span>
+                            </div>
+                            <ul class="list-unstyled blog-card__meta">
+                                <li>
+                                    <a href="#"><span class="blog-card__meta__icon"><i class="icon-user"></i></span> {{ blog.author }}</a>
+                                </li>
+                                <li>
+                                    <a href="#"><span class="blog-card__meta__icon"><i class="icon-price-tag"></i></span> {{ blog.category }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <h3 class="blog-card__title">
+                            <a href="{% url 'blog:blog-details' slug=blog.slug %}">{{ blog.title }}</a>
+                        </h3>
+                        <a href="{% url 'blog:blog-details' slug=blog.slug %}" class="blog-card__btn">Read More <i class="icon-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="item">
+                <p>No blogs found in this category.</p>
+            </div>
+            {% endfor %}
+        </div><!-- /.blog-page__carousel -->
+    </div>
+</section>
+
+{% endblock %}
