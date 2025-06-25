@@ -29,7 +29,6 @@ SECRET_KEY = 'django-insecure-864p+t^0re3pz01cp1fcfj!@sh7)j)z*cj+6#+z*(8xq55pv^&
 
 ALLOWED_HOSTS = ["*"]
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -240,14 +239,19 @@ MEDIA_URL = "/media/"  # django storage
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 CKEDITOR_5_CONFIGS = {
-    'default': {
-        'toolbar': [
-            'heading', '|', 'bold', 'italic', 'link', 'alignment',
-            'imageUpload', 'blockQuote', 'undo', 'redo'
+    "default": {
+        "toolbar": [
+            "heading", "|", "bold", "italic", "link", "bulletedList", "numberedList", "blockQuote",
+            "|", "alignment", "insertTable", "imageUpload", "undo", "redo"
         ],
-        'language': 'en',
+        "image": {
+            "toolbar": ["imageStyle:alignLeft", "imageStyle:alignCenter", "imageStyle:alignRight", "|", "imageTextAlternative"],
+            "styles": ["alignLeft", "alignCenter", "alignRight"]
+        },
+        "language": "en"
     }
 }
+CKEDITOR_5_CUSTOM_CSS = "css/gotur.css"
 
 
 

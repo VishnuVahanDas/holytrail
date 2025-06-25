@@ -18385,3 +18385,19 @@ body.boxed-wrapper .testimonials-three__inner {
     padding: 0.75rem;
   }
 }
+/* Make CKEditor images responsive and not overflow */
+figure.image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+figure.image {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+figure.image_resized {
+  width: 100% !important;
+  max-width: 100% !important;
+}
