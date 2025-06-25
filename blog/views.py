@@ -14,8 +14,6 @@ def category_blog_view(request, category_slug):
         'recent_posts': recent_posts,
     })
 
-
-
 def blog_detail_view(request, slug):
     blog = get_object_or_404(Blog, slug=slug)
     categories = Category.objects.all()  # get all categories
@@ -24,4 +22,13 @@ def blog_detail_view(request, slug):
         'blog': blog,
         'categories': categories,
         'recent_posts': recent_posts,
+    })
+
+def all_blogs_view(request):
+    blogs = Blog.objects.all()
+    categories = Category.objects.all()
+    return render(request, 'category-blog.html', {
+        'category': None,
+        'blogs': blogs,
+        'categories': categories
     })
