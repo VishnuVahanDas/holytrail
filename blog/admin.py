@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.text import slugify
-from .models import Blog, Category
+from .models import Blog, Category, Comment
 
 class CategoryAdmin(admin.ModelAdmin):
       # this hides the slug field in the form
@@ -12,3 +12,4 @@ class CategoryAdmin(admin.ModelAdmin):
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Blog)
+admin.site.register(Comment)

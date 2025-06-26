@@ -80,79 +80,61 @@
 
                 </div><!-- /.blog-details -->
 
+                <!-- Comments Display Section -->
                 <div class="comments-one">
-                    <h3 class="comments-one__title">02 Comments</h3><!-- /.comments-one__title -->
+                    <h3 class="comments-one__title">{{ comments.count }} Comments</h3>
                     <ul class="list-unstyled comments-one__list">
+                        {% for comment in comments %}
                         <li class="comments-one__card wow fadeInUp" data-wow-delay="100ms" data-wow-duration="1500ms">
                             <div class="comments-one__card__image">
-                                <img src="{% static 'images/blog/blog-comment-1-1.png' %}" alt="Leslie Alexander">
-                            </div><!-- /.comments-one__card__image -->
+                                <img src="{% static 'images/blog/blog-comment-1-1.png' %}" alt="{{ comment.name }}">
+                            </div>
                             <div class="comments-one__card__content">
                                 <div class="comments-one__card__top">
                                     <div class="comments-one__card__info">
-                                        <h3 class="comments-one__card__title">Leslie Alexander</h3>
-                                        <!-- /.comments-one__card__title -->
-                                        <p class="comments-one__card__date">February 10, 2024 at 2:37 pm</p><!-- / -->
-                                    </div><!-- /.comments-one__card__info -->
-                                    <button type="button"
-                                        class="comments-one__card__reply">Reply</button><!-- /.comments-one__card__reply -->
-                                </div><!-- /.comments-one__card__top -->
-                                <p class="comments-one__card__text">Neque porro est qui dolorem ipsum quia quaed
-                                    inventor veritatis et quasi architecto var sed efficitur turpis gilla sed sit amet
-                                    finibus eros. Lorem Ipsum is simply dummy</p><!-- /.comments-one__card__text -->
-                            </div><!-- /.comments-one__card__content -->
-                        </li><!-- /.comments-one__card -->
-                        <li class="comments-one__card wow fadeInUp" data-wow-delay="100ms" data-wow-duration="1500ms">
-                            <div class="comments-one__card__image">
-                                <img src="{% static 'images/blog/blog-comment-1-2.png' %}" alt="Ralph Edwards">
-                            </div><!-- /.comments-one__card__image -->
-                            <div class="comments-one__card__content">
-                                <div class="comments-one__card__top">
-                                    <div class="comments-one__card__info">
-                                        <h3 class="comments-one__card__title">Ralph Edwards</h3>
-                                        <!-- /.comments-one__card__title -->
-                                        <p class="comments-one__card__date">February 10, 2024 at 2:37 pm</p><!-- / -->
-                                    </div><!-- /.comments-one__card__info -->
-                                    <button type="button"
-                                        class="comments-one__card__reply">Reply</button><!-- /.comments-one__card__reply -->
-                                </div><!-- /.comments-one__card__top -->
-                                <p class="comments-one__card__text">Neque porro est qui dolorem ipsum quia quaed
-                                    inventor veritatis et quasi architecto var sed efficitur turpis gilla sed sit amet
-                                    finibus eros. Lorem Ipsum is simply dummy</p><!-- /.comments-one__card__text -->
-                            </div><!-- /.comments-one__card__content -->
-                        </li><!-- /.comments-one__card -->
-                    </ul><!-- /.list-unstyled comments-one__list -->
-                </div><!-- /.comments-one -->
+                                        <h3 class="comments-one__card__title">{{ comment.name }}</h3>
+                                        <p class="comments-one__card__date">{{ comment.created_at|date:"F d, Y" }}</p>
+                                    </div>
+                                    <button type="button" class="comments-one__card__reply">Reply</button>
+                                </div>
+                                <p class="comments-one__card__text">{{ comment.message }}</p>
+                            </div>
+                        </li>
+                        {% empty %}
+                        <li>No comments yet. Be the first to comment!</li>
+                        {% endfor %}
+                    </ul>
+                </div>
 
+                <!-- Comment Form Section -->
                 <div class="comments-form">
-                    <h3 class="comments-form__title">Leave a Comment</h3><!-- /.comments-form__title -->
-                    <form action="{% static 'inc/sendemail.php' %}"
-                        class="comments-form__form contact-form-validated form-one">
+                    <h3 class="comments-form__title">Leave a Comment</h3>
+                    <form method="POST" action="" class="comments-form__form form-one">
+                        {% csrf_token %}
                         <div class="form-one__group">
                             <div class="form-one__control wow fadeInUp" data-wow-duration="1500ms"
                                 data-wow-delay="100ms">
-                                <label for="name">Your Name*</label>
-                                <input type="text" id="name" name="name" placeholder="Your Name">
-                            </div><!-- /.form-one__control -->
+                                <label for="id_name">Your Name*</label>
+                                {{ form.name }}
+                            </div>
                             <div class="form-one__control wow fadeInUp" data-wow-duration="1500ms"
                                 data-wow-delay="200ms">
-                                <label for="email">Your Email*</label>
-                                <input type="email" id="email" name="email" placeholder="Your Email">
-                            </div><!-- /.form-one__control -->
+                                <label for="id_email">Your Email*</label>
+                                {{ form.email }}
+                            </div>
                             <div class="form-one__control form-one__control--full wow fadeInUp"
                                 data-wow-duration="1500ms" data-wow-delay="300ms">
-                                <label for="message">Message*</label>
-                                <textarea name="message" id="message" placeholder="Write Message"></textarea>
-                            </div><!-- /.form-one__control -->
+                                <label for="id_message">Message*</label>
+                                {{ form.message }}
+                            </div>
                             <div class="form-one__control form-one__control--full wow fadeInUp"
                                 data-wow-duration="1500ms" data-wow-delay="350ms">
                                 <button type="submit" class="gotur-btn">Post a Comment <span
-                                        class="icon-arrow-right"></span></button><!-- /.gotur-btn -->
-                            </div><!-- /.form-one__control -->
-                        </div><!-- /.form-one__group -->
-                    </form><!-- /.comments-form__form -->
-                    <div class="result"></div><!-- /.result -->
-                </div><!-- /.comments-form -->
+                                        class="icon-arrow-right"></span></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
             </div><!-- /.col-lg-8 -->
             <div class="col-lg-4">
