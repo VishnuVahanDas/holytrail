@@ -1,0 +1,749 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block doc_title %} Tour Detail {% endblock %}
+{% block content %}
+
+
+
+<section class="page-header">
+    <div class="page-header__bg"
+        style="background-image: url({% static 'images/backgrounds/page-header-bg-1-1.jpg' %});"></div>
+    <!-- /.page-header__bg -->
+    <div class="container">
+        <div class="page-header__content">
+            <h2 class="page-header__title bw-split-in-right">Tour Details</h2>
+            <ul class="gotur-breadcrumb list-unstyled">
+                <li><a href="/">Home</a></li>
+                <li><span>Tour Details</span></li>
+            </ul><!-- /.thm-breadcrumb list-unstyled -->
+        </div><!-- /.page-header__content -->
+    </div><!-- /.container -->
+</section><!-- /.page-header -->
+
+<div class="tour-one section-space-top wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
+    <div class="tour-one__carousel gotur-owl__carousel owl-carousel owl-theme" data-owl-options='{
+            "items": 1,
+            "center":true,
+            "margin": 30,
+            "loop": true,
+            "smartSpeed": 700,
+            "nav": false,
+            "dots": false,
+            "autoplay": false,
+            "responsive": {
+                "0": {
+                    "items": 1
+                },
+                "575": {
+                    "items": 2
+                },
+                "768": {
+                    "items": 2
+                },
+                "992": {
+                    "items": 3
+                },
+                "1199": {
+                    "items": 4
+                }
+            }
+        }'>
+        <div class="item">
+            <div class="tour-one__item">
+                <img src="{% static 'images/tour/1.jpg' %}" alt="tour image">
+            </div><!-- /.tour-one__item -->
+        </div><!-- /.item -->
+        <div class="item">
+            <div class="tour-one__item">
+                <img src="{% static 'images/tour/2.jpeg' %}" alt="tour image">
+            </div><!-- /.tour-one__item -->
+        </div><!-- /.item -->
+        <div class="item">
+            <div class="tour-one__item">
+                <img src="{% static 'images/tour/3.jpg' %}" alt="tour image">
+            </div><!-- /.tour-one__item -->
+        </div><!-- /.item -->
+        <div class="item">
+            <div class="tour-one__item">
+                <img src="{% static 'images/tour/4.jpg' %}" alt="tour image">
+            </div><!-- /.tour-one__item -->
+        </div><!-- /.item -->
+        <div class="item">
+            <div class="tour-one__item">
+                <img src="{% static 'images/tour/5.jpg' %}" alt="tour image">
+            </div><!-- /.tour-one__item -->
+        </div><!-- /.item -->
+        <div class="item">
+            <div class="tour-one__item">
+                <img src="{% static 'images/tour/6.jpeg' %}" alt="tour image">
+            </div><!-- /.tour-one__item -->
+        </div><!-- /.item -->
+    </div><!-- /.tour-one__carousel -->
+</div><!-- /.tour-one -->
+
+<section class="tour-listing-details section-space-bottom">
+    <div class="tour-listing-details__destination wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
+        <div class="container">
+            <div class="tour-listing-details__destination__inner">
+                <div class="tour-listing-details__destination__left">
+                    <h4 class="tour-listing-details__destination__title">Nepal Yatra</h4>
+                    <!-- /.tour-listing-details__destination__title -->
+                    <div class="tour-listing-details__destination__revue">
+                        <div class="tour-listing-details__destination__ratings-box">
+                            <span>(10 Review)</span>
+                            <i class="icon-star"></i>
+                            <i class="icon-star"></i>
+                            <i class="icon-star"></i>
+                            <i class="icon-star"></i>
+                            <i class="icon-star"></i>
+                        </div>
+                        <div class="tour-listing-details__destination__posted">
+                            <i class="icon-pin1"></i>
+                            <p class="tour-listing-details__destination__posted-text">India</p>
+                        </div><!-- / -->
+                    </div><!-- /.tour-listing-details__destination__revue -->
+                </div><!-- /.tour-listing-details__destination__left -->
+                <div class="tour-listing-details__destination__right">
+                    <a href="javascript:void(0)" class="tour-listing-details__destination__btn gotur-btn">Share <i
+                            class="icon-share"></i></a>
+                    <div class="tour-listing-details__destination__social__list">
+                        <a href="https://twitter.com">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                            <span class="sr-only">Twitter</span>
+                        </a>
+                        <a href="https://facebook.com">
+                            <i class="fab fa-facebook" aria-hidden="true"></i>
+                            <span class="sr-only">Facebook</span>
+                        </a>
+                        <a href="https://pinterest.com">
+                            <i class="fab fa-pinterest-p" aria-hidden="true"></i>
+                            <span class="sr-only">Pinterest</span>
+                        </a>
+                        <a href="https://instagram.com">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                            <span class="sr-only">Instagram</span>
+                        </a>
+                    </div>
+                </div><!-- /.tour-listing-details__destination__right -->
+            </div><!-- /.tour-listing-details__destination__inner -->
+        </div><!-- /.container -->
+    </div><!-- /.tour-listing-details__destination -->
+    <div class="tour-listing-details__info-area wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
+        <div class="container">
+            <ul class="tour-listing-details__info-area__info list-unstyled">
+                <li>
+                    <div class="tour-listing-details__info-area__icon">
+                        <i class="icon-location"></i>
+                    </div><!-- /.tour-listing-details__info-area__icon -->
+                    <div class="tour-listing-details__info-area__content">
+                        <h5 class="tour-listing-details__info-area__title">Location</h5>
+                        <!-- /.tour-listing-details__info-area__title -->
+                        <p class="tour-listing-details__info-area__text">Nepal</p>
+                        <!-- /.tour-listing-details__info-area__text -->
+                    </div><!-- /.tour-listing-details__info-area__content -->
+                </li>
+                <li>
+                    <div class="tour-listing-details__info-area__icon">
+                        <i class="icon-travel-and-tourism"></i>
+                    </div><!-- /.tour-listing-details__info-area__icon -->
+                    <div class="tour-listing-details__info-area__content">
+                        <h5 class="tour-listing-details__info-area__title">Activities Type</h5>
+                        <!-- /.tour-listing-details__info-area__title -->
+                        <p class="tour-listing-details__info-area__text">Spiritual Trip</p>
+                        <!-- /.tour-listing-details__info-area__text -->
+                    </div><!-- /.tour-listing-details__info-area__content -->
+                </li>
+                <li>
+                    <div class="tour-listing-details__info-area__icon">
+                        <i class="icon-clock"></i>
+                    </div><!-- /.tour-listing-details__info-area__icon -->
+                    <div class="tour-listing-details__info-area__content">
+                        <h5 class="tour-listing-details__info-area__title">Activate Day</h5>
+                        <!-- /.tour-listing-details__info-area__title -->
+                        <p class="tour-listing-details__info-area__text">Aug 14 - Aug 20</p>
+                        <!-- /.tour-listing-details__info-area__text -->
+                    </div><!-- /.tour-listing-details__info-area__content -->
+                </li>
+                <li>
+                    <div class="tour-listing-details__info-area__icon">
+                        <i class="icon-group"></i>
+                    </div><!-- /.tour-listing-details__info-area__icon -->
+                    <div class="tour-listing-details__info-area__content">
+                        <h5 class="tour-listing-details__info-area__title">Traveler</h5>
+                        <!-- /.tour-listing-details__info-area__title -->
+                        <p class="tour-listing-details__info-area__text">20+</p>
+                        <!-- /.tour-listing-details__info-area__text -->
+                    </div><!-- /.tour-listing-details__info-area__content -->
+                </li>
+                <li>
+                    <a href="checkout" class="gotur-btn">₹15,000 Per Person</a>
+                </li>
+            </ul><!-- /.tour-listing-details__info-area__info -->
+        </div><!-- /.container -->
+    </div><!-- /.tour-listing-details__info-area -->
+    <div class="container">
+        <div class="row gutter-y-30">
+            <div class="col-lg-8">
+                <div class="tour-listing-details__content">
+                    <div class="tour-listing-details__content__item tour-listing-details__content__text wow fadeInUp"
+                        data-wow-duration='1500ms' data-wow-delay='500ms'>
+                        <h4 class="tour-listing-details__title">Overview</h4><!-- /.tour-listing-details__title -->
+                        <pre class="tour-listing-details__text">🙏🏻 Hare Krishna 🙏🏻
+✨ Nepal Yatra 2025  🙏
+🛕 Muktinath - Janakpur - Pashupatinath 🛕</pre><!-- /.tour-listing-details__text -->
+                    </div><!-- /.tour-listing-details__content__item -->
+                    <div class="tour-listing-details__content__item tour-listing-details__list wow fadeInUp"
+                        data-wow-duration='1500ms' data-wow-delay='500ms'>
+                        <h4 class="tour-listing-details__title">Highlight List</h4>
+                        <!-- /.tour-listing-details__title -->
+                        <ul class="tour-listing-details__content__list">
+                            <li><i class="icon-check-star"></i> Journey from Gorakhpur to the spiritual hub of Pokhara.
+                            </li>
+                            <li><i class="icon-check-star"></i> Visit to the sacred Shaligram Shila Museum en route to
+                                Kagbeni.</li>
+                            <li><i class="icon-check-star"></i> Darshan at Muktinath, one of the 108 Divya Desams.</li>
+                            <li><i class="icon-check-star"></i> Explore Pokhara’s scenic beauty and lakes.</li>
+                            <li><i class="icon-check-star"></i> Overnight journey to Kathmandu, the city of temples.
+                            </li>
+                            <li><i class="icon-check-star"></i> Darshan at Pashupatinath and other Kathmandu shrines.
+                            </li>
+                            <li><i class="icon-check-star"></i> Visit to Janakpur, birthplace of Sita Mata.</li>
+                            <li><i class="icon-check-star"></i> Spiritual conclusion with Janakpur Darshan and return to
+                                Gorakhpur.</li>
+                        </ul><!-- /.tour-listing-details__content__list -->
+
+                    </div><!-- /.tour-listing-details__content__item -->
+                    <div class="tour-listing-details__content__item tour-listing-details__amenities wow fadeInUp"
+                        data-wow-duration='1500ms' data-wow-delay='500ms'>
+                        <h4 class="tour-listing-details__title">Tour Amenities</h4>
+                        <!-- /.tour-listing-details__title -->
+                        <div class="tour-listing-details__amenities__inner">
+                            <ul class="tour-listing-details__amenities__list">
+                                <li><i class="fas fa-check"></i>Intercity Car Transfers</li>
+                                <li><i class="fas fa-check"></i>Selected Meals</li>
+                                <li><i class="fas fa-check"></i> 3/4 star deluxe & premium accommodation</li>
+                            </ul><!-- /.tour-listing-details__content__amenities__list -->
+                            <ul-
+                                class="tour-listing-details__amenities__list tour-listing-details__amenities__list--two">
+                                <li><i class="fas fa-times"></i> Any special Puja</li>
+                                <li><i class="fas fa-times"></i> Any pony/pitthu/palaki charges</li>
+                            </ul-><!-- /.tour-listing-details__content__amenities__list -->
+                        </div><!-- /.tour-listing-details__amenities__inner -->
+                    </div><!-- / -->
+                    <div class="tour-listing-details__content__item tour-listing-details__thumb wow fadeInUp"
+                        data-wow-duration='1500ms' data-wow-delay='500ms'>
+                        <div class="row gutter-y-20">
+                            <div class="col-md-6">
+                                <div class="tour-listing-details__thumb__item">
+                                    <img src="{% static 'images/resources/badrinath.jpg' %}" alt="tour-listing-details">
+                                </div><!-- /.tour-listing-details__thumb__item -->
+                            </div><!-- /.col-md-6 -->
+                            <div class="col-md-6">
+                                <div class="tour-listing-details__thumb__item">
+                                    <img src="{% static 'images/resources/gangotri.jpg' %}" alt="tour-listing-details">
+                                </div><!-- /.tour-listing-details__thumb__item -->
+                            </div><!-- /.col-md-6 -->
+                        </div><!-- /.row -->
+                    </div><!-- / -->
+                    <div class="tour-listing-details__content__item tour-listing-details__ture-plan">
+                        <h4 class="tour-listing-details__title">Tour Plan</h4>
+                        <div class="faq-page__accordion faq-accordion gotur-accordion" data-grp-name="gotur-accordion">
+
+                            <div class="accordion wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
+                                <div class="accordion-title">
+                                    <h4 class="accordion-title__text">Journey to Pokhara<span
+                                            class="accordion-title__icon"></span></h4>
+                                </div>
+                                <div class="accordion-content">
+                                    <div class="inner">
+                                        <p class="inner__text"><strong>14th Aug:</strong> After breakfast, depart from
+                                            Gorakhpur to Pokhara.<br>Overnight stay at Pokhara.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion wow fadeInUp active" data-wow-duration='1500ms'
+                                data-wow-delay='500ms'>
+                                <div class="accordion-title">
+                                    <h4 class="accordion-title__text">Kagbeni via Shaligram Museum<span
+                                            class="accordion-title__icon"></span></h4>
+                                </div>
+                                <div class="accordion-content">
+                                    <div class="inner">
+                                        <p class="inner__text"><strong>15th Aug:</strong> After breakfast, depart for
+                                            Kagbeni.<br>En route visit Shaligram Shila Museum.<br>Stay at Shri Vaishnava
+                                            Ashram, Kagbeni.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
+                                <div class="accordion-title">
+                                    <h4 class="accordion-title__text">Muktinath Darshan<span
+                                            class="accordion-title__icon"></span></h4>
+                                </div>
+                                <div class="accordion-content">
+                                    <div class="inner">
+                                        <p class="inner__text"><strong>16th Aug:</strong> Darshan at
+                                            Muktinath.<br>Return to Pokhara.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
+                                <div class="accordion-title">
+                                    <h4 class="accordion-title__text">Pokhara & Kathmandu<span
+                                            class="accordion-title__icon"></span></h4>
+                                </div>
+                                <div class="accordion-content">
+                                    <div class="inner">
+                                        <p class="inner__text"><strong>17th Aug:</strong> Local sightseeing in
+                                            Pokhara.<br>Evening departure to Kathmandu (overnight journey).</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
+                                <div class="accordion-title">
+                                    <h4 class="accordion-title__text">Kathmandu Darshan<span
+                                            class="accordion-title__icon"></span></h4>
+                                </div>
+                                <div class="accordion-content">
+                                    <div class="inner">
+                                        <p class="inner__text"><strong>18th Aug:</strong> Darshan in Kathmandu.<br>Stay
+                                            in Kathmandu.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
+                                <div class="accordion-title">
+                                    <h4 class="accordion-title__text">Journey to Janakpur<span
+                                            class="accordion-title__icon"></span></h4>
+                                </div>
+                                <div class="accordion-content">
+                                    <div class="inner">
+                                        <p class="inner__text"><strong>19th Aug:</strong> After breakfast, depart for
+                                            Janakpur.<br>Overnight stay at Janakpur.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
+                                <div class="accordion-title">
+                                    <h4 class="accordion-title__text">Janakpur Darshan & Return<span
+                                            class="accordion-title__icon"></span></h4>
+                                </div>
+                                <div class="accordion-content">
+                                    <div class="inner">
+                                        <p class="inner__text"><strong>20th Aug:</strong> Darshan in Janakpur.<br>Depart
+                                            for Gorakhpur.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div><!-- /.tour-listing-details__content__item -->
+
+                    <div class="tour-listing-details__content__item tour-listing-details__ture-list">
+                        <h4 class="tour-listing-details__title">Related Tour List</h4>
+                        <!-- /.tour-listing-details__title -->
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+
+                                <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms'
+                                    data-wow-delay='100ms'>
+                                    <div class="listing-card-four__image">
+                                        <img src="{% static 'images/blog/2dham.jpeg' %}" alt="2dham">
+                                        <div class="listing-card-four__btn-group">
+
+                                            <div class="listing-card-four__discount">Featured</div>
+                                            <!-- /.listing-card-four__discount -->
+
+                                            <div class="listing-card-four__featured">Congregation</div>
+                                            <!-- /.listing-card-four__featured -->
+
+
+                                        </div><!-- /.listing-card-four__btn-group -->
+                                        <div class="listing-card-four__btns">
+                                            <a href="#"><i class="far fa-heart"></i></a>
+                                            <div class="listing-card-four__btns__hover">
+                                                <a href="#" class="listing-card-four__popup card__popup"
+                                                    data-gallery-options='{
+                    "items": [
+                        {
+                            "src": "{% static ' images/blog/listing-1-1.jpg' %}" }, { "src"
+                                                    : "{% static 'images/blog/listing-1-2.jpg' %}" }, { "src"
+                                                    : "{% static 'images/blog/listing-1-3.jpg' %}" } ], "gallery" :
+                                                    { "enabled" : true }, "type" : "image" }'>
+                                                    <span class="icon-image"></span>
+                                                </a>
+                                                <a class="video-popup"
+                                                    href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
+                                                        class="icon-video"></span></a>
+                                            </div><!-- /.listing-card-four__btns__hover -->
+                                        </div>
+                                        <ul class="listing-card-four__meta list-unstyled">
+                                            <li>
+                                                <a href="tour-detail"> <span class="listing-card-four__meta__icon"> <i
+                                                            class="icon-pin1"></i>
+                                                    </span>Uttarakhand</a>
+                                            </li>
+                                            <li>
+                                                <a href="tour-detail"> <span class="listing-card-four__meta__icon"> <i
+                                                            class="icon-calendar"></i>
+                                                    </span>6 Days, 6 Night</a>
+                                            </li>
+                                        </ul><!-- /.listing-card-four__meta -->
+                                        <a href="tour-detail" class="listing-card-four__image__overly"></a>
+                                    </div><!-- /.listing-card-four__image -->
+                                    <div class="listing-card-four__content">
+                                        <div class="listing-card-four__rating">
+                                            <span>(10 Review)</span>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                        </div><!-- /.listing-card-four__rating -->
+                                        <h3 class="listing-card-four__title"><a href="tour-detail">2 Dham yatra</a></h3>
+                                        <!-- /.listing-card-four__title -->
+
+                                        <div class="listing-card-four__content__btn">
+                                            <div class="listing-card-four__price">
+                                                <span class="listing-card-four__price__sub">Per person</span>
+                                                <span class="listing-card-four__price__number">₹8k-₹20k</span>
+                                            </div><!-- /.listing-card-four__price -->
+                                            <a href="tour-detail" class="listing-card-four__btn gotur-btn"> Book
+                                                Now <span class="icon"><i class="icon-right"></i> </span></a>
+                                        </div><!-- /.listing-card-four__content__btn -->
+                                    </div><!-- /.listing-card-four__content -->
+                                </div><!-- /.listing-card-four -->
+                            </div><!-- /.col-lg-6 col-md-6 -->
+
+
+                            <div class="col-lg-6 col-md-6">
+
+                                <div class="listing-card-four wow fadeInUp" data-wow-duration='1500ms'
+                                    data-wow-delay='100ms'>
+                                    <div class="listing-card-four__image">
+                                        <img src="{% static 'images/blog/hampii.jpg' %}"
+                                            alt="Molokini and Turtle Town Snorkeling Adventure Aboard">
+                                        <div class="listing-card-four__btn-group">
+
+                                            <div class="listing-card-four__discount">-40% Off</div>
+                                            <!-- /.listing-card-four__discount -->
+
+
+                                            <div class="listing-card-four__featured">Upcoming</div>
+                                            <!-- /.listing-card-four__featured -->
+
+
+                                        </div><!-- /.listing-card-four__btn-group -->
+                                        <div class="listing-card-four__btns">
+                                            <a href="#"><i class="far fa-heart"></i></a>
+                                            <div class="listing-card-four__btns__hover">
+                                                <a href="#" class="listing-card-four__popup card__popup"
+                                                    data-gallery-options='{
+                    "items": [
+                        {
+                            "src": "{% static ' images/blog/listing-1-1.jpg' %}" }, { "src"
+                                                    : "{% static 'images/blog/listing-1-2.jpg' %}" }, { "src"
+                                                    : "{% static 'images/blog/listing-1-3.jpg' %}" } ], "gallery" :
+                                                    { "enabled" : true }, "type" : "image" }'>
+                                                    <span class="icon-image"></span>
+                                                </a>
+                                                <a class="video-popup"
+                                                    href="https://www.youtube.com/watch?v=0MuL8fd3pb8"><span
+                                                        class="icon-video"></span></a>
+                                            </div><!-- /.listing-card-four__btns__hover -->
+                                        </div>
+                                        <ul class="listing-card-four__meta list-unstyled">
+                                            <li>
+                                                <a href="tour-listing-details-2.html"> <span
+                                                        class="listing-card-four__meta__icon"> <i class="icon-pin1"></i>
+                                                    </span>Karnataka</a>
+                                            </li>
+                                            <li>
+                                                <a href="tour-listing-details-2.html"> <span
+                                                        class="listing-card-four__meta__icon"> <i
+                                                            class="icon-calendar"></i>
+                                                    </span>6 Days, 3 Night</a>
+                                            </li>
+                                        </ul><!-- /.listing-card-four__meta -->
+                                        <a href="tour-listing-details-2.html"
+                                            class="listing-card-four__image__overly"></a>
+                                    </div><!-- /.listing-card-four__image -->
+                                    <div class="listing-card-four__content">
+                                        <div class="listing-card-four__rating">
+                                            <span>(10 Review)</span>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                        </div><!-- /.listing-card-four__rating -->
+                                        <h3 class="listing-card-four__title"><a href="tour-listing-details-2.html">Hampi
+                                                Yatra</a></h3>
+                                        <!-- /.listing-card-four__title -->
+
+                                        <div class="listing-card-four__content__btn">
+                                            <div class="listing-card-four__price">
+                                                <span class="listing-card-four__price__sub">Per Day</span>
+                                                <span class="listing-card-four__price__number">₹0.00</span>
+                                            </div><!-- /.listing-card-four__price -->
+                                            <a href="tour-listing-details-2.html"
+                                                class="listing-card-four__btn gotur-btn"> Book
+                                                Now <span class="icon"><i class="icon-right"></i> </span></a>
+                                        </div><!-- /.listing-card-four__content__btn -->
+                                    </div><!-- /.listing-card-four__content -->
+                                </div><!-- /.listing-card-four -->
+                            </div><!-- /.col-lg-6 col-md-6 -->
+                        </div><!-- /.row -->
+                    </div><!-- / -->
+                    <!--
+                            <div class="tour-listing-details__content__item tour-listing-details__map wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
+                                <h4 class="tour-listing-details__title">Location</h4>
+                                <div class="tour-listing-details__map-box">
+                                    <iframe title="template google map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4562.753041141002!2d-118.80123790098536!3d34.152323469614075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e82469c2162619%3A0xba03efb7998eef6d!2sCostco+Wholesale!5e0!3m2!1sbn!2sbd!4v1562518641290!5m2!1sbn!2sbd" class="map__@@extraClassName" allowfullscreen></iframe>
+                                </div>
+                            </div> --><!-- /.tour-listing-details__content__item -->
+
+                    <div class="tour-listing-details__content__item tour-listing-details__reviews">
+                        <h4 class="tour-listing-details__title">{{ reviews.count }} Reviews</h4>
+                        <ul class="list-unstyled product-details__comment__list">
+                            {% for review in reviews %}
+                            <li class="product-details__comment__card">
+                                <div class="product-details__comment__card__image">
+                                    <img src="{% static 'images/blog/blog-comment-1-1.png' %}" alt="User">
+                                </div>
+                                <div class="product-details__comment__card__content">
+                                    <div class="product-details__comment__card__top">
+                                        <div class="product-details__comment__card__info">
+                                            <h3>{{ review.name }}</h3>
+                                            <p>{{ review.created_at|date:"F d, Y \a\t h:i a" }}</p>
+                                        </div>
+                                        <div class="product-details__comment__card__star">
+                                            {% for i in "12345" %}
+                                            {% if forloop.counter <= review.rating %} <span class="fa fa-star"></span>
+                                                {% else %}
+                                                <span class="fa fa-star-o"></span>
+                                                {% endif %}
+                                                {% endfor %}
+                                        </div>
+                                    </div>
+                                    <p>{{ review.message }}</p>
+                                </div>
+                            </li>
+                            {% empty %}
+                            <p>No reviews yet.</p>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <!-- /.tour-listing-details__content__item -->
+                    <div class="tour-listing-details__content__item tour-listing-details__add-reviews">
+                        <h4 class="tour-listing-details__title wow fadeInUp" data-wow-duration='1500ms'
+                            data-wow-delay='500ms'>Add a Review</h4><!-- /.tour-listing-details__title -->
+                        <div class="product-details__form-ratings wow fadeInUp" data-wow-duration='1500ms'
+                            data-wow-delay='500ms'>
+                            <p class="product-details__form-ratings__label">Your Rating*</p>
+                            <span class="far fa-star"></span>
+                            <span class="far fa-star"></span>
+                            <span class="far fa-star"></span>
+                            <span class="far fa-star"></span>
+                            <span class="far fa-star"></span>
+                        </div><!-- review-ratings -->
+                        <form method="POST"
+                            class="product-details__form__form comments-form__form form-one wow fadeInUp"
+                            data-wow-duration='1500ms' data-wow-delay='500ms'>
+                            {% csrf_token %}
+                            <input type="hidden" name="rating" id="ratingInput" value="5">
+                            <div class="form-one__group">
+                                <div class="form-one__control">
+                                    <label for="name">Your Name*</label>
+                                    <input type="text" name="name" id="name" required>
+                                </div>
+                                <div class="form-one__control">
+                                    <label for="email">Your Email*</label>
+                                    <input type="email" name="email" id="email" required>
+                                </div>
+                                <div class="form-one__control form-one__control--full">
+                                    <label for="message">Message*</label>
+                                    <textarea name="message" id="message" required></textarea>
+                                </div>
+                                <div class="form-one__control form-one__control--full">
+                                    <button type="submit" class="gotur-btn gotur-btn--base">Submit Now <i
+                                            class="icon-right"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="result"></div>
+                    </div><!-- / -->
+
+                </div><!-- /.tour-listing-details__content -->
+
+            </div><!-- /.col-lg-8 -->
+            <div class="col-lg-4">
+                <div class="tour-listing-details__sidebar">
+                    <div class="tour-listing-details__sidebar__item tour-listing-details__sidebar__item-form wow fadeInUp"
+                        data-wow-delay="0.4s" data-wow-duration="1500ms">
+                        <h4 class="tour-listing-details__sidebar__title">Book This Tour</h4>
+                        <!-- /.tour-listing-details__sidebar__title -->
+                        <div class="sidebar-two__form">
+                            <form class="sidebar-two__form__inner contact-form-validated" action="checkout"
+                                method="POST" novalidate="novalidate">
+                                {% csrf_token %}
+                                <div class="sidebar-two__form__control">
+                                    <label for="adult">Adult:</label>
+                                    <input id="adult" type="number" name="adult" placeholder="Enter Value" value="0"
+                                        min="0">
+                                </div>
+                                <div class="sidebar-two__form__control">
+                                    <label for="youth">Youth:</label>
+                                    <input id="youth" type="number" name="youth" placeholder="Enter Value" value="0"
+                                        min="0">
+                                </div>
+                                <input type="hidden" id="checkout" name="checkout">
+                                <div class="sidebar-two__form__control sidebar-two__form__control--two">
+                                    <label class="sidebar-two__form__control--title" for="guests">Option for
+                                        Adults:</label>
+                                    <ul class="list-unstyled sidebar-two__form__checkbox">
+                                        <li>
+                                            <input type="checkbox" name="check8" id="check8" data-price="20000">
+                                            <label for="check8"><span>Yatra with Innova Car</span></label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" name="check9" id="check9" data-price="15000">
+                                            <label for="check9"><span>Yatra with Traveller Bus</span></label>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <ul class="list-unstyled sidebar-two__form__add-list">
+                                    <li>
+                                        <div class="sidebar-two__form__add">Yatra with Innova car: <span>₹20,000</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="sidebar-two__form__add">Yatra with traveller: <span>₹15,000</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="sidebar-two__form__add">Youth: <span>₹8,000</span></div>
+                                    </li>
+                                </ul>
+
+                                <div class="sidebar-two__form__total">Total: <span id="totalAmount">₹0</span></div>
+
+                                <!-- Hidden input to send final total to payment page -->
+                                <input type="hidden" name="final_amount" id="final_amount">
+                                <button type="button" id="goToCheckout" class="gotur-btn gotur-btn--base">Book Now <i
+                                        class="icon-right"></i></button>
+                            </form>
+
+
+
+                        </div>
+                    </div><!-- /.tour-listing-details__sidebar__item -->
+                </div><!-- /.tour-listing-details-details__sidebar -->
+            </div><!-- /.col-lg-6 -->
+        </div><!-- /.row justify-content-center -->
+    </div><!-- /.container -->
+</section><!-- /.tour-listing-details -->
+
+<script>
+    const adultInput = document.getElementById('adult');
+    const youthInput = document.getElementById('youth');
+    const checkInnova = document.getElementById('check8'); // Innova
+    const checkTraveller = document.getElementById('check9'); // Traveller
+    const totalAmountDisplay = document.getElementById('totalAmount');
+    const finalAmountInput = document.getElementById('final_amount');
+    const checkoutInput = document.getElementById('checkout');
+
+    function calculateTotal() {
+        const youthPrice = 8000;
+        let adultPrice = 0;
+
+        if (checkInnova.checked && checkTraveller.checked) {
+            alert("Please select only one transport option.");
+            checkInnova.checked = false;
+            checkTraveller.checked = false;
+            return;
+        } else if (checkInnova.checked) {
+            adultPrice = 20000;
+        } else if (checkTraveller.checked) {
+            adultPrice = 15000;
+        }
+
+        const adults = parseInt(adultInput.value) || 0;
+        const youths = parseInt(youthInput.value) || 0;
+
+        const adultTotal = adults * adultPrice;
+        const youthTotal = youths * youthPrice;
+
+        const total = adultTotal + youthTotal;
+
+        totalAmountDisplay.textContent = `₹${total.toLocaleString()}`;
+        finalAmountInput.value = total;
+        checkoutInput.value = adults + youths;
+
+        // Store values globally for use on checkout
+        window.calculatedValues = {
+            adults,
+            youths,
+            adultTotal,
+            youthTotal,
+            total,
+        };
+    }
+
+    adultInput.addEventListener('input', calculateTotal);
+    youthInput.addEventListener('input', calculateTotal);
+    checkInnova.addEventListener('change', () => {
+        if (checkInnova.checked) checkTraveller.checked = false;
+        calculateTotal();
+    });
+    checkTraveller.addEventListener('change', () => {
+        if (checkTraveller.checked) checkInnova.checked = false;
+        calculateTotal();
+    });
+
+    // Initial run
+    calculateTotal();
+
+    const goToCheckoutBtn = document.getElementById('goToCheckout');
+
+    goToCheckoutBtn.addEventListener('click', () => {
+        const vals = window.calculatedValues || {};
+        const adults = vals.adults || 0;
+
+        // ✅ Only require transport if adults > 0
+        if (adults > 0 && !checkInnova.checked && !checkTraveller.checked) {
+            alert("Please select a transport option (Innova or Traveller) for adult bookings.");
+            return; // Stop navigation
+        }
+
+        const params = new URLSearchParams({
+            adults: vals.adults || 0,
+            youths: vals.youths || 0,
+            adult_total: vals.adultTotal || 0,
+            youth_total: vals.youthTotal || 0,
+            total_amount: vals.total || 0,
+        });
+
+        window.location.href = `/checkout/?${params.toString()}`;
+    });
+
+    document.querySelectorAll('.product-details__form-ratings span').forEach((star, index) => {
+        star.addEventListener('click', () => {
+            document.getElementById('ratingInput').value = index + 1;
+            document.querySelectorAll('.product-details__form-ratings span').forEach((s, i) => {
+                s.classList.toggle('fas', i <= index);
+                s.classList.toggle('far', i > index);
+            });
+        });
+    });
+</script>
+
+{% endblock %}
