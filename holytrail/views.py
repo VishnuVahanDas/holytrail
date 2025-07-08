@@ -71,12 +71,17 @@ def checkout_view(request):
         Total: ₹{total_amount}
         '''
         
+        admin_emails = [email.strip() for email in os.getenv(
+            'ADMIN_EMAILS', 'vipul57612@gmail.com').split(',') if email.strip()]
+        cc_emails = [email.strip() for email in os.getenv(
+            'CC_EMAILS', 'rishabhpandey101@gmail.com').split(',') if email.strip()]
+
         admin_email = EmailMultiAlternatives(
-            admin_subject, 
-            admin_message, 
-            settings.DEFAULT_FROM_EMAIL, 
-            ['vipul57612@gmail.com'],  # To (admin email)
-            cc=['rishabhpandey101@gmail.com']  # CC email(s)
+            admin_subject,
+            admin_message,
+            settings.DEFAULT_FROM_EMAIL,
+            admin_emails,
+            cc=cc_emails
             )
         if screenshot_content:
             admin_email.attach(screenshot_name, screenshot_content, screenshot_type)
