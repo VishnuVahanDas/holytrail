@@ -243,7 +243,6 @@ CKEDITOR_5_CONFIGS = {
         "language": "en"
     }
 }
-CKEDITOR_5_CUSTOM_CSS = "css/gotur.css"
 
 
 

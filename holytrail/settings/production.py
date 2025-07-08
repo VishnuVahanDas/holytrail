@@ -244,7 +244,6 @@ CKEDITOR_5_CONFIGS = {
         "language": "en"
     }
 }
-CKEDITOR_5_CUSTOM_CSS = "css/gotur.css"
 
 
 CKEDITOR_5_UPLOADS_PATH = 'uploads/'  # This handles image/file uploads in editor
