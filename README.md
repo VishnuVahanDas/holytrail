@@ -51,9 +51,3 @@ Run the Django test suite with:
 ```bash
 python manage.py test
 ```
-
-There is also a small standalone script used by CI which simply imports CKEditor:
-
-```bash
-python test.py
-```
