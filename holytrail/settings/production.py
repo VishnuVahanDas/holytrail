@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-864p+t^0re3pz01cp1fcfj!@sh7)j)z*cj+6#+z*(8xq55pv^&'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
@@ -244,7 +244,6 @@ CKEDITOR_5_CONFIGS = {
         "language": "en"
     }
 }
-CKEDITOR_5_CUSTOM_CSS = "css/gotur.css"
 
 
 CKEDITOR_5_UPLOADS_PATH = 'uploads/'  # This handles image/file uploads in editor

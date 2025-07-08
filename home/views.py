@@ -28,7 +28,7 @@ def blog_view(request):
     return render(request, "index.html")
 
 def destination_view(request):
-    return render(request, "destibnation-details.html")
+    return render(request, "unused/destination-details.html")
 
 def cart_view(request):
     return render(request, "cart.html")
