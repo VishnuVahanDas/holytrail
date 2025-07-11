@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 import os
 from typing import Any, Dict
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(
@@ -24,13 +28,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(
 # SECURITY WARNING: keep the secret key used in production secret!
 # Falls back to the original development key when the environment variable
 # is unset so the project can run locally without additional configuration.
-SECRET_KEY = os.environ.get(
-    "SECRET_KEY",
-    "django-insecure-864p+t^0re3pz01cp1fcfj!@sh7)j)z*cj+6#+z*(8xq55pv^&",
-)
+#SECRET_KEY = os.environ.get(
+#    "SECRET_KEY",
+#    "django-insecure-864p+t^0re3pz01cp1fcfj!@sh7)j)z*cj+6#+z*(8xq55pv^&",
+#)
+SECRET_KEY = 'django-insecure-864p+t^0re3pz01cp1fcfj!@sh7)j)z*cj+6#+z*(8xq55pv^&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
