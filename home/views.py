@@ -33,3 +33,15 @@ def destination_view(request):
 def cart_view(request):
     return render(request, "cart.html")
 
+def privacy_policy_view(request):
+    return render(request, "privacy_policy.html")
+
+def terms_and_conditions_view(request):
+    return render(request, "terms_and_conditions.html")
+
+def cancellation_refund_view(request):
+    return render(request, "cancellation_refund.html")
+
+def shipping_delivery_view(request):
+    return render(request, "shipping_delivery.html")
+
