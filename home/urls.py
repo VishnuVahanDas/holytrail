@@ -12,5 +12,9 @@ urlpatterns = [
     path("blog", views.blog_view, name="blog"),
     path("destination", views.destination_view, name="destination"),
     path("cart",  views.cart_view, name="cart"),
-    
+    path("privacy-policy/", views.privacy_policy_view, name="privacy_policy"),
+    path("terms-and-conditions/", views.terms_and_conditions_view, name="terms_and_conditions"),
+    path("cancellation-refund/", views.cancellation_refund_view, name="cancellation_refund"),
+    path("shipping-delivery/", views.shipping_delivery_view, name="shipping_delivery"),
+
 ]

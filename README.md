@@ -51,3 +51,14 @@ Run the Django test suite with:
 ```bash
 python manage.py test
 ```
+
+## Policies
+
+Editable templates for common policies are located in `templates/`:
+
+- `privacy_policy.html`
+- `terms_and_conditions.html`
+- `cancellation_refund.html`
+- `shipping_delivery.html`
+
+Update these files to change the text shown on the corresponding pages.
