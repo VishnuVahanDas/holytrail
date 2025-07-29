@@ -35,6 +35,7 @@ urlpatterns = [
     path("tour/", include("tour.urls")),
     path('blogs/', include('blog.urls', namespace='blog')),
     path("checkout/", views.checkout_view, name="checkout"),
+    path("payment/verify/", views.verify_payment_view, name="verify_payment"),
     path("thank-you/",  views.thank_you_view, name="thank_you"),
      # ✅ CKEditor5 URL for uploads
     path('ckeditor5/', include('django_ckeditor_5.urls')),

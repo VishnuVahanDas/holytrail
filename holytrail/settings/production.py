@@ -262,6 +262,9 @@ CKEDITOR_5_CUSTOM_CSS = 'css/editor-custom.css'  # This applies your own styles 
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# Razorpay credentials for payment integration
+RAZORPAY_KEY_ID = os.environ.get("RAZORPAY_KEY_ID", "")
+RAZORPAY_KEY_SECRET = os.environ.get("RAZORPAY_KEY_SECRET", "")
 # Email Backend
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

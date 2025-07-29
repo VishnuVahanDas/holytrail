@@ -76,57 +76,22 @@
                                     <input type="email" id="email" name="email" required />
                                 </div>
                             </div>
-                            <div class="col-xl-12">
-                                <div class="checkout-page__input-box">
-                                    <label for="screenshot">Upload Payment Screenshot *</label>
-                                    <input type="file" id="screenshot" name="screenshot" accept="image/*" required />
-                                </div>
-                            </div>
                         </div>
                         <input type="hidden" name="adults" value="{{ adults }}" />
                         <input type="hidden" name="youths" value="{{ youths }}" />
                         <input type="hidden" name="adult_total" value="{{ adult_total }}" />
                         <input type="hidden" name="youth_total" value="{{ youth_total }}" />
                         <input type="hidden" name="total_amount" value="{{ total_amount }}" />
-                        <button type="submit" class="gotur-btn gotur-btn--base">
-                            Place Your Order
+                        <input type="hidden" name="razorpay_order_id" value="{{ razorpay_order_id }}" />
+                        <button type="button" id="pay-button" class="gotur-btn gotur-btn--base">
+                            Pay with Razorpay
                         </button>
                     </form>
                 </div>
             </div>
 
-            <!-- Right side: QR Code + Order Details -->
+            <!-- Right side: Order Details -->
             <div class="col-xl-6 col-lg-6">
-                <div class="checkout-page__qr-code wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="300ms"
-                    style="
-            text-align: center;
-            margin-bottom: 30px;
-            border: 1px solid #e0e0e0;
-            padding: 20px;
-            border-radius: 10px;
-          ">
-                    <h2 class="checkout-page__qr-code__title" style="margin-bottom: 20px">
-                        Scan QR Code to Pay <br><b style="color: #63AB45;">₹{{ total_amount }}</b>
-                    </h2>
-                    <img src="{% static 'QR.jpeg' %}" alt="QR Code for Payment"
-                        style="max-width: 250px; height: auto; margin-bottom: 15px" />
-
-                    <p style="font-size: 18px; font-weight: 600; color: #1a73e8">
-                        UPI ID: <span style="color: #000">6283624788@ybl</span>
-                    </p>
-                    <p style="margin: 5px 0; font-size: 16px">
-                        Google Pay / PhonePe Number: <strong>6283624788</strong>
-                    </p>
-
-                    <hr style="margin: 20px auto; width: 60%; border-top: 1px dashed #ccc" />
-
-                    <div style="font-size: 15px; line-height: 1.6">
-                        <p><strong>Bank Name:</strong> Punjab National Bank , Chandpur Bijnor</p>
-                        <p><strong>Account Holder:</strong> Pradip Kumar</p>
-                        <p><strong>Account Number:</strong> 0096000100611639</p>
-                        <p><strong>IFSC Code:</strong> PUNB0009600</p>
-                    </div>
-                </div>
 
                 <div class="checkout-page__your-order wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="300ms">
                     <h2 class="checkout-page__your-order__title">Your order</h2>
@@ -160,5 +125,34 @@
     </div>
 </section>
 <!-- Checkout End -->
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+document.getElementById('pay-button').onclick = function(e) {
+    var options = {
+        key: '{{ razorpay_key_id }}',
+        order_id: '{{ razorpay_order_id }}',
+        handler: function (response){
+            var form = document.querySelector('.checkout-page__form');
+            var pid = document.createElement('input');
+            pid.type = 'hidden';
+            pid.name = 'razorpay_payment_id';
+            pid.value = response.razorpay_payment_id;
+            form.appendChild(pid);
+            var sig = document.createElement('input');
+            sig.type = 'hidden';
+            sig.name = 'razorpay_signature';
+            sig.value = response.razorpay_signature;
+            form.appendChild(sig);
+            form.action = '{% url "verify_payment" %}';
+            form.method = 'POST';
+            form.submit();
+        }
+    };
+    var rzp = new Razorpay(options);
+    rzp.open();
+    e.preventDefault();
+};
+</script>
 
 {% endblock %}
