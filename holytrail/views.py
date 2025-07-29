@@ -1,110 +1,115 @@
 import os
+import razorpay
 from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.utils.html import strip_tags
-from django.core.files.storage import FileSystemStorage
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse, HttpResponseBadRequest
 
     
 def checkout_view(request):
-    if request.method == 'POST':
-        name = request.POST.get('first_name')
-        phone = request.POST.get('phone')
-        address = request.POST.get('address')
-        city = request.POST.get('town-city')
-        state = request.POST.get('state')
-        zip_code = request.POST.get('zip-code')
-        email = request.POST.get('email')
-        adults = request.POST.get('adults')
-        youths = request.POST.get('youths')
-        adult_total = request.POST.get('adult_total')
-        youth_total = request.POST.get('youth_total')
-        total_amount = request.POST.get('total_amount')
-        screenshot = request.FILES.get('screenshot')
+    # Always prepare a Razorpay order for the given amount
+    adults = request.GET.get('adults', '0')
+    youths = request.GET.get('youths', '0')
+    adult_total = request.GET.get('adult_total', '0')
+    youth_total = request.GET.get('youth_total', '0')
+    total_amount = request.GET.get('total_amount', '0')
 
-        # Save screenshot
-        screenshot_url = ''
-        screenshot_content = None
-        screenshot_name = ''
-        screenshot_type = ''
-        if screenshot:
-            fs = FileSystemStorage()
-            filename = fs.save(screenshot.name, screenshot)
-            screenshot_url = fs.url(filename)
-            screenshot.seek(0)
-            screenshot_content = screenshot.read()
-            screenshot_name = screenshot.name
-            screenshot_type = screenshot.content_type
+    client = razorpay.Client(auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET))
+    order = client.order.create({
+        'amount': int(total_amount) * 100,
+        'currency': 'INR',
+        'payment_capture': 1,
+    })
 
-        # Render email content
-        html_content = render(request, 'emails/order_confirmation.html', {
-            'name': name,
-            'phone': phone,
-            'address': address,
-            'city': city,
-            'state': state,
-            'zip_code': zip_code,
-            'email': email,
-            'adults': adults,
-            'youths': youths,
-            'adult_total': adult_total,
-            'youth_total': youth_total,
-            'total_amount': total_amount,
-        }).content.decode('utf-8')
-        text_content = strip_tags(html_content)
+    context = {
+        'adults': adults,
+        'youths': youths,
+        'adult_total': adult_total,
+        'youth_total': youth_total,
+        'total_amount': total_amount,
+        'razorpay_order_id': order['id'],
+        'razorpay_key_id': settings.RAZORPAY_KEY_ID,
+    }
+    return render(request, 'checkout.html', context)
 
-        # Send confirmation email to user
-        subject = 'Order Confirmation - Holytrail Tour Booking'
-        client_email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, [email])
-        client_email.attach_alternative(html_content, "text/html")
-        client_email.send()
 
-        # Send admin notification
-        admin_subject = f'New Order Received from {name}'
-        admin_message = f'''
-        Name: {name}
-        Phone: {phone}
-        Email: {email}
-        Address: {address}, {city}, {state}, {zip_code}
-        Adults: {adults} (₹{adult_total})
-        Youths: {youths} (₹{youth_total})
-        Total: ₹{total_amount}
-        '''
-        
-        admin_emails = [email.strip() for email in os.getenv(
-            'ADMIN_EMAILS', 'vipul57612@gmail.com').split(',') if email.strip()]
-        cc_emails = [email.strip() for email in os.getenv(
-            'CC_EMAILS', 'rishabhpandey101@gmail.com').split(',') if email.strip()]
+@csrf_exempt
+def verify_payment_view(request):
+    if request.method != 'POST':
+        return HttpResponseBadRequest('Invalid request')
 
-        admin_email = EmailMultiAlternatives(
-            admin_subject,
-            admin_message,
-            settings.DEFAULT_FROM_EMAIL,
-            admin_emails,
-            cc=cc_emails
-            )
-        if screenshot_content:
-            admin_email.attach(screenshot_name, screenshot_content, screenshot_type)
-        admin_email.send()
+    client = razorpay.Client(auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET))
+    data = {
+        'razorpay_order_id': request.POST.get('razorpay_order_id'),
+        'razorpay_payment_id': request.POST.get('razorpay_payment_id'),
+        'razorpay_signature': request.POST.get('razorpay_signature'),
+    }
 
-        return redirect('thank_you')
+    try:
+        client.utility.verify_payment_signature(data)
+    except razorpay.errors.SignatureVerificationError:
+        return HttpResponseBadRequest('Signature verification failed')
 
-    else:
-        # GET request
-        adults = request.GET.get('adults', '0')
-        youths = request.GET.get('youths', '0')
-        adult_total = request.GET.get('adult_total', '0')
-        youth_total = request.GET.get('youth_total', '0')
-        total_amount = request.GET.get('total_amount', '0')
+    name = request.POST.get('first_name')
+    phone = request.POST.get('phone')
+    address = request.POST.get('address')
+    city = request.POST.get('town-city')
+    state = request.POST.get('state')
+    zip_code = request.POST.get('zip-code')
+    email = request.POST.get('email')
+    adults = request.POST.get('adults')
+    youths = request.POST.get('youths')
+    adult_total = request.POST.get('adult_total')
+    youth_total = request.POST.get('youth_total')
+    total_amount = request.POST.get('total_amount')
 
-        context = {
-            'adults': adults,
-            'youths': youths,
-            'adult_total': adult_total,
-            'youth_total': youth_total,
-            'total_amount': total_amount,
-        }
-        return render(request, 'checkout.html', context)
+    html_content = render(request, 'emails/order_confirmation.html', {
+        'name': name,
+        'phone': phone,
+        'address': address,
+        'city': city,
+        'state': state,
+        'zip_code': zip_code,
+        'email': email,
+        'adults': adults,
+        'youths': youths,
+        'adult_total': adult_total,
+        'youth_total': youth_total,
+        'total_amount': total_amount,
+    }).content.decode('utf-8')
+    text_content = strip_tags(html_content)
+
+    subject = 'Order Confirmation - Holytrail Tour Booking'
+    client_email = EmailMultiAlternatives(subject, text_content, settings.DEFAULT_FROM_EMAIL, [email])
+    client_email.attach_alternative(html_content, "text/html")
+    client_email.send()
+
+    admin_subject = f'New Order Received from {name}'
+    admin_message = f'''
+    Name: {name}
+    Phone: {phone}
+    Email: {email}
+    Address: {address}, {city}, {state}, {zip_code}
+    Adults: {adults} (₹{adult_total})
+    Youths: {youths} (₹{youth_total})
+    Total: ₹{total_amount}
+    '''
+
+    admin_emails = [e.strip() for e in os.getenv('ADMIN_EMAILS', 'vipul57612@gmail.com').split(',') if e.strip()]
+    cc_emails = [e.strip() for e in os.getenv('CC_EMAILS', 'rishabhpandey101@gmail.com').split(',') if e.strip()]
+
+    admin_email = EmailMultiAlternatives(
+        admin_subject,
+        admin_message,
+        settings.DEFAULT_FROM_EMAIL,
+        admin_emails,
+        cc=cc_emails
+    )
+    admin_email.send()
+
+    return HttpResponse('OK')
 
 
 # Optional: If you want a dedicated view for thank you page (used in urls.py)

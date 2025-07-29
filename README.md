@@ -16,9 +16,9 @@ This Django project powers the Holytrail website. It contains the application co
    ```
 3. Install the required packages:
    ```bash
-   pip install django jazzmin django-ckeditor-5
+   pip install -r requirements.txt
    ```
-   *(Alternatively, install from a `requirements.txt` file if you maintain one.)*
+   *(Alternatively, install the listed packages manually if you prefer.)*
 
 ## Environment Variables
 
@@ -30,6 +30,8 @@ Some features rely on environment variables. At a minimum set the following keys
 - `CC_EMAILS` – Comma-separated list of addresses that will be copied on the same email. Defaults to `rishabhpandey101@gmail.com`.
 - `EMAIL_HOST_USER` / `EMAIL_HOST_PASSWORD` – SMTP credentials used when sending mail in the production configuration.
 - `DATABASE_USER` / `DATABASE_PASSWORD` – PostgreSQL credentials when using the production settings file.
+- `RAZORPAY_KEY_ID` / `RAZORPAY_KEY_SECRET` – Razorpay API credentials used for
+  creating and verifying payments.
 
 Set these variables in your deployment environment to configure email notifications and database access and to keep Django secure.
 
