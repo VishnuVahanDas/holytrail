@@ -15,6 +15,7 @@ def checkout_view(request):
     adult_total = request.GET.get('adult_total', '0')
     youth_total = request.GET.get('youth_total', '0')
     total_amount = request.GET.get('total_amount', '0')
+    booking_option = request.GET.get('booking_option', 'family')
 
     client = razorpay.Client(auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET))
     order = client.order.create({
@@ -29,6 +30,7 @@ def checkout_view(request):
         'adult_total': adult_total,
         'youth_total': youth_total,
         'total_amount': total_amount,
+        'booking_option': 'Family / Individual (Private)' if booking_option == 'family' else 'Youth Group (Shared)',
         'razorpay_order_id': order['id'],
         'razorpay_key_id': settings.RAZORPAY_KEY_ID,
     }
@@ -59,6 +61,7 @@ def verify_payment_view(request):
     state = request.POST.get('state')
     zip_code = request.POST.get('zip-code')
     email = request.POST.get('email')
+    booking_option = request.POST.get('booking_option', 'family')
     adults = request.POST.get('adults')
     youths = request.POST.get('youths')
     adult_total = request.POST.get('adult_total')
@@ -78,6 +81,7 @@ def verify_payment_view(request):
         'adult_total': adult_total,
         'youth_total': youth_total,
         'total_amount': total_amount,
+        'booking_option': 'Family / Individual (Private)' if booking_option == 'family' else 'Youth Group (Shared)',
     }).content.decode('utf-8')
     text_content = strip_tags(html_content)
 
@@ -92,6 +96,7 @@ def verify_payment_view(request):
     Phone: {phone}
     Email: {email}
     Address: {address}, {city}, {state}, {zip_code}
+    Booking Option: {'Family / Individual (Private)' if booking_option == 'family' else 'Youth Group (Shared)'}
     Adults: {adults} (₹{adult_total})
     Youths: {youths} (₹{youth_total})
     Total: ₹{total_amount}
