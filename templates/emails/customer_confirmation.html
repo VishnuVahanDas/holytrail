@@ -24,6 +24,7 @@
             <li><strong>Phone:</strong> {{ phone }}</li>
             <li><strong>Address:</strong> {{ address }}, {{ town_city }}, {{ state }} - {{ zip_code }}</li>
             <li><strong>Booking Option:</strong> {{ booking_option }}</li>
+            {% if travel_option %}<li><strong>Travel Option:</strong> {{ travel_option }}</li>{% endif %}
         </ul>
 
         <h3>Order Summary</h3>
