@@ -127,11 +127,15 @@
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
 document.getElementById('pay-button').onclick = function(e) {
+    var form = document.querySelector('.checkout-page__form');
+    if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+    }
     var options = {
         key: '{{ razorpay_key_id }}',
         order_id: '{{ razorpay_order_id }}',
         handler: function (response){
-            var form = document.querySelector('.checkout-page__form');
             var pid = document.createElement('input');
             pid.type = 'hidden';
             pid.name = 'razorpay_payment_id';
