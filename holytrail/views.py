@@ -114,7 +114,8 @@ def verify_payment_view(request):
     )
     admin_email.send()
 
-    return HttpResponse('OK')
+    # After successfully verifying the payment, show the thank you page
+    return render(request, "thank_you.html", {"name": name})
 
 
 # Optional: If you want a dedicated view for thank you page (used in urls.py)
