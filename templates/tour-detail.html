@@ -581,9 +581,17 @@
                         <h4 class="tour-listing-details__sidebar__title" id="book-now">Book This Tour</h4>
                         <!-- /.tour-listing-details__sidebar__title -->
                         <div class="sidebar-two__form">
+                            <p class="booking-option-info">Choose between a private family trip or a shared youth group experience.</p>
                             <form class="sidebar-two__form__inner contact-form-validated" action="checkout"
                                 method="POST" novalidate="novalidate">
                                 {% csrf_token %}
+                                <div class="sidebar-two__form__control">
+                                    <label>Booking Option:</label>
+                                    <div class="booking-option-choice">
+                                        <label><input type="radio" name="booking_option" value="family" checked> Family / Individual (Private)</label>
+                                        <label style="margin-left:10px;"><input type="radio" name="booking_option" value="youth"> Youth Group (Shared)</label>
+                                    </div>
+                                </div>
                                 <div class="sidebar-two__form__control">
                                     <label for="adult">Adult:</label>
                                     <input id="adult" type="number" name="adult" placeholder="Enter Value" value="0"
@@ -593,9 +601,10 @@
                                     <label for="youth">Youth:</label>
                                     <input id="youth" type="number" name="youth" placeholder="Enter Value" value="0"
                                         min="0">
+                                    <small id="child-note" class="form-text text-muted">Each child over 5 years requires a separate seat.</small>
                                 </div>
                                 <input type="hidden" id="checkout" name="checkout">
-                                <div class="sidebar-two__form__control sidebar-two__form__control--two">
+                                <div class="sidebar-two__form__control sidebar-two__form__control--two adult-transport">
                                     <label class="sidebar-two__form__control--title" for="guests">Option for
                                         Adults:</label>
                                     <ul class="list-unstyled sidebar-two__form__checkbox">
@@ -628,6 +637,7 @@
 
                                 <!-- Hidden input to send final total to payment page -->
                                 <input type="hidden" name="final_amount" id="final_amount">
+                                <input type="hidden" name="booking_option" id="booking_option_field">
                                 <button type="button" id="goToCheckout" class="gotur-btn gotur-btn--base">Book Now <i
                                         class="icon-right"></i></button>
                             </form>
@@ -650,6 +660,29 @@
     const totalAmountDisplay = document.getElementById('totalAmount');
     const finalAmountInput = document.getElementById('final_amount');
     const checkoutInput = document.getElementById('checkout');
+    const bookingOptionField = document.getElementById('booking_option_field');
+    const bookingRadios = document.querySelectorAll('input[name="booking_option"]');
+    const transportSection = document.querySelector('.adult-transport');
+    const childNote = document.getElementById('child-note');
+
+    function updateOption() {
+        const selected = document.querySelector('input[name="booking_option"]:checked').value;
+        bookingOptionField.value = selected;
+        if (selected === 'youth') {
+            transportSection.style.display = 'none';
+            checkTraveller.checked = true;
+            checkTraveller.disabled = true;
+            checkInnova.checked = false;
+            checkInnova.disabled = true;
+            if (childNote) childNote.style.display = 'none';
+        } else {
+            transportSection.style.display = '';
+            checkTraveller.disabled = false;
+            checkInnova.disabled = false;
+            if (childNote) childNote.style.display = '';
+        }
+        calculateTotal();
+    }
 
     function calculateTotal() {
         const youthPrice = 8000;
@@ -690,6 +723,7 @@
 
     adultInput.addEventListener('input', calculateTotal);
     youthInput.addEventListener('input', calculateTotal);
+    bookingRadios.forEach(r => r.addEventListener('change', updateOption));
     checkInnova.addEventListener('change', () => {
         if (checkInnova.checked) checkTraveller.checked = false;
         calculateTotal();
@@ -700,7 +734,7 @@
     });
 
     // Initial run
-    calculateTotal();
+    updateOption();
 
     const goToCheckoutBtn = document.getElementById('goToCheckout');
 
@@ -720,6 +754,7 @@
             adult_total: vals.adultTotal || 0,
             youth_total: vals.youthTotal || 0,
             total_amount: vals.total || 0,
+            booking_option: bookingOptionField.value || 'family'
         });
 
         window.location.href = `/checkout/?${params.toString()}`;
