@@ -10,10 +10,7 @@ from django.http import HttpResponse, HttpResponseBadRequest
     
 def checkout_view(request):
     # Always prepare a Razorpay order for the given amount
-    adults = request.GET.get('adults', '0')
-    youths = request.GET.get('youths', '0')
-    adult_total = request.GET.get('adult_total', '0')
-    youth_total = request.GET.get('youth_total', '0')
+    count = request.GET.get('count', '0')
     total_amount = request.GET.get('total_amount', '0')
     booking_option = request.GET.get('booking_option', 'family')
 
@@ -25,10 +22,7 @@ def checkout_view(request):
     })
 
     context = {
-        'adults': adults,
-        'youths': youths,
-        'adult_total': adult_total,
-        'youth_total': youth_total,
+        'count': count,
         'total_amount': total_amount,
         'booking_option': 'Family / Individual (Private)' if booking_option == 'family' else 'Youth Group (Shared)',
         'razorpay_order_id': order['id'],
@@ -62,10 +56,7 @@ def verify_payment_view(request):
     zip_code = request.POST.get('zip-code')
     email = request.POST.get('email')
     booking_option = request.POST.get('booking_option', 'family')
-    adults = request.POST.get('adults')
-    youths = request.POST.get('youths')
-    adult_total = request.POST.get('adult_total')
-    youth_total = request.POST.get('youth_total')
+    count = request.POST.get('count')
     total_amount = request.POST.get('total_amount')
 
     html_content = render(request, 'emails/order_confirmation.html', {
@@ -76,10 +67,7 @@ def verify_payment_view(request):
         'state': state,
         'zip_code': zip_code,
         'email': email,
-        'adults': adults,
-        'youths': youths,
-        'adult_total': adult_total,
-        'youth_total': youth_total,
+        'count': count,
         'total_amount': total_amount,
         'booking_option': 'Family / Individual (Private)' if booking_option == 'family' else 'Youth Group (Shared)',
     }).content.decode('utf-8')
@@ -97,8 +85,7 @@ def verify_payment_view(request):
     Email: {email}
     Address: {address}, {city}, {state}, {zip_code}
     Booking Option: {'Family / Individual (Private)' if booking_option == 'family' else 'Youth Group (Shared)'}
-    Adults: {adults} (₹{adult_total})
-    Youths: {youths} (₹{youth_total})
+    Count: {count}
     Total: ₹{total_amount}
     '''
 

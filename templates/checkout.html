@@ -77,10 +77,7 @@
                                 </div>
                             </div>
                         </div>
-                        <input type="hidden" name="adults" value="{{ adults }}" />
-                        <input type="hidden" name="youths" value="{{ youths }}" />
-                        <input type="hidden" name="adult_total" value="{{ adult_total }}" />
-                        <input type="hidden" name="youth_total" value="{{ youth_total }}" />
+                        <input type="hidden" name="count" value="{{ count }}" />
                         <input type="hidden" name="total_amount" value="{{ total_amount }}" />
                         <input type="hidden" name="booking_option" value="{{ booking_option }}" />
                         <input type="hidden" name="razorpay_order_id" value="{{ razorpay_order_id }}" />
@@ -109,12 +106,8 @@
                                 <td class="pro__price">{{ booking_option|title }}</td>
                             </tr>
                             <tr>
-                                <td class="pro__title">For {{ adults }} Adult</td>
-                                <td class="pro__price">₹{{ adult_total }}</td>
-                            </tr>
-                            <tr>
-                                <td class="pro__title">For {{ youths }} Youth</td>
-                                <td class="pro__price">₹{{ youth_total }}</td>
+                                <td class="pro__title">Travelers</td>
+                                <td class="pro__price">{{ count }}</td>
                             </tr>
                             <tr>
                                 <td class="pro__title pro__title--total">Total</td>
