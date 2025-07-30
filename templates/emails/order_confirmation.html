@@ -19,6 +19,7 @@
                 <h3>Booking Summary:</h3>
                 <ul>
                     <li><strong>Booking Option:</strong> {{ booking_option }}</li>
+                    {% if travel_option %}<li><strong>Travel Option:</strong> {{ travel_option }}</li>{% endif %}
                     <li><strong>Travelers:</strong> {{ count }}</li>
                     <li><strong>Total Amount:</strong> ₹{{ total_amount }}</li>
                 </ul>

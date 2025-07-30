@@ -22,6 +22,7 @@
         <p><strong>Address:</strong> {{ address }}, {{ town_city }}, {{ state }} - {{ zip_code }}</p>
 
         <p><strong>Booking Option:</strong> {{ booking_option }}</p>
+        {% if travel_option %}<p><strong>Travel Option:</strong> {{ travel_option }}</p>{% endif %}
 
         <h3>Booking Summary</h3>
         <table class="details-table">

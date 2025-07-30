@@ -13,6 +13,7 @@ def checkout_view(request):
     count = request.GET.get('count', '0')
     total_amount = request.GET.get('total_amount', '0')
     booking_option = request.GET.get('booking_option', 'family')
+    travel_option = request.GET.get('travel_option', '')
 
     try:
         total_int = int(total_amount)
@@ -33,6 +34,7 @@ def checkout_view(request):
         'count': count,
         'total_amount': total_amount,
         'booking_option': 'Family / Individual (Private)' if booking_option == 'family' else 'Youth Group (Shared)',
+        'travel_option': travel_option,
         'razorpay_order_id': order['id'],
         'razorpay_key_id': settings.RAZORPAY_KEY_ID,
     }
@@ -64,6 +66,7 @@ def verify_payment_view(request):
     zip_code = request.POST.get('zip-code')
     email = request.POST.get('email')
     booking_option = request.POST.get('booking_option', 'family')
+    travel_option = request.POST.get('travel_option', '')
     count = request.POST.get('count')
     total_amount = request.POST.get('total_amount')
 
@@ -78,6 +81,7 @@ def verify_payment_view(request):
         'count': count,
         'total_amount': total_amount,
         'booking_option': 'Family / Individual (Private)' if booking_option == 'family' else 'Youth Group (Shared)',
+        'travel_option': travel_option,
     }).content.decode('utf-8')
     text_content = strip_tags(html_content)
 
@@ -93,6 +97,7 @@ def verify_payment_view(request):
     Email: {email}
     Address: {address}, {city}, {state}, {zip_code}
     Booking Option: {'Family / Individual (Private)' if booking_option == 'family' else 'Youth Group (Shared)'}
+    Travel Option: {travel_option}
     Count: {count}
     Total: ₹{total_amount}
     '''
