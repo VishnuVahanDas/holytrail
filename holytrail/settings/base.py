@@ -50,8 +50,9 @@ INSTALLED_APPS = [
     'django_ckeditor_5',
 
     # local apps
-    "home",
-    "blog",
+    'accounts',
+    'home',
+    'blog',
     'tour',
 
 ]
