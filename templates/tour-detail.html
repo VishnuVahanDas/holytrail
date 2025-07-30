@@ -657,6 +657,7 @@
     const bookingRadios = document.querySelectorAll('input[name="booking_option"]');
     const transportSection = document.querySelector('.adult-transport');
     const childNote = document.getElementById('child-note');
+    const goToCheckoutBtn = document.getElementById('goToCheckout');
 
     function updateOption() {
         const selected = document.querySelector('input[name="booking_option"]:checked').value;
@@ -703,6 +704,7 @@
         totalAmountDisplay.textContent = `₹${total.toLocaleString()}`;
         finalAmountInput.value = total;
         checkoutInput.value = count;
+        goToCheckoutBtn.disabled = count <= 0;
 
         // Store values globally for use on checkout
         window.calculatedValues = {
@@ -725,11 +727,14 @@
     // Initial run
     updateOption();
 
-    const goToCheckoutBtn = document.getElementById('goToCheckout');
-
     goToCheckoutBtn.addEventListener('click', () => {
         const vals = window.calculatedValues || {};
         const count = vals.count || 0;
+
+        if (count < 1) {
+            alert('Please enter the number of travelers');
+            return;
+        }
 
         // ✅ Only require transport if count > 0 for family bookings
         if (bookingOptionField.value === 'family' && count > 0 && !checkInnova.checked && !checkTraveller.checked) {

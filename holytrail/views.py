@@ -14,9 +14,17 @@ def checkout_view(request):
     total_amount = request.GET.get('total_amount', '0')
     booking_option = request.GET.get('booking_option', 'family')
 
+    try:
+        total_int = int(total_amount)
+    except (TypeError, ValueError):
+        total_int = 0
+
+    if total_int <= 0:
+        return HttpResponseBadRequest('Invalid amount')
+
     client = razorpay.Client(auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET))
     order = client.order.create({
-        'amount': int(total_amount) * 100,
+        'amount': total_int * 100,
         'currency': 'INR',
         'payment_capture': 1,
     })
