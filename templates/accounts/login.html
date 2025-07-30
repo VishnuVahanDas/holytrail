@@ -61,8 +61,10 @@
                         <!-- /.login-page__top -->
                         <div class="tabs-content">
                             <div class="tabs-content__item tab active-tab" id="login">
-                                <form method="post" action="/admin" class="contact-form-validated form-one">
+                                <form method="post" action="{% url 'accounts:login' %}" class="contact-form-validated form-one">
+                                    <input type="hidden" name="form_type" value="login">
                                     {% csrf_token %}
+                                    {% if error %}<p style="color:red">{{ error }}</p>{% endif %}
                                     <div class="login-page__group">
                                         <div class="login-page__input-box">
                                             <i class="icon-email"></i>
@@ -92,20 +94,33 @@
                                 </form>
 
                                 <p class="login-page__form__text">
-                                    don’t have an account?<a href="login.html">register</a>
+                                    don’t have an account?<a href="#register">register</a>
                                 </p>
                             </div>
                             <!-- /.tabs-content__item -->
                             <div class="tabs-content__item tab" id="register">
-                                <form class="contact-form-validated form-one" action="inc/sendemail.php">
+                                <form method="post" action="{% url 'accounts:login' %}" class="contact-form-validated form-one">
+                                    <input type="hidden" name="form_type" value="register">
+                                    {% csrf_token %}
+                                    {% if error %}<p style="color:red">{{ error }}</p>{% endif %}
                                     <div class="login-page__group">
                                         <div class="login-page__input-box">
                                             <i class="icon-email"></i>
-                                            <input type="text" name="name" placeholder="your email" />
+                                            <input type="text" name="username" placeholder="username" required />
+                                        </div>
+                                        <div class="login-page__input-box">
+                                            <i class="icon-email"></i>
+                                            <input type="email" name="email" placeholder="email" required />
                                         </div>
                                         <div class="login-page__input-box">
                                             <i class="icon-padlock"></i>
-                                            <input type="password" placeholder="password"
+                                            <input type="password" name="password1" placeholder="password" required
+                                                class="login-page__password" />
+                                            <span class="toggle-password pass-field-icon fa fa-fw fa-eye-slash"></span>
+                                        </div>
+                                        <div class="login-page__input-box">
+                                            <i class="icon-padlock"></i>
+                                            <input type="password" name="password2" placeholder="confirm password" required
                                                 class="login-page__password" />
                                             <span class="toggle-password pass-field-icon fa fa-fw fa-eye-slash"></span>
                                         </div>
@@ -127,7 +142,7 @@
                                     </div>
                                 </form>
                                 <p class="login-page__form__text">
-                                    don’t have an account?<a href="login.html">log in</a>
+                                    Already have an account?<a href="#login">log in</a>
                                 </p>
                             </div>
                             <!-- /.tabs-content__item -->
