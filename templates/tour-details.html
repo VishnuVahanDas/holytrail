@@ -603,20 +603,14 @@
                                     </div>
                                 </div>
                                 <div class="sidebar-two__form__control">
-                                    <label for="adult">Adult:</label>
-                                    <input id="adult" type="number" name="adult" placeholder="Enter Value" value="0"
+                                    <label for="count">No. of Travelers:</label>
+                                    <input id="count" type="number" name="count" placeholder="Enter Value" value="0"
                                         min="0">
                                 </div>
-                                <div class="sidebar-two__form__control">
-                                    <label for="youth">Youth:</label>
-                                    <input id="youth" type="number" name="youth" placeholder="Enter Value" value="0"
-                                        min="0">
-                                    <small id="child-note" class="form-text text-muted">Each child over 5 years requires a separate seat.</small>
-                                </div>
+                                <small id="child-note" class="form-text text-muted">Each child over 5 years requires a separate seat.</small>
                                 <input type="hidden" id="checkout" name="checkout">
                                 <div class="sidebar-two__form__control sidebar-two__form__control--two adult-transport">
-                                    <label class="sidebar-two__form__control--title" for="guests">Option for
-                                        Adults:</label>
+                                    <label class="sidebar-two__form__control--title" for="guests">Travel Option:</label>
                                     <ul class="list-unstyled sidebar-two__form__checkbox">
                                         <li>
                                             <input type="checkbox" name="check8" id="check8" data-price="20000">
@@ -639,7 +633,7 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="sidebar-two__form__add">Youth: <span>₹8,000</span></div>
+                                        <div class="sidebar-two__form__add">Per Person: <span>₹8,000</span></div>
                                     </li>
                                 </ul>
 
@@ -663,8 +657,7 @@
 </section><!-- /.tour-listing-details -->
 
 <script>
-    const adultInput = document.getElementById('adult');
-    const youthInput = document.getElementById('youth');
+    const countInput = document.getElementById('count');
     const checkInnova = document.getElementById('check8'); // Innova
     const checkTraveller = document.getElementById('check9'); // Traveller
     const totalAmountDisplay = document.getElementById('totalAmount');
@@ -696,43 +689,39 @@
 
     function calculateTotal() {
         const youthPrice = 8000;
-        let adultPrice = 0;
+        let price = 0;
 
-        if (checkInnova.checked && checkTraveller.checked) {
-            alert("Please select only one transport option.");
-            checkInnova.checked = false;
-            checkTraveller.checked = false;
-            return;
-        } else if (checkInnova.checked) {
-            adultPrice = 20000;
-        } else if (checkTraveller.checked) {
-            adultPrice = 15000;
+        if (bookingOptionField.value === 'youth') {
+            price = youthPrice;
+        } else {
+            if (checkInnova.checked && checkTraveller.checked) {
+                alert("Please select only one transport option.");
+                checkInnova.checked = false;
+                checkTraveller.checked = false;
+                return;
+            } else if (checkInnova.checked) {
+                price = 20000;
+            } else if (checkTraveller.checked) {
+                price = 15000;
+            }
         }
 
-        const adults = parseInt(adultInput.value) || 0;
-        const youths = parseInt(youthInput.value) || 0;
+        const count = parseInt(countInput.value) || 0;
 
-        const adultTotal = adults * adultPrice;
-        const youthTotal = youths * youthPrice;
-
-        const total = adultTotal + youthTotal;
+        const total = count * price;
 
         totalAmountDisplay.textContent = `₹${total.toLocaleString()}`;
         finalAmountInput.value = total;
-        checkoutInput.value = adults + youths;
+        checkoutInput.value = count;
 
         // Store values globally for use on checkout
         window.calculatedValues = {
-            adults,
-            youths,
-            adultTotal,
-            youthTotal,
+            count,
             total,
         };
     }
 
-    adultInput.addEventListener('input', calculateTotal);
-    youthInput.addEventListener('input', calculateTotal);
+    countInput.addEventListener('input', calculateTotal);
     bookingRadios.forEach(r => r.addEventListener('change', updateOption));
     checkInnova.addEventListener('change', () => {
         if (checkInnova.checked) checkTraveller.checked = false;
@@ -750,19 +739,16 @@
 
     goToCheckoutBtn.addEventListener('click', () => {
         const vals = window.calculatedValues || {};
-        const adults = vals.adults || 0;
+        const count = vals.count || 0;
 
-        // ✅ Only require transport if adults > 0
-        if (adults > 0 && !checkInnova.checked && !checkTraveller.checked) {
-            alert("Please select a transport option (Innova or Traveller) for adult bookings.");
+        // ✅ Only require transport if count > 0 for family bookings
+        if (bookingOptionField.value === 'family' && count > 0 && !checkInnova.checked && !checkTraveller.checked) {
+            alert("Please select a transport option (Innova or Traveller) for bookings.");
             return; // Stop navigation
         }
 
         const params = new URLSearchParams({
-            adults: vals.adults || 0,
-            youths: vals.youths || 0,
-            adult_total: vals.adultTotal || 0,
-            youth_total: vals.youthTotal || 0,
+            count: count,
             total_amount: vals.total || 0,
             booking_option: bookingOptionField.value || 'family'
         });
