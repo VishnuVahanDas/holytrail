@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     # Third-party apps (like CKEditor)
     'django_ckeditor_5',
     
@@ -58,14 +59,24 @@ INSTALLED_APPS = [
 
 ]
 
+# Site framework configuration
+SITE_ID = 1
+
 # Authentication backends
 AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',  # Use only allauth backend
 )
 
-# Google OAuth credentials
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get("GOOGLE_ID")
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get("GOOGLE_key")
+# Google OAuth configuration for django-allauth
+SOCIALACCOUNT_PROVIDERS = {
+    "google": {
+        "APP": {
+            "client_id": os.environ.get("GOOGLE_ID", ""),
+            "secret": os.environ.get("GOOGLE_KEY", ""),
+            "key": "",
+        }
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
