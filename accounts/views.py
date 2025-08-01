@@ -28,6 +28,10 @@ def login_view(request):
             login(request, user)
             return redirect("home:home")
         else:
+            user_obj = User.objects.filter(username=username).first()
+            if user_obj and user_obj.check_password(password) and not user_obj.is_active:
+                request.session["otp_user_id"] = user_obj.id
+                return redirect("accounts:verify_email")
             error = "Invalid credentials"
     return render(request, "accounts/login.html", {"error": error})
 
