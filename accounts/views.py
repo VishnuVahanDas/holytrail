@@ -21,56 +21,59 @@ def social_account_login(sender, request, sociallogin, **kwargs):
 def login_view(request):
     error = ""
     if request.method == "POST":
-        form_type = request.POST.get("form_type")
-        if form_type == "login":
-            username = request.POST.get("username")
-            password = request.POST.get("password")
-            user = authenticate(request, username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect("home:home")
-            else:
-                error = "Invalid credentials"
-        elif form_type == "register":
-            username = request.POST.get("username")
-            email = request.POST.get("email")
-            password1 = request.POST.get("password1")
-            password2 = request.POST.get("password2")
-            if password1 != password2:
-                error = "Passwords do not match"
-            elif User.objects.filter(username=username).exists():
-                error = "Username already exists"
-            elif User.objects.filter(email=email).exists():
-                error = "Email already exists"
-            else:
-                user = User.objects.create_user(
-                    username=username,
-                    email=email,
-                    password=password1,
-                    is_active=False,
-                )
-
-                otp_code = get_random_string(6, allowed_chars="0123456789")
-                EmailOTP.objects.create(user=user, code=otp_code)
-
-                html_content = render_to_string(
-                    "emails/otp_email.html",
-                    {"username": username, "code": otp_code},
-                )
-                text_content = strip_tags(html_content)
-                subject = "Verify your email"
-                email_message = EmailMultiAlternatives(
-                    subject,
-                    text_content,
-                    settings.DEFAULT_FROM_EMAIL,
-                    [email],
-                )
-                email_message.attach_alternative(html_content, "text/html")
-                email_message.send()
-
-                request.session["otp_user_id"] = user.id
-                return redirect("accounts:verify_email")
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect("home:home")
+        else:
+            error = "Invalid credentials"
     return render(request, "accounts/login.html", {"error": error})
+
+
+def register_view(request):
+    error = ""
+    if request.method == "POST":
+        username = request.POST.get("username")
+        email = request.POST.get("email")
+        password1 = request.POST.get("password1")
+        password2 = request.POST.get("password2")
+        if password1 != password2:
+            error = "Passwords do not match"
+        elif User.objects.filter(username=username).exists():
+            error = "Username already exists"
+        elif User.objects.filter(email=email).exists():
+            error = "Email already exists"
+        else:
+            user = User.objects.create_user(
+                username=username,
+                email=email,
+                password=password1,
+                is_active=False,
+            )
+
+            otp_code = get_random_string(6, allowed_chars="0123456789")
+            EmailOTP.objects.create(user=user, code=otp_code)
+
+            html_content = render_to_string(
+                "emails/otp_email.html",
+                {"username": username, "code": otp_code},
+            )
+            text_content = strip_tags(html_content)
+            subject = "Verify your email"
+            email_message = EmailMultiAlternatives(
+                subject,
+                text_content,
+                settings.DEFAULT_FROM_EMAIL,
+                [email],
+            )
+            email_message.attach_alternative(html_content, "text/html")
+            email_message.send()
+
+            request.session["otp_user_id"] = user.id
+            return redirect("accounts:verify_email")
+    return render(request, "accounts/register.html", {"error": error})
 
 
 def logout_view(request):
