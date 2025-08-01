@@ -68,3 +68,22 @@ class AccountsTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Email already exists')
         self.assertEqual(User.objects.filter(email='dup@example.com').count(), 1)
+
+    def test_forgot_password_flow(self):
+        user = User.objects.create_user(username='resetuser', email='reset@example.com', password='oldpass')
+
+        # request OTP
+        response = self.client.post(reverse('accounts:forgot_password'), {'email': 'reset@example.com'})
+        self.assertRedirects(response, reverse('accounts:verify_reset_otp'))
+        self.assertEqual(len(mail.outbox), 1)
+        otp = user.password_reset_otps.first()
+
+        # verify OTP
+        response = self.client.post(reverse('accounts:verify_reset_otp'), {'code': otp.code})
+        self.assertRedirects(response, reverse('accounts:reset_password'))
+
+        # set new password
+        data = {'password1': 'newpass123', 'password2': 'newpass123'}
+        response = self.client.post(reverse('accounts:reset_password'), data)
+        self.assertRedirects(response, reverse('accounts:login'))
+        self.assertTrue(self.client.login(username='resetuser', password='newpass123'))
