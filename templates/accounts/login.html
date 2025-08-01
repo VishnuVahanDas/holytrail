@@ -61,7 +61,7 @@
                         <!-- /.login-page__top -->
                         <div class="tabs-content">
                             <div class="tabs-content__item tab active-tab" id="login">
-                                <form method="post" action="{% url 'accounts:login' %}" class="contact-form-validated form-one">
+                                <form method="post" action="{% url 'accounts:login' %}" class="form-one">
                                     <input type="hidden" name="form_type" value="login">
                                     {% csrf_token %}
                                     {% if error %}<p style="color:red">{{ error }}</p>{% endif %}
@@ -99,7 +99,7 @@
                             </div>
                             <!-- /.tabs-content__item -->
                             <div class="tabs-content__item tab" id="register">
-                                <form method="post" action="{% url 'accounts:login' %}" class="contact-form-validated form-one">
+                                <form method="post" action="{% url 'accounts:login' %}" class="form-one">
                                     <input type="hidden" name="form_type" value="register">
                                     {% csrf_token %}
                                     {% if error %}<p style="color:red">{{ error }}</p>{% endif %}

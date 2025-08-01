@@ -148,8 +148,8 @@
     });
   }
 
-  if ($(".contact-form-validated").length) {
-    $(".contact-form-validated").validate({
+  if ($("form[data-ajax='true']").length) {
+    $("form[data-ajax='true']").validate({
       // initialize the plugin
       rules: {
         name: {
