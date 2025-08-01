@@ -2,7 +2,7 @@ import os
 import razorpay
 from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils.html import strip_tags
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, HttpResponseBadRequest
@@ -11,6 +11,9 @@ from django.contrib.auth.decorators import login_required
     
 @login_required(login_url='accounts:login')
 def checkout_view(request):
+    if not request.user.is_active:
+        request.session['otp_user_id'] = request.user.id
+        return redirect('accounts:verify_email')
     # Always prepare a Razorpay order for the given amount
     count = request.GET.get('count', '0')
     total_amount = request.GET.get('total_amount', '0')
@@ -46,6 +49,9 @@ def checkout_view(request):
 @csrf_exempt
 @login_required(login_url='accounts:login')
 def verify_payment_view(request):
+    if not request.user.is_active:
+        request.session['otp_user_id'] = request.user.id
+        return redirect('accounts:verify_email')
     if request.method != 'POST':
         return HttpResponseBadRequest('Invalid request')
 

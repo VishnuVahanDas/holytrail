@@ -79,6 +79,7 @@ def register_view(request):
 def logout_view(request):
     logout(request)
     return redirect("home:home")
+
 def verify_email_view(request):
     """Verify the OTP sent to the user's email address."""
     user_id = request.session.get("otp_user_id")
@@ -105,6 +106,37 @@ def verify_email_view(request):
             error = "Invalid code"
 
     return render(request, "accounts/verify_email.html", {"error": error})
+
+
+def resend_otp_view(request):
+    """Resend a verification OTP to the user."""
+    user_id = request.session.get("otp_user_id")
+    if not user_id:
+        return redirect("accounts:login")
+
+    user = User.objects.filter(id=user_id).first()
+    if not user:
+        return redirect("accounts:login")
+
+    otp_code = get_random_string(6, allowed_chars="0123456789")
+    EmailOTP.objects.create(user=user, code=otp_code)
+
+    html_content = render_to_string(
+        "emails/otp_email.html",
+        {"username": user.username, "code": otp_code},
+    )
+    text_content = strip_tags(html_content)
+    subject = "Verify your email"
+    email_message = EmailMultiAlternatives(
+        subject,
+        text_content,
+        settings.DEFAULT_FROM_EMAIL,
+        [user.email],
+    )
+    email_message.attach_alternative(html_content, "text/html")
+    email_message.send()
+
+    return redirect("accounts:verify_email")
 
 
 def forgot_password_view(request):
