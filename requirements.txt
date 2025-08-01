@@ -2,3 +2,5 @@ Django>=5.2
 jazzmin
 django-ckeditor-5
 razorpay
+django-allauth
+Pillow

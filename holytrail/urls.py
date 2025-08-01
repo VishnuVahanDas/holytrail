@@ -33,7 +33,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("home.urls")),
     path("accounts/", include("accounts.urls")),
-    path('auth/', include('social_django.urls', namespace='social')),
     path("tour/", include("tour.urls")),
     path('blogs/', include('blog.urls', namespace='blog')),
     path("checkout/", views.checkout_view, name="checkout"),
