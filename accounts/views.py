@@ -3,6 +3,10 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from allauth.socialaccount.signals import pre_social_login
 from django.dispatch import receiver
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from django.conf import settings
 
 @receiver(pre_social_login)
 def social_account_login(sender, request, sociallogin, **kwargs):
@@ -35,6 +39,22 @@ def login_view(request):
                 error = "Username already exists"
             else:
                 user = User.objects.create_user(username=username, email=email, password=password1)
+
+                html_content = render_to_string(
+                    'emails/welcome_email.html',
+                    {'username': username, 'email': email, 'password': password1}
+                )
+                text_content = strip_tags(html_content)
+                subject = 'Welcome to Holytrail'
+                email_message = EmailMultiAlternatives(
+                    subject,
+                    text_content,
+                    settings.DEFAULT_FROM_EMAIL,
+                    [email]
+                )
+                email_message.attach_alternative(html_content, "text/html")
+                email_message.send()
+
                 login(request, user)
                 return redirect("home:home")
     return render(request, "accounts/login.html", {"error": error})
