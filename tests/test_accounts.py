@@ -30,6 +30,17 @@ class AccountsTests(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertEqual(int(self.client.session['_auth_user_id']), User.objects.get(username='tester').id)
 
+    def test_unverified_user_login_redirects_to_verify(self):
+        user = User.objects.create_user(username='inactive', password='pass12345', is_active=False)
+        data = {
+            'username': 'inactive',
+            'password': 'pass12345'
+        }
+        response = self.client.post(reverse('accounts:login'), data)
+        self.assertRedirects(response, reverse('accounts:verify_email'))
+        self.assertEqual(self.client.session.get('otp_user_id'), user.id)
+        self.assertIsNone(self.client.session.get('_auth_user_id'))
+
     def test_registration_sends_otp_email(self):
         data = {
             'username': 'emailuser',
