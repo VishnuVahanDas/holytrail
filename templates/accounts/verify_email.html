@@ -16,6 +16,10 @@
                 </div>
             </div>
         </form>
+        <form method="post" action="{% url 'accounts:resend_otp' %}">
+            {% csrf_token %}
+            <button type="submit" class="gotur-btn">Resend OTP</button>
+        </form>
     </div>
 </section>
 {% endblock %}

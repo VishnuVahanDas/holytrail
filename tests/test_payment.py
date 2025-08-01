@@ -12,6 +12,12 @@ class VerifyPaymentViewTests(TestCase):
         login_url = reverse('accounts:login') + '?next=' + reverse('verify_payment')
         self.assertRedirects(response, login_url)
 
+    def test_redirect_if_not_verified(self):
+        unverified = User.objects.create_user(username='nov', password='pass12345', is_active=False)
+        self.client.force_login(unverified)
+        response = self.client.post(reverse('verify_payment'))
+        self.assertRedirects(response, reverse('accounts:verify_email'))
+
     @patch('holytrail.views.razorpay.Client')
     def test_payment_success_shows_thank_you_page(self, mock_client):
         self.client.login(username="tester", password="pass12345")

@@ -56,6 +56,18 @@ class AccountsTests(TestCase):
         user.refresh_from_db()
         self.assertTrue(user.is_active)
 
+    def test_resend_otp(self):
+        data = {
+            'username': 'resenduser',
+            'email': 'resend@example.com',
+            'password1': 'pass12345',
+            'password2': 'pass12345'
+        }
+        self.client.post(reverse('accounts:register'), data)
+        response = self.client.post(reverse('accounts:resend_otp'))
+        self.assertRedirects(response, reverse('accounts:verify_email'))
+        self.assertEqual(len(mail.outbox), 2)
+
     def test_registration_duplicate_email(self):
         User.objects.create_user(username='existing', email='dup@example.com', password='pass12345')
         data = {
