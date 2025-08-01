@@ -2,6 +2,7 @@
 {% load static %} 
 {% block doc_title %} Login {% endblock %} 
 {% block content %}
+{% load socialaccount %}
 
 <section class="page-header">
     <div class="page-header__bg"
@@ -59,7 +60,6 @@
                             <!-- /.login-page__top__btn -->
                         </div>
                         <!-- /.login-page__top -->
-                        <a href="{% provider_login_url 'google' %}">Sign in with Google</a><br>
                         <div class="tabs-content">
                             <div class="tabs-content__item tab active-tab" id="login">
                                 <form method="post" action="{% url 'accounts:login' %}" class="form-one">
