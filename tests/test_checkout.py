@@ -1,9 +1,21 @@
 from django.test import TestCase
 from django.urls import reverse
+from django.contrib.auth.models import User
+
 
 class CheckoutViewTests(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(username="tester", password="pass12345")
+
     def test_travel_option_in_context(self):
+        self.client.login(username="tester", password="pass12345")
         response = self.client.get(reverse('checkout') + '?count=1&total_amount=1000&booking_option=family&travel_option=Innova')
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Innova')
+
+    def test_redirect_if_not_logged_in(self):
+        url = reverse('checkout') + '?count=1&total_amount=1000&booking_option=family&travel_option=Bus'
+        response = self.client.get(url)
+        login_url = reverse('accounts:login') + '?next=' + url
+        self.assertRedirects(response, login_url)
 

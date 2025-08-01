@@ -6,8 +6,10 @@ from django.shortcuts import render
 from django.utils.html import strip_tags
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, HttpResponseBadRequest
+from django.contrib.auth.decorators import login_required
 
     
+@login_required(login_url='accounts:login')
 def checkout_view(request):
     # Always prepare a Razorpay order for the given amount
     count = request.GET.get('count', '0')
@@ -42,6 +44,7 @@ def checkout_view(request):
 
 
 @csrf_exempt
+@login_required(login_url='accounts:login')
 def verify_payment_view(request):
     if request.method != 'POST':
         return HttpResponseBadRequest('Invalid request')
