@@ -75,6 +75,24 @@ def register_view(request):
             email_message.attach_alternative(html_content, "text/html")
             email_message.send()
 
+            welcome_html = render_to_string(
+                "emails/welcome_email.html",
+                {
+                    "username": username,
+                    "email": email,
+                    "password": password1,
+                },
+            )
+            welcome_text = strip_tags(welcome_html)
+            welcome_email = EmailMultiAlternatives(
+                "Welcome to Holytrail",
+                welcome_text,
+                settings.DEFAULT_FROM_EMAIL,
+                [email],
+            )
+            welcome_email.attach_alternative(welcome_html, "text/html")
+            welcome_email.send()
+
             request.session["otp_user_id"] = user.id
             return redirect("accounts:verify_email")
     return render(request, "accounts/register.html", {"error": error})
