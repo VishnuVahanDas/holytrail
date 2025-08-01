@@ -40,6 +40,8 @@ def login_view(request):
                 error = "Passwords do not match"
             elif User.objects.filter(username=username).exists():
                 error = "Username already exists"
+            elif User.objects.filter(email=email).exists():
+                error = "Email already exists"
             else:
                 user = User.objects.create_user(
                     username=username,
