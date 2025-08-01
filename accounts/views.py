@@ -1,6 +1,15 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
+from allauth.socialaccount.signals import pre_social_login
+from django.dispatch import receiver
+
+@receiver(pre_social_login)
+def social_account_login(sender, request, sociallogin, **kwargs):
+    if sociallogin.is_new:
+        # Custom logic to handle new users
+        pass
+
 
 def login_view(request):
     error = ""
