@@ -35,6 +35,10 @@ Some features rely on environment variables. At a minimum set the following keys
 
 Set these variables in your deployment environment to configure email notifications and database access and to keep Django secure.
 
+New users now receive a one-time password (OTP) when registering. They must
+visit `/account/verify` and enter the code from the email to activate their
+account.
+
 ## Running the Development Server
 
 Apply any pending migrations and start the built-in server:
