@@ -38,6 +38,8 @@ Set these variables in your deployment environment to configure email notificati
 New users now receive a one-time password (OTP) when registering. They must
 visit `/account/verify` and enter the code from the email to activate their
 account.
+Existing users who forget their password can request a reset OTP by visiting
+`/account/forgot-password` and then set a new password after verifying the code.
 
 ## Running the Development Server
 

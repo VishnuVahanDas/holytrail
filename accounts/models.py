@@ -16,3 +16,19 @@ class EmailOTP(models.Model):
 
     def __str__(self) -> str:  # pragma: no cover - trivial
         return f"{self.user.username} - {self.code}"
+
+
+class PasswordResetOTP(models.Model):
+    """Store one time passwords for resetting a user's password."""
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="password_reset_otps",
+    )
+    code = models.CharField(max_length=6)
+    created_at = models.DateTimeField(auto_now_add=True)
+    used = models.BooleanField(default=False)
+
+    def __str__(self) -> str:  # pragma: no cover - trivial
+        return f"{self.user.username} - {self.code}"
