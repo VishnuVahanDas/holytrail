@@ -7,6 +7,9 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.conf import settings
+from django.utils.crypto import get_random_string
+
+from .models import EmailOTP
 
 @receiver(pre_social_login)
 def social_account_login(sender, request, sociallogin, **kwargs):
@@ -38,28 +41,62 @@ def login_view(request):
             elif User.objects.filter(username=username).exists():
                 error = "Username already exists"
             else:
-                user = User.objects.create_user(username=username, email=email, password=password1)
+                user = User.objects.create_user(
+                    username=username,
+                    email=email,
+                    password=password1,
+                    is_active=False,
+                )
+
+                otp_code = get_random_string(6, allowed_chars="0123456789")
+                EmailOTP.objects.create(user=user, code=otp_code)
 
                 html_content = render_to_string(
-                    'emails/welcome_email.html',
-                    {'username': username, 'email': email, 'password': password1}
+                    "emails/otp_email.html",
+                    {"username": username, "code": otp_code},
                 )
                 text_content = strip_tags(html_content)
-                subject = 'Welcome to Holytrail'
+                subject = "Verify your email"
                 email_message = EmailMultiAlternatives(
                     subject,
                     text_content,
                     settings.DEFAULT_FROM_EMAIL,
-                    [email]
+                    [email],
                 )
                 email_message.attach_alternative(html_content, "text/html")
                 email_message.send()
 
-                login(request, user)
-                return redirect("home:home")
+                request.session["otp_user_id"] = user.id
+                return redirect("accounts:verify_email")
     return render(request, "accounts/login.html", {"error": error})
 
 
 def logout_view(request):
     logout(request)
     return redirect("home:home")
+def verify_email_view(request):
+    """Verify the OTP sent to the user's email address."""
+    user_id = request.session.get("otp_user_id")
+    if not user_id:
+        return redirect("accounts:login")
+
+    user = User.objects.filter(id=user_id).first()
+    if not user:
+        return redirect("accounts:login")
+
+    otp = EmailOTP.objects.filter(user=user, verified=False).order_by("-created_at").first()
+    error = ""
+    if request.method == "POST":
+        code = request.POST.get("code")
+        if otp and otp.code == code:
+            user.is_active = True
+            user.save()
+            otp.verified = True
+            otp.save()
+            login(request, user)
+            request.session.pop("otp_user_id", None)
+            return redirect("home:home")
+        else:
+            error = "Invalid code"
+
+    return render(request, "accounts/verify_email.html", {"error": error})
