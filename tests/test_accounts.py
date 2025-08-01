@@ -49,8 +49,9 @@ class AccountsTests(TestCase):
             'password2': 'pass12345'
         }
         self.client.post(reverse('accounts:register'), data)
-        self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(len(mail.outbox), 2)
         self.assertEqual(mail.outbox[0].subject, 'Verify your email')
+        self.assertEqual(mail.outbox[1].subject, 'Welcome to Holytrail')
 
     def test_email_verification(self):
         data = {
@@ -77,7 +78,7 @@ class AccountsTests(TestCase):
         self.client.post(reverse('accounts:register'), data)
         response = self.client.post(reverse('accounts:resend_otp'))
         self.assertRedirects(response, reverse('accounts:verify_email'))
-        self.assertEqual(len(mail.outbox), 2)
+        self.assertEqual(len(mail.outbox), 3)
 
     def test_registration_duplicate_email(self):
         User.objects.create_user(username='existing', email='dup@example.com', password='pass12345')
