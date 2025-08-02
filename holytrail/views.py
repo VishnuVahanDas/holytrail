@@ -66,14 +66,14 @@ def verify_payment_view(request):
         client.utility.verify_payment_signature(data)
     except razorpay.errors.SignatureVerificationError:
         return HttpResponseBadRequest('Signature verification failed')
-
+    
+    email = request.user.email
     name = request.POST.get('first_name')
     phone = request.POST.get('phone')
     address = request.POST.get('address')
-    city = request.POST.get('town-city')
+    city = request.POST.get('town_city')
     state = request.POST.get('state')
-    zip_code = request.POST.get('zip-code')
-    email = request.POST.get('email')
+    zip_code = request.POST.get('zip_code')
     booking_option = request.POST.get('booking_option', 'family')
     travel_option = request.POST.get('travel_option', '')
     count = request.POST.get('count')
@@ -89,7 +89,7 @@ def verify_payment_view(request):
         'email': email,
         'count': count,
         'total_amount': total_amount,
-        'booking_option': 'Family / Individual (Private)' if booking_option == 'family' else 'Youth Group (Shared)',
+        'booking_option': booking_option,
         'travel_option': travel_option,
     }).content.decode('utf-8')
     text_content = strip_tags(html_content)
@@ -99,29 +99,29 @@ def verify_payment_view(request):
     client_email.attach_alternative(html_content, "text/html")
     client_email.send()
 
-    admin_subject = f'New Order Received from {name}'
-    admin_message = f'''
-    Name: {name}
-    Phone: {phone}
-    Email: {email}
-    Address: {address}, {city}, {state}, {zip_code}
-    Booking Option: {'Family / Individual (Private)' if booking_option == 'family' else 'Youth Group (Shared)'}
-    Travel Option: {travel_option}
-    Count: {count}
-    Total: ₹{total_amount}
-    '''
 
-    admin_emails = [e.strip() for e in os.getenv('ADMIN_EMAILS', 'vipul57612@gmail.com').split(',') if e.strip()]
-    cc_emails = [e.strip() for e in os.getenv('CC_EMAILS', 'rishabhpandey101@gmail.com').split(',') if e.strip()]
+    admin_html_content = render(request, 'emails/admin_order_details.html', {
+        'name': name,
+        'phone': phone,
+        'address': address,
+        'city': city,
+        'state': state,
+        'zip_code': zip_code,
+        'email': email,
+        'count': count,
+        'total_amount': total_amount,
+        'booking_option': booking_option,
+        'travel_option': travel_option,
+    }).content.decode('utf-8')
+    admin_text_content = strip_tags(admin_html_content)
 
-    admin_email = EmailMultiAlternatives(
-        admin_subject,
-        admin_message,
-        settings.DEFAULT_FROM_EMAIL,
-        admin_emails,
-        cc=cc_emails
-    )
-    admin_email.send()
+    admin_subject = f'New Order Received !!'
+    admin_emails = [e.strip() for e in os.getenv('ADMIN_EMAILS', '').split(',') if e.strip()]
+    cc_emails = [e.strip() for e in os.getenv('CC_EMAILS', '').split(',') if e.strip()]
+
+    admin_email = EmailMultiAlternatives(admin_subject, admin_text_content, settings.DEFAULT_FROM_EMAIL, admin_emails, cc=cc_emails)
+    admin_email.attach_alternative(admin_html_content, "text/html")
+    admin_email.send()  
 
     # After successfully verifying the payment, show the thank you page
     return render(request, "thank_you.html", {"name": name})

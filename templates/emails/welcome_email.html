@@ -3,15 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Welcome to Holytrail</title>
+    <style>
+        body { font-family: Arial, sans-serif; color: #333; }
+        .container { padding: 20px; border: 1px solid #eee; max-width: 600px; margin: auto; }
+        .header { background-color: #f7f7f7; padding: 10px; text-align: center; }
+        .details-table { width: 100%; margin-top: 20px; border-collapse: collapse; }
+        .details-table th, .details-table td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    </style>
 </head>
 <body>
-    <p>Dear {{ username }},</p>
-    <p>Thank you for registering at Holytrail.</p>
-    <p>Your account details are as follows:</p>
-    <ul>
-        <li><strong>Email:</strong> {{ email }}</li>
-        <li><strong>Password:</strong> {{ password }}</li>
-    </ul>
-    <p>Hare Krishna,<br>Team Holytrail</p>
+    <div class="container">
+        <div class="header">
+            <h2>Thank you for choosing Holytrail !!</h2>
+        </div>
+        <p>Dear {{ username }},</p>
+        <p>Your account details are as follows:</p>
+        <br>
+        <h3>Account Info</h3>
+        <ul>
+            <li><strong>Username:</strong> {{ username }}</li>
+            <li><strong>Email:</strong> {{ email }}</li>
+            <li><strong>Password:</strong> {{ password }}</li>
+          </ul>
+          <br>
+        <p>Hare Krishna, <br> Team <br> Holytrail.in</p>
+    </div>
 </body>
 </html>

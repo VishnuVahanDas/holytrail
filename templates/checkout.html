@@ -70,12 +70,6 @@
                                     <input type="text" id="zip-code" name="zip_code" pattern="[0-9]*" required />
                                 </div>
                             </div>
-                            <div class="col-xl-12">
-                                <div class="checkout-page__input-box">
-                                    <label for="email">Email Address *</label>
-                                    <input type="email" id="email" name="email" required />
-                                </div>
-                            </div>
                         </div>
                         <input type="hidden" name="count" value="{{ count }}" />
                         <input type="hidden" name="total_amount" value="{{ total_amount }}" />
@@ -103,7 +97,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="pro__title">Option</td>
+                                <td class="pro__title">Booking Option</td>
                                 <td class="pro__price">{{ booking_option|title }}</td>
                             </tr>
                             {% if travel_option %}
@@ -113,7 +107,7 @@
                             </tr>
                             {% endif %}
                             <tr>
-                                <td class="pro__title">Travelers</td>
+                                <td class="pro__title">Count</td>
                                 <td class="pro__price">{{ count }}</td>
                             </tr>
                             <tr>
