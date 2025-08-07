@@ -1,5 +1,6 @@
 import os
 import razorpay
+from decimal import Decimal
 from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from django.shortcuts import render, redirect
@@ -7,6 +8,7 @@ from django.utils.html import strip_tags
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.contrib.auth.decorators import login_required
+from tour.models import Order
 
     
 @login_required(login_url='accounts:login')
@@ -71,13 +73,31 @@ def verify_payment_view(request):
     name = request.POST.get('first_name')
     phone = request.POST.get('phone')
     address = request.POST.get('address')
-    city = request.POST.get('town_city')
+    city = request.POST.get('town_city') or request.POST.get('town-city')
     state = request.POST.get('state')
-    zip_code = request.POST.get('zip_code')
+    zip_code = request.POST.get('zip_code') or request.POST.get('zip-code')
     booking_option = request.POST.get('booking_option', 'family')
     travel_option = request.POST.get('travel_option', '')
-    count = request.POST.get('count')
-    total_amount = request.POST.get('total_amount')
+    count = request.POST.get('count', '0')
+    total_amount = request.POST.get('total_amount', '0')
+
+    Order.objects.create(
+        user=request.user,
+        name=name,
+        email=email,
+        phone=phone,
+        address=address,
+        city=city or '',
+        state=state or '',
+        zip_code=zip_code or '',
+        booking_option=booking_option,
+        travel_option=travel_option,
+        count=int(count or 0),
+        total_amount=Decimal(total_amount or '0'),
+        razorpay_order_id=data['razorpay_order_id'],
+        razorpay_payment_id=data['razorpay_payment_id'],
+        razorpay_signature=data['razorpay_signature'],
+    )
 
     html_content = render(request, 'emails/order_confirmation.html', {
         'name': name,
