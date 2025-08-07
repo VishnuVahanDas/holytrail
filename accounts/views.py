@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from allauth.socialaccount.signals import pre_social_login
@@ -10,6 +11,7 @@ from django.conf import settings
 from django.utils.crypto import get_random_string
 
 from .models import EmailOTP, PasswordResetOTP
+from tour.models import Order
 
 @receiver(pre_social_login)
 def social_account_login(sender, request, sociallogin, **kwargs):
@@ -245,3 +247,14 @@ def reset_password_view(request):
             request.session.pop("password_reset_verified", None)
             return redirect("accounts:login")
     return render(request, "accounts/reset_password.html", {"error": error})
+
+
+@login_required
+def dashboard_view(request):
+    user = request.user
+    orders = Order.objects.filter(user=user)
+    return render(
+        request,
+        "accounts/dashboard.html",
+        {"user": user, "orders": orders},
+    )
