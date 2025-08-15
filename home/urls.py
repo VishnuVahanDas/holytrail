@@ -1,5 +1,4 @@
 from django.urls import path
-
 from . import views
 
 app_name = "home"
@@ -16,5 +15,4 @@ urlpatterns = [
     path("terms-and-conditions/", views.terms_and_conditions_view, name="terms_and_conditions"),
     path("cancellation-refund/", views.cancellation_refund_view, name="cancellation_refund"),
     path("shipping-delivery/", views.shipping_delivery_view, name="shipping_delivery"),
-
 ]

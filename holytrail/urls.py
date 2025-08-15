@@ -15,10 +15,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path, include, re_path as url
+from django.urls import path, reverse, include, re_path as url
+from django.shortcuts import redirect
 from django.conf.urls.static import static
 from django.views.static import serve
 from django.conf.urls.i18n import i18n_patterns
@@ -35,6 +35,12 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path("account/", include("accounts.urls")),
     path("tour/", include("tour.urls")),
+
+      # ✅ Redirect old URLs to new ones
+    path("tour-dwarika/", lambda request: redirect(reverse('tour:dwarika-yatra'), permanent=True)),
+    path("tour-jagannathpuri/", lambda request: redirect(reverse('tour:jagannathpuri-yatra'), permanent=True)),
+    path("tour-vrindavan/", lambda request: redirect(reverse('tour:vrindavan-yatra'), permanent=True)),
+    
     path('blogs/', include('blog.urls', namespace='blog')),
     path("checkout/", views.checkout_view, name="checkout"),
     path("payment/verify/", views.verify_payment_view, name="verify_payment"),

@@ -3,7 +3,7 @@ from .models import Review
 
 # Create your views here.
 def tour_view(request):
-    return render(request, "tour-listing-1.html")
+    return render(request, "unused/tour-listing-1.html")
 
 def tourdetail_view(request):
     if request.method == 'POST':
@@ -34,3 +34,14 @@ def tourdetails_view(request):
     return render(request, "tour-details.html", {
         "reviews": reviews
     })
+
+
+
+def dwarikayatra_view(request):
+    return render(request, "tour/dwarika-yatra.html")
+
+def vrindavanyatra_view(request):
+    return render(request, "tour/vrindavan-yatra.html")
+
+def jagannathpuriyatra_view(request):
+    return render(request, "tour/jagannathpuri-yatra.html")
