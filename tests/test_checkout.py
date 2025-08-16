@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django.utils import timezone
+from datetime import timedelta
 
 from accounts.models import Subscription
 
@@ -38,4 +39,17 @@ class CheckoutViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context['total_amount'], '900')
         self.assertEqual(response.context['original_total_amount'], '1000')
+
+    def test_discount_ends_after_365_days(self):
+        Subscription.objects.create(
+            user=self.user,
+            start_date=timezone.now().date() - timedelta(days=366),
+            active=True,
+        )
+        self.client.login(username="tester", password="pass12345")
+        response = self.client.get(reverse('checkout') + '?count=1&total_amount=1000&booking_option=family')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context['total_amount'], '1000')
+        self.assertEqual(response.context['original_total_amount'], '1000')
+        self.assertFalse(response.context['discount_applied'])
 
