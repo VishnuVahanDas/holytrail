@@ -523,15 +523,16 @@
                         <h4 class="tour-listing-details__sidebar__title" id="book-now">Book This Trip</h4>
                         <!-- /.tour-listing-details__sidebar__title -->
                         <div class="sidebar-two__form">
-                            <p class="booking-option-info">Choose between a private family trip or a shared youth group experience.</p>
+                            <p class="booking-option-info">Choose your package tier.</p>
                             <form class="sidebar-two__form__inner contact-form-validated" action="checkout"
                                 method="POST" novalidate="novalidate">
                                 {% csrf_token %}
                                 <div class="sidebar-two__form__control">
-                                    <label>Booking Option:</label>
+                                    <label>Select Tier:</label>
                                     <div class="booking-option-choice">
-                                        <label><input type="radio" name="booking_option" value="family" checked> Family / Individual</label>
-                                        <label style="margin-left:10px;"><input type="radio" name="booking_option" value="youth"> Youth Group (Shared)</label>
+                                        <label><input type="radio" name="tier" value="economy" checked> Economy</label>
+                                        <label style="margin-left:10px;"><input type="radio" name="tier" value="deluxe"> Deluxe</label>
+                                        <label style="margin-left:10px;"><input type="radio" name="tier" value="premium"> Premium</label>
                                     </div>
                                 </div>
                                 <div class="sidebar-two__form__control">
@@ -541,31 +542,16 @@
                                 </div>
                                 <small id="child-note" class="form-text text-muted">Each child over 5 years requires a separate seat.</small>
                                 <input type="hidden" id="checkout" name="checkout">
-                                <div class="sidebar-two__form__control sidebar-two__form__control--two adult-transport">
-                                    <label class="sidebar-two__form__control--title" for="guests">Travel Option for Family / Individual:</label>
-                                    <ul class="list-unstyled sidebar-two__form__checkbox">
-                                        <li>
-                                            <input type="checkbox" name="check8" id="check8" data-price="20000">
-                                            <label for="check8"><span>Yatra with Innova Car</span></label>
-                                        </li>
-                                        <li>
-                                            <input type="checkbox" name="check9" id="check9" data-price="15000">
-                                            <label for="check9"><span>Yatra with Traveller Bus</span></label>
-                                        </li>
-                                    </ul>
-                                </div>
 
                                 <ul class="list-unstyled sidebar-two__form__add-list">
                                     <li>
-                                        <div class="sidebar-two__form__add">Premium: <span>₹10,000</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="sidebar-two__form__add">Delux: <span>₹8,000</span>
-                                        </div>
-                                    </li>
-                                    <li>
                                         <div class="sidebar-two__form__add">Economy: <span>₹5,000</span></div>
+                                    </li>
+                                    <li>
+                                        <div class="sidebar-two__form__add">Deluxe: <span>₹8,000</span></div>
+                                    </li>
+                                    <li>
+                                        <div class="sidebar-two__form__add">Premium: <span>₹10,000</span></div>
                                     </li>
                                 </ul>
 
@@ -573,7 +559,7 @@
 
                                 <!-- Hidden input to send final total to payment page -->
                                 <input type="hidden" name="final_amount" id="final_amount">
-                                <input type="hidden" name="booking_option" id="booking_option_field">
+                                <input type="hidden" name="tier" id="tier_field">
                                 <button type="button" id="goToCheckout" class="gotur-btn gotur-btn--base">Book Now <i
                                         class="icon-right"></i></button>
                             </form>
@@ -590,112 +576,54 @@
 
 <script>
     const countInput = document.getElementById('count');
-    const checkInnova = document.getElementById('check8'); // Innova
-    const checkTraveller = document.getElementById('check9'); // Traveller
     const totalAmountDisplay = document.getElementById('totalAmount');
     const finalAmountInput = document.getElementById('final_amount');
     const checkoutInput = document.getElementById('checkout');
-    const bookingOptionField = document.getElementById('booking_option_field');
-    let travelOption = '';
-    const bookingRadios = document.querySelectorAll('input[name="booking_option"]');
-    const transportSection = document.querySelector('.adult-transport');
-    const childNote = document.getElementById('child-note');
+    const tierField = document.getElementById('tier_field');
     const goToCheckoutBtn = document.getElementById('goToCheckout');
+    const tierRadios = document.querySelectorAll('input[name="tier"]');
 
-    function updateOption() {
-        const selected = document.querySelector('input[name="booking_option"]:checked').value;
-        bookingOptionField.value = selected;
-        if (selected === 'youth') {
-            transportSection.style.display = 'none';
-            checkTraveller.checked = true;
-            checkTraveller.disabled = true;
-            checkInnova.checked = false;
-            checkInnova.disabled = true;
-            if (childNote) childNote.style.display = 'none';
-        } else {
-            transportSection.style.display = '';
-            checkTraveller.disabled = false;
-            checkInnova.disabled = false;
-            if (childNote) childNote.style.display = '';
-        }
-        calculateTotal();
-    }
+    const TIER_PRICES = {
+        premium: 10000,
+        deluxe: 8000,
+        economy: 5000,
+    };
 
     function calculateTotal() {
-        const youthPrice = 8000;
-        let price = 0;
-
-        if (bookingOptionField.value === 'youth') {
-            price = youthPrice;
-            travelOption = 'Traveller Bus';
-        } else {
-            if (checkInnova.checked && checkTraveller.checked) {
-                alert("Please select only one transport option.");
-                checkInnova.checked = false;
-                checkTraveller.checked = false;
-                return;
-            } else if (checkInnova.checked) {
-                price = 20000;
-                travelOption = 'Innova Car';
-            } else if (checkTraveller.checked) {
-                price = 15000;
-                travelOption = 'Traveller Bus';
-            } else {
-                travelOption = '';
-            }
-        }
-
         const count = parseInt(countInput.value) || 0;
-
+        const selectedTier = document.querySelector('input[name="tier"]:checked')?.value;
+        const price = TIER_PRICES[selectedTier] || 0;
         const total = count * price;
 
         totalAmountDisplay.textContent = `₹${total.toLocaleString()}`;
         finalAmountInput.value = total;
         checkoutInput.value = count;
-        goToCheckoutBtn.disabled = count <= 0;
+        tierField.value = selectedTier || '';
+        goToCheckoutBtn.disabled = count <= 0 || !selectedTier;
 
-        // Store values globally for use on checkout
-        window.calculatedValues = {
-            count,
-            total,
-            travelOption,
-        };
+        window.calculatedValues = { count, total, tier: selectedTier };
     }
 
     countInput.addEventListener('input', calculateTotal);
-    bookingRadios.forEach(r => r.addEventListener('change', updateOption));
-    checkInnova.addEventListener('change', () => {
-        if (checkInnova.checked) checkTraveller.checked = false;
-        calculateTotal();
-    });
-    checkTraveller.addEventListener('change', () => {
-        if (checkTraveller.checked) checkInnova.checked = false;
-        calculateTotal();
-    });
+    tierRadios.forEach(r => r.addEventListener('change', calculateTotal));
 
-    // Initial run
-    updateOption();
+    calculateTotal();
 
     goToCheckoutBtn.addEventListener('click', () => {
         const vals = window.calculatedValues || {};
-        const count = vals.count || 0;
-
-        if (count < 1) {
+        if ((vals.count || 0) < 1) {
             alert('Please enter the number of travelers');
             return;
         }
-
-        // ✅ Only require transport if count > 0 for family bookings
-        if (bookingOptionField.value === 'family' && count > 0 && !checkInnova.checked && !checkTraveller.checked) {
-            alert("Please select a transport option (Innova or Traveller) for bookings.");
-            return; // Stop navigation
+        if (!vals.tier) {
+            alert('Please select a package tier');
+            return;
         }
 
         const params = new URLSearchParams({
-            count: count,
+            count: vals.count,
             total_amount: vals.total || 0,
-            booking_option: bookingOptionField.value || 'family',
-            travel_option: vals.travelOption || travelOption
+            tier: vals.tier,
         });
 
         window.location.href = `/checkout/?${params.toString()}`;
