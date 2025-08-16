@@ -1,7 +1,12 @@
 from django.test import TestCase
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.utils import timezone
+from decimal import Decimal
 from unittest.mock import patch
+
+from accounts.models import Subscription
+from tour.models import Order
 
 class VerifyPaymentViewTests(TestCase):
     def setUp(self):
@@ -42,4 +47,31 @@ class VerifyPaymentViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'thank_you.html')
         self.assertContains(response, 'John')
+
+    @patch('holytrail.views.razorpay.Client')
+    def test_discount_amount_validated(self, mock_client):
+        self.client.login(username="tester", password="pass12345")
+        Subscription.objects.create(user=self.user, start_date=timezone.now().date(), active=True)
+        mock_client.return_value.utility.verify_payment_signature.return_value = None
+        data = {
+            'razorpay_order_id': 'order_123',
+            'razorpay_payment_id': 'payment_123',
+            'razorpay_signature': 'sig_123',
+            'first_name': 'John',
+            'phone': '1234567890',
+            'address': '123 Street',
+            'town-city': 'Townsville',
+            'state': 'State',
+            'zip-code': '12345',
+            'email': 'john@example.com',
+            'booking_option': 'family',
+            'travel_option': 'Bus',
+            'count': '2',
+            'total_amount': '900',
+            'original_total_amount': '1000',
+        }
+        response = self.client.post(reverse('verify_payment'), data)
+        self.assertEqual(response.status_code, 200)
+        order = Order.objects.get()
+        self.assertEqual(order.total_amount, Decimal('900'))
 

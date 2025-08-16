@@ -73,6 +73,7 @@
                         </div>
                         <input type="hidden" name="count" value="{{ count }}" />
                         <input type="hidden" name="total_amount" value="{{ total_amount }}" />
+                        <input type="hidden" name="original_total_amount" value="{{ original_total_amount|default:total_amount }}" />
                         <input type="hidden" name="booking_option" value="{{ booking_option }}" />
                         <input type="hidden" name="travel_option" value="{{ travel_option }}" />
                         <input type="hidden" name="razorpay_order_id" value="{{ razorpay_order_id }}" />
@@ -110,12 +111,21 @@
                                 <td class="pro__title">Count</td>
                                 <td class="pro__price">{{ count }}</td>
                             </tr>
+                            {% if discount_applied %}
+                            <tr>
+                                <td class="pro__title">Original Total</td>
+                                <td class="pro__price"><s>₹{{ original_total_amount }}</s></td>
+                            </tr>
+                            <tr>
+                                <td class="pro__title pro__title--total">Discounted Total</td>
+                                <td class="pro__price pro__price--total">₹{{ total_amount }}</td>
+                            </tr>
+                            {% else %}
                             <tr>
                                 <td class="pro__title pro__title--total">Total</td>
-                                <td class="pro__price pro__price--total">
-                                    ₹{{ total_amount }}
-                                </td>
+                                <td class="pro__price pro__price--total">₹{{ total_amount }}</td>
                             </tr>
+                            {% endif %}
                         </tbody>
                     </table>
                 </div>

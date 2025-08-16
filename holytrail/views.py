@@ -1,13 +1,18 @@
 import os
 import razorpay
 from decimal import Decimal
+from datetime import timedelta
+
 from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from django.shortcuts import render, redirect
+from django.utils import timezone
 from django.utils.html import strip_tags
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.contrib.auth.decorators import login_required
+
+from accounts.models import Subscription
 from tour.models import Order
 
     
@@ -29,17 +34,31 @@ def checkout_view(request):
 
     if total_int <= 0:
         return HttpResponseBadRequest('Invalid amount')
+    total_decimal = Decimal(total_int)
+    original_total = total_decimal
+    discount_applied = False
+
+    subscription = (
+        Subscription.objects.filter(user=request.user, active=True)
+        .order_by('-start_date')
+        .first()
+    )
+    if subscription and subscription.start_date >= timezone.now().date() - timedelta(days=365):
+        total_decimal = (total_decimal * Decimal('0.90')).quantize(Decimal('1'))
+        discount_applied = True
 
     client = razorpay.Client(auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET))
     order = client.order.create({
-        'amount': total_int * 100,
+        'amount': int(total_decimal) * 100,
         'currency': 'INR',
         'payment_capture': 1,
     })
 
     context = {
         'count': count,
-        'total_amount': total_amount,
+        'total_amount': str(total_decimal),
+        'original_total_amount': str(original_total),
+        'discount_applied': discount_applied,
         'booking_option': 'Family / Individual (Private)' if booking_option == 'family' else 'Youth Group (Shared)',
         'travel_option': travel_option,
         'razorpay_order_id': order['id'],
@@ -80,6 +99,25 @@ def verify_payment_view(request):
     travel_option = request.POST.get('travel_option', '')
     count = request.POST.get('count', '0')
     total_amount = request.POST.get('total_amount', '0')
+    original_total = request.POST.get('original_total_amount', total_amount)
+
+    try:
+        total_int = int(total_amount)
+        original_int = int(original_total)
+    except (TypeError, ValueError):
+        return HttpResponseBadRequest('Invalid amount')
+
+    expected_decimal = Decimal(original_int)
+    subscription = (
+        Subscription.objects.filter(user=request.user, active=True)
+        .order_by('-start_date')
+        .first()
+    )
+    if subscription and subscription.start_date >= timezone.now().date() - timedelta(days=365):
+        expected_decimal = (expected_decimal * Decimal('0.90')).quantize(Decimal('1'))
+
+    if int(expected_decimal) != total_int:
+        return HttpResponseBadRequest('Amount mismatch')
 
     Order.objects.create(
         user=request.user,
@@ -93,7 +131,7 @@ def verify_payment_view(request):
         booking_option=booking_option,
         travel_option=travel_option,
         count=int(count or 0),
-        total_amount=Decimal(total_amount or '0'),
+        total_amount=expected_decimal,
         razorpay_order_id=data['razorpay_order_id'],
         razorpay_payment_id=data['razorpay_payment_id'],
         razorpay_signature=data['razorpay_signature'],
@@ -108,7 +146,7 @@ def verify_payment_view(request):
         'zip_code': zip_code,
         'email': email,
         'count': count,
-        'total_amount': total_amount,
+        'total_amount': str(expected_decimal),
         'booking_option': booking_option,
         'travel_option': travel_option,
     }).content.decode('utf-8')
@@ -129,7 +167,7 @@ def verify_payment_view(request):
         'zip_code': zip_code,
         'email': email,
         'count': count,
-        'total_amount': total_amount,
+        'total_amount': str(expected_decimal),
         'booking_option': booking_option,
         'travel_option': travel_option,
     }).content.decode('utf-8')
