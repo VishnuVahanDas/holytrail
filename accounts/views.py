@@ -257,10 +257,28 @@ def reset_password_view(request):
 def dashboard_view(request):
     user = request.user
     orders = Order.objects.filter(user=user)
+
+    # Retrieve the user's active subscription, if any
+    subscription = (
+        Subscription.objects.filter(user=user, active=True)
+        .order_by("-start_date")
+        .first()
+    )
+
+    # Calculate remaining days for the subscription
+    remaining_days = None
+    if subscription and subscription.end_date:
+        remaining_days = (subscription.end_date - timezone.now().date()).days
+
     return render(
         request,
         "accounts/dashboard.html",
-        {"user": user, "orders": orders},
+        {
+            "user": user,
+            "orders": orders,
+            "subscription": subscription,
+            "remaining_days": remaining_days,
+        },
     )
 
 
