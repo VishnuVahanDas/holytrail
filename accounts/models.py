@@ -32,3 +32,19 @@ class PasswordResetOTP(models.Model):
 
     def __str__(self) -> str:  # pragma: no cover - trivial
         return f"{self.user.username} - {self.code}"
+
+
+class Subscription(models.Model):
+    """Store subscription details for a user."""
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="subscriptions",
+    )
+    start_date = models.DateField()
+    end_date = models.DateField(null=True, blank=True)
+    active = models.BooleanField(default=True)
+
+    def __str__(self) -> str:  # pragma: no cover - trivial
+        return f"{self.user.username} subscription"
