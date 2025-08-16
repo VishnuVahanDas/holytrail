@@ -21,6 +21,16 @@
         <p><strong>Username:</strong> {{ user.username }}</p>
         <p><strong>Email:</strong> {{ user.email }}</p>
 
+        <h3>Subscription</h3>
+        {% if subscription %}
+        <p><strong>Start Date:</strong> {{ subscription.start_date }}</p>
+        <p><strong>End Date:</strong> {{ subscription.end_date }}</p>
+        <p><strong>Days Remaining:</strong> {{ remaining_days }}</p>
+        {% else %}
+        <p>No active subscription.</p>
+        {% endif %}
+        <p><a href="{% url 'accounts:subscribe' %}">Renew Subscription</a></p>
+
         <h3>Your Orders</h3>
         <table class="table">
             <thead>
