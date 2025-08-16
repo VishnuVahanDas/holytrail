@@ -1,15 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Subscribe</title>
-</head>
-<body>
-    <h1>Holytrail Subscription</h1>
+{% extends 'base.html' %}
+{% load static %}
+{% block doc_title %}Subscribe{% endblock %}
+{% block content %}
+  
+    <br>
+    <br>
+    <br>
+    <br>
+   
+    <br>
+    <br>
+    <img src="{% static 'images/HolytrailYS.png' %}" alt="Subscribe" sizes="(100vw)" style="width: 100%; max-width: 600px; height: auto; margin-left: 20px; margin-bottom: 20px;">
     <form id="payment-form" method="POST">
         {% csrf_token %}
         <input type="hidden" name="razorpay_order_id" value="{{ razorpay_order_id }}">
-        <button id="pay-button" type="button">Pay ₹9999</button>
+        <button id="pay-button" type="button">Pay</button>
     </form>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
@@ -40,5 +45,4 @@
             e.preventDefault();
         };
     </script>
-</body>
-</html>
+{% endblock %}

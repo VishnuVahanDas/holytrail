@@ -906,7 +906,7 @@
                             </h3><!-- /.sec-title__title -->
                         </div><!-- /.sec-title -->
                         <div class="offer-one__card__btn">
-                            <a href="tour-listing-details-1.html" class="gotur-btn">Book Now <span class="icon"><i
+                            <a href="/" class="gotur-btn">Book Now <span class="icon"><i
                                         class="icon-right"></i></span></a>
                         </div><!-- /.offer-one__card__btn -->
                     </div><!-- /.offer-one__card__content -->
@@ -919,9 +919,10 @@
             </div><!-- /.col-lg-6 -->
             <div class="col-lg-6 wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
                 <div class="offer-one__card offer-one__card--two">
-                    <div class="offer-one__card__left">
+                    <div class="offer-one__card__left" href="{% url 'accounts:subscribe' %}">
                         <div class="offer-one__card__thumb">
-                            <img src="{% static 'images/resources/offer-1-2.webp' %}" alt="shape">
+                            <img src="{% static 'images/HolytrailYS.png' %}" alt="shape">
+                        
                         </div><!-- /.offer-one__card__thumb -->
                     </div><!-- /.offer-one__card__left -->
                     <div class="offer-one__card__content">
@@ -932,7 +933,7 @@
                             </h3><!-- /.sec-title__title -->
                         </div><!-- /.sec-title -->
                         <div class="offer-one__card__btn">
-                            <a href="tour-listing-details-1.html" class="gotur-btn gotur-btn--primary">Book Now
+                            <a href="{% url 'accounts:subscribe' %}" class="gotur-btn gotur-btn--primary">Subscribe Now
                                 <span class="icon"><i class="icon-right"></i></span></a>
                         </div><!-- /.offer-one__card__btn -->
                     </div><!-- /.offer-one__card__content -->
