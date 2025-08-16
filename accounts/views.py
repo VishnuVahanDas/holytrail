@@ -9,8 +9,12 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.conf import settings
 from django.utils.crypto import get_random_string
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponseBadRequest
+from django.utils import timezone
+import razorpay
 
-from .models import EmailOTP, PasswordResetOTP
+from .models import EmailOTP, PasswordResetOTP, Subscription
 from tour.models import Order
 
 @receiver(pre_social_login)
@@ -258,3 +262,56 @@ def dashboard_view(request):
         "accounts/dashboard.html",
         {"user": user, "orders": orders},
     )
+
+
+@login_required(login_url='accounts:login')
+def subscribe_view(request):
+    """Initiate a Razorpay order for a fixed subscription amount."""
+    if not request.user.is_active:
+        request.session['otp_user_id'] = request.user.id
+        return redirect('accounts:verify_email')
+
+    client = razorpay.Client(auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET))
+    order = client.order.create({
+        'amount': 9999 * 100,
+        'currency': 'INR',
+        'payment_capture': 1,
+    })
+
+    context = {
+        'razorpay_order_id': order['id'],
+        'razorpay_key_id': settings.RAZORPAY_KEY_ID,
+    }
+    return render(request, 'subscribe.html', context)
+
+
+@csrf_exempt
+@login_required(login_url='accounts:login')
+def verify_subscription_payment_view(request):
+    """Verify Razorpay payment for a subscription and activate it."""
+    if not request.user.is_active:
+        request.session['otp_user_id'] = request.user.id
+        return redirect('accounts:verify_email')
+
+    if request.method != 'POST':
+        return HttpResponseBadRequest('Invalid request')
+
+    client = razorpay.Client(auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET))
+    data = {
+        'razorpay_order_id': request.POST.get('razorpay_order_id'),
+        'razorpay_payment_id': request.POST.get('razorpay_payment_id'),
+        'razorpay_signature': request.POST.get('razorpay_signature'),
+    }
+
+    try:
+        client.utility.verify_payment_signature(data)
+    except razorpay.errors.SignatureVerificationError:
+        return HttpResponseBadRequest('Signature verification failed')
+
+    Subscription.objects.create(
+        user=request.user,
+        start_date=timezone.now().date(),
+        active=True,
+    )
+
+    return render(request, 'subscription_success.html')

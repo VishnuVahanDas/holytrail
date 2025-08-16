@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Subscribe</title>
+</head>
+<body>
+    <h1>Holytrail Subscription</h1>
+    <form id="payment-form" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="razorpay_order_id" value="{{ razorpay_order_id }}">
+        <button id="pay-button" type="button">Pay ₹9999</button>
+    </form>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        var options = {
+            key: '{{ razorpay_key_id }}',
+            order_id: '{{ razorpay_order_id }}',
+            name: 'Holytrail Subscription',
+            description: 'Annual subscription',
+            handler: function (response) {
+                var form = document.getElementById('payment-form');
+                form.action = '{% url "accounts:verify_subscription_payment" %}';
+                var pid = document.createElement('input');
+                pid.type = 'hidden';
+                pid.name = 'razorpay_payment_id';
+                pid.value = response.razorpay_payment_id;
+                form.appendChild(pid);
+                var sig = document.createElement('input');
+                sig.type = 'hidden';
+                sig.name = 'razorpay_signature';
+                sig.value = response.razorpay_signature;
+                form.appendChild(sig);
+                form.submit();
+            }
+        };
+        document.getElementById('pay-button').onclick = function(e){
+            var rzp = new Razorpay(options);
+            rzp.open();
+            e.preventDefault();
+        };
+    </script>
+</body>
+</html>

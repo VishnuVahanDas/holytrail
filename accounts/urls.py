@@ -14,4 +14,6 @@ urlpatterns = [
     path("forgot-password", views.forgot_password_view, name="forgot_password"),
     path("reset/verify", views.verify_reset_otp_view, name="verify_reset_otp"),
     path("reset/password", views.reset_password_view, name="reset_password"),
+    path("subscribe", views.subscribe_view, name="subscribe"),
+    path("subscribe/verify", views.verify_subscription_payment_view, name="verify_subscription_payment"),
 ]
