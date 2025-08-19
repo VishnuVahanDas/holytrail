@@ -664,7 +664,6 @@
     const finalAmountInput = document.getElementById('final_amount');
     const checkoutInput = document.getElementById('checkout');
     const bookingOptionField = document.getElementById('booking_option_field');
-    let travelOption = '';
     const bookingRadios = document.querySelectorAll('input[name="booking_option"]');
     const transportSection = document.querySelector('.adult-transport');
     const childNote = document.getElementById('child-note');
@@ -695,7 +694,6 @@
 
         if (bookingOptionField.value === 'youth') {
             price = youthPrice;
-            travelOption = 'Traveller Bus';
         } else {
             if (checkInnova.checked && checkTraveller.checked) {
                 alert("Please select only one transport option.");
@@ -704,12 +702,8 @@
                 return;
             } else if (checkInnova.checked) {
                 price = 20000;
-                travelOption = 'Innova Car';
             } else if (checkTraveller.checked) {
                 price = 15000;
-                travelOption = 'Traveller Bus';
-            } else {
-                travelOption = '';
             }
         }
 
@@ -726,7 +720,6 @@
         window.calculatedValues = {
             count,
             total,
-            travelOption,
         };
     }
 
@@ -762,8 +755,11 @@
         const params = new URLSearchParams({
             count: count,
             total_amount: vals.total || 0,
-            booking_option: bookingOptionField.value || 'family',
-            travel_option: vals.travelOption || travelOption
+            booking_option: bookingOptionField.value === 'family'
+                ? 'economy'
+                : bookingOptionField.value === 'youth'
+                ? 'delux'
+                : bookingOptionField.value || 'economy'
         });
 
         window.location.href = `/checkout/?${params.toString()}`;

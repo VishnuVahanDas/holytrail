@@ -24,8 +24,7 @@ def checkout_view(request):
     # Always prepare a Razorpay order for the given amount
     count = request.GET.get('count', '0')
     total_amount = request.GET.get('total_amount', '0')
-    booking_option = request.GET.get('booking_option', 'family')
-    travel_option = request.GET.get('travel_option', '')
+    booking_option = request.GET.get('booking_option', 'economy')
 
     try:
         total_int = int(total_amount)
@@ -59,8 +58,13 @@ def checkout_view(request):
         'total_amount': str(total_decimal),
         'original_total_amount': str(original_total),
         'discount_applied': discount_applied,
-        'booking_option': 'Family / Individual (Private)' if booking_option == 'family' else 'Youth Group (Shared)',
-        'travel_option': travel_option,
+        'booking_option': (
+            'Economy'
+            if booking_option == 'economy'
+            else 'Delux'
+            if booking_option == 'delux'
+            else 'Premium'
+        ),
         'razorpay_order_id': order['id'],
         'razorpay_key_id': settings.RAZORPAY_KEY_ID,
     }
@@ -95,8 +99,7 @@ def verify_payment_view(request):
     city = request.POST.get('town_city') or request.POST.get('town-city')
     state = request.POST.get('state')
     zip_code = request.POST.get('zip_code') or request.POST.get('zip-code')
-    booking_option = request.POST.get('booking_option', 'family')
-    travel_option = request.POST.get('travel_option', '')
+    booking_option = request.POST.get('booking_option', 'economy')
     count = request.POST.get('count', '0')
     total_amount = request.POST.get('total_amount', '0')
     original_total = request.POST.get('original_total_amount', total_amount)
@@ -129,7 +132,6 @@ def verify_payment_view(request):
         state=state or '',
         zip_code=zip_code or '',
         booking_option=booking_option,
-        travel_option=travel_option,
         count=int(count or 0),
         total_amount=expected_decimal,
         razorpay_order_id=data['razorpay_order_id'],
@@ -148,7 +150,6 @@ def verify_payment_view(request):
         'count': count,
         'total_amount': str(expected_decimal),
         'booking_option': booking_option,
-        'travel_option': travel_option,
     }).content.decode('utf-8')
     text_content = strip_tags(html_content)
 
@@ -169,7 +170,6 @@ def verify_payment_view(request):
         'count': count,
         'total_amount': str(expected_decimal),
         'booking_option': booking_option,
-        'travel_option': travel_option,
     }).content.decode('utf-8')
     admin_text_content = strip_tags(admin_html_content)
 

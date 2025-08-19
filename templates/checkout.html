@@ -75,7 +75,6 @@
                         <input type="hidden" name="total_amount" value="{{ total_amount }}" />
                         <input type="hidden" name="original_total_amount" value="{{ original_total_amount|default:total_amount }}" />
                         <input type="hidden" name="booking_option" value="{{ booking_option }}" />
-                        <input type="hidden" name="travel_option" value="{{ travel_option }}" />
                         <input type="hidden" name="razorpay_order_id" value="{{ razorpay_order_id }}" />
                         <button type="button" id="pay-button" class="gotur-btn gotur-btn--base">
                             Pay with Razorpay
@@ -101,12 +100,6 @@
                                 <td class="pro__title">Booking Option</td>
                                 <td class="pro__price">{{ booking_option|title }}</td>
                             </tr>
-                            {% if travel_option %}
-                            <tr>
-                                <td class="pro__title">Travel Option</td>
-                                <td class="pro__price">{{ travel_option }}</td>
-                            </tr>
-                            {% endif %}
                             <tr>
                                 <td class="pro__title">Count</td>
                                 <td class="pro__price">{{ count }}</td>
