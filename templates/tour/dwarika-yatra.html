@@ -569,9 +569,10 @@
                                 <div class="sidebar-two__form__control">
                                     <label>Package Tier:</label>
                                     <div class="booking-option-choice">
-                                        <label><input type="radio" name="package_tier" value="economy" checked> Economy</label>
+                                        <lab style="margin-left:10px;"><input type="radio" name="package_tier" value="economy" checked> Economy</label>
                                         <label style="margin-left:10px;"><input type="radio" name="package_tier" value="delux"> Delux</label>
                                         <label style="margin-left:10px;"><input type="radio" name="package_tier" value="premium"> Premium</label>
+                                        <label style="margin-left:10px;"><input type="radio" name="package_tier" value="premiumplus"> Premium + </label>
                                     </div>
                                 </div>
                                 <div class="sidebar-two__form__control">
@@ -583,15 +584,19 @@
                                 <input type="hidden" id="checkout" name="checkout">
                                 <ul class="list-unstyled sidebar-two__form__add-list">
                                     <li>
-                                        <div class="sidebar-two__form__add">Premium: <span>₹10,000</span>
+                                        <div class="sidebar-two__form__add">Premium + : <span>₹30,000</span>
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="sidebar-two__form__add">Delux: <span>₹8,000</span>
+                                        <div class="sidebar-two__form__add">Premium: <span>₹24,000</span>
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="sidebar-two__form__add">Economy: <span>₹5,000</span></div>
+                                        <div class="sidebar-two__form__add">Delux: <span>₹18,000</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="sidebar-two__form__add">Economy: <span>₹11,000</span></div>
                                     </li>
                                 </ul>
 
@@ -624,9 +629,10 @@
     const goToCheckoutBtn = document.getElementById('goToCheckout');
 
     const packagePrices = {
-        economy: 5000,
-        delux: 8000,
-        premium: 10000,
+        economy: 11000,
+        delux: 18000,
+        premium: 24000,
+        premiumplus: 30000,
     };
 
     function updateTier() {
