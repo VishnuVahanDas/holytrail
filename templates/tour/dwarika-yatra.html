@@ -3,6 +3,28 @@
 {% block doc_title %} Tour Detail {% endblock %}
 {% block content %}
 
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    th,
+    td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    ul {
+        margin-top: 5px;
+    }
+</style>
 
 
 <section class="page-header">
@@ -239,7 +261,8 @@
                     <div class="tour-listing-details__content__item tour-listing-details__ture-plan">
                         <h4 class="tour-listing-details__title">Yatra Plan</h4><!-- /.tour-listing-details__title -->
                         <div class="faq-page__accordion faq-accordion gotur-accordion" data-grp-name="gotur-accordion">
-                            <div class="accordion active wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
+                            <div class="accordion active wow fadeInUp" data-wow-duration='1500ms'
+                                data-wow-delay='500ms'>
                                 <div class="accordion-title">
                                     <h4 class="accordion-title__text"> Ahmedabad<span
                                             class="accordion-title__icon"></span></h4>
@@ -251,8 +274,7 @@
                                     </div><!-- /.accordian-content -->
                                 </div>
                             </div><!-- /.accordian-item -->
-                            <div class="accordion wow fadeInUp" data-wow-duration='1500ms'
-                                data-wow-delay='500ms'>
+                            <div class="accordion wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
                                 <div class="accordion-title">
                                     <h4 class="accordion-title__text">Leaving for Deev<span
                                             class="accordion-title__icon"></span></h4>
@@ -278,7 +300,7 @@
                                     </div><!-- /.accordian-content -->
                                 </div>
                             </div><!-- /.accordian-item -->
-                             <div class="accordion wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
+                            <div class="accordion wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
                                 <div class="accordion-title">
                                     <h4 class="accordion-title__text"> Leaving for Porbandar<span
                                             class="accordion-title__icon"></span></h4>
@@ -291,7 +313,7 @@
                                     </div><!-- /.accordian-content -->
                                 </div>
                             </div><!-- /.accordian-item -->
-                             <div class="accordion wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
+                            <div class="accordion wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
                                 <div class="accordion-title">
                                     <h4 class="accordion-title__text"> Leaving for Dwarika<span
                                             class="accordion-title__icon"></span></h4>
@@ -304,7 +326,7 @@
                                     </div><!-- /.accordian-content -->
                                 </div>
                             </div><!-- /.accordian-item -->
-                             <div class="accordion wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
+                            <div class="accordion wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
                                 <div class="accordion-title">
                                     <h4 class="accordion-title__text"> Leaving for Beyt Dwarika<span
                                             class="accordion-title__icon"></span></h4>
@@ -528,30 +550,33 @@
                             <span class="far fa-star"></span>
                             <span class="far fa-star"></span>
                         </div><!-- review-ratings -->
-                           <form method="POST" class="product-details__form__form comments-form__form form-one wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
+                        <form method="POST"
+                            class="product-details__form__form comments-form__form form-one wow fadeInUp"
+                            data-wow-duration='1500ms' data-wow-delay='500ms'>
                             {% csrf_token %}
                             <input type="hidden" name="rating" id="ratingInput" value="5">
                             <div class="form-one__group">
-                            <div class="form-one__control">
-                                <label for="name">Your Name*</label>
-                                <input type="text" name="name" id="name" required>
-                            </div>
-                            <div class="form-one__control">
-                                <label for="email">Your Email*</label>
-                                <input type="email" name="email" id="email" required>
-                            </div>
-                            <div class="form-one__control form-one__control--full">
-                                <label for="message">Message*</label>
-                                <textarea name="message" id="message" required></textarea>
-                            </div>
-                            <div class="form-one__control form-one__control--full">
-                                <button type="submit" class="gotur-btn gotur-btn--base">Submit Now <i class="icon-right"></i></button>
-                            </div>
+                                <div class="form-one__control">
+                                    <label for="name">Your Name*</label>
+                                    <input type="text" name="name" id="name" required>
+                                </div>
+                                <div class="form-one__control">
+                                    <label for="email">Your Email*</label>
+                                    <input type="email" name="email" id="email" required>
+                                </div>
+                                <div class="form-one__control form-one__control--full">
+                                    <label for="message">Message*</label>
+                                    <textarea name="message" id="message" required></textarea>
+                                </div>
+                                <div class="form-one__control form-one__control--full">
+                                    <button type="submit" class="gotur-btn gotur-btn--base">Submit Now <i
+                                            class="icon-right"></i></button>
+                                </div>
                             </div>
                         </form>
                         <div class="result"></div>
                     </div><!-- / -->
-                    
+
                 </div><!-- /.tour-listing-details__content -->
 
             </div><!-- /.col-lg-8 -->
@@ -562,6 +587,45 @@
                         <h4 class="tour-listing-details__sidebar__title" id="book-now">Book This Trip</h4>
                         <!-- /.tour-listing-details__sidebar__title -->
                         <div class="sidebar-two__form">
+                            <b> Travel Plan Includes:</b><br />
+                            <ul>
+                                <li>No charge for children under 5 years.</li>
+                                <li>Free meals (prepared without onion or garlic).</li>
+                                <li>Internal travel charges.</li>
+                                <li>Train tickets booked to/from Gorakhpur (GKP).</li>
+                            </ul>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Plan</th>
+                                        <th>Travel Type</th>
+                                        <th>Accommodation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Premium (Flight)</td>
+                                        <td>Flight tickets</td>
+                                        <td>Premium A/C room</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Premium (Train)</td>
+                                        <td>2nd AC train tickets</td>
+                                        <td>Premium A/C room</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Deluxe</td>
+                                        <td>3rd AC train tickets</td>
+                                        <td>A/C room</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Economy</td>
+                                        <td>Sleeper class train tickets</td>
+                                        <td>Non A/C room</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br/>
                             <p class="booking-option-info">Select your package tier.</p>
                             <form class="sidebar-two__form__inner contact-form-validated" action="checkout"
                                 method="POST" novalidate="novalidate">
@@ -569,10 +633,14 @@
                                 <div class="sidebar-two__form__control">
                                     <label>Package Tier:</label>
                                     <div class="booking-option-choice">
-                                        <label style="margin-left:10px;"><input type="radio" name="package_tier" value="economy" checked> Economy</label>
-                                        <label style="margin-left:10px;"><input type="radio" name="package_tier" value="delux"> Delux</label>
-                                        <label style="margin-left:10px;"><input type="radio" name="package_tier" value="premium"> Premium</label>
-                                        <label style="margin-left:10px;"><input type="radio" name="package_tier" value="premiumplus"> Premium + </label>
+                                        <label style="margin-left:10px;"><input type="radio" name="package_tier"
+                                                value="economy" checked> Economy</label>
+                                        <label style="margin-left:10px;"><input type="radio" name="package_tier"
+                                                value="delux"> Delux</label>
+                                        <label style="margin-left:10px;"><input type="radio" name="package_tier"
+                                                value="premium"> Premium</label>
+                                        <label style="margin-left:10px;"><input type="radio" name="package_tier"
+                                                value="premiumplus"> Premium + </label>
                                     </div>
                                 </div>
                                 <div class="sidebar-two__form__control">
@@ -580,13 +648,6 @@
                                     <input id="count" type="number" name="count" placeholder="Enter Value" value="0"
                                         min="0">
                                 </div>
-                                <small id="child-note" class="form-text text-muted">* Each child over 5 years requires a separate seat.</small><br/>
-                                <small id="child-note" class="form-text text-muted">* All the plans included free fooding(without onion & garlic) and internal travelling charges.</small><br/>
-                                <small id="child-note" class="form-text text-muted">* All train tickets will be booked to/from Gorakhpur (GKP) only.</small><br/>
-                                <small id="child-note" class="form-text text-muted">* Premium Plus plan include Flight tickets & Premium A.C room for stay.</small><br/>
-                                <small id="child-note" class="form-text text-muted">* Premium plan include train tickets in 2nd AC Couch & Premium A.C room for stay.</small><br/>
-                                <small id="child-note" class="form-text text-muted">* Deluxe plan include train tickets in 3rd AC Couch & A.C room for stay.</small><br/>
-                                <small id="child-note" class="form-text text-muted">* Economy plan include train tickets in Sleepler Couch & Non A.C room for stay.</small><br/>
                                 <input type="hidden" id="checkout" name="checkout">
                                 <ul class="list-unstyled sidebar-two__form__add-list">
                                     <li>

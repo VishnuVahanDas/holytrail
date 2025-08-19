@@ -509,18 +509,53 @@
                         <h4 class="tour-listing-details__sidebar__title" id="book-now">Book This Trip</h4>
                         <!-- /.tour-listing-details__sidebar__title -->
                         <div class="sidebar-two__form">
-                            <p class="booking-option-info">Choose your package tier.</p>
+                            <b> Travel Plan Includes:</b><br />
+                            <ul>
+                                <li>No charge for children under 5 years.</li>
+                                <li>Free meals (prepared without onion or garlic).</li>
+                                <li>Internal travel charges.</li>
+                                <li>Train tickets booked to/from Gorakhpur (GKP).</li>
+                            </ul>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Plan</th>
+                                        <th>Travel Type</th>
+                                        <th>Accommodation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Premium (Train)</td>
+                                        <td>2nd AC train tickets</td>
+                                        <td>Premium A/C room</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Deluxe</td>
+                                        <td>3rd AC train tickets</td>
+                                        <td>A/C room</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Economy</td>
+                                        <td>Sleeper class train tickets</td>
+                                        <td>Non A/C room</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br/>
+                            <p class="booking-option-info">Select your package tier.</p>
                             <form class="sidebar-two__form__inner contact-form-validated" action="checkout"
                                 method="POST" novalidate="novalidate">
                                 {% csrf_token %}
                                 <div class="sidebar-two__form__control">
-                                    <label>Select Tier:</label>
+                                    <label>Package Tier:</label>
                                     <div class="booking-option-choice">
-
-                                        <label style="margin-left:10px;"><input type="radio" name="booking_option" value="economy" checked> Economy</label>
-                                        <label style="margin-left:10px;"><input type="radio" name="booking_option" value="deluxe"> Deluxe</label>
-                                        <label style="margin-left:10px;"><input type="radio" name="booking_option" value="premium"> Premium</label>
-                                 
+                                        <label style="margin-left:10px;"><input type="radio" name="package_tier"
+                                                value="economy" checked> Economy</label>
+                                        <label style="margin-left:10px;"><input type="radio" name="package_tier"
+                                                value="delux"> Delux</label>
+                                        <label style="margin-left:10px;"><input type="radio" name="package_tier"
+                                                value="premium"> Premium</label>
                                     </div>
                                 </div>
                                 <div class="sidebar-two__form__control">
@@ -528,23 +563,18 @@
                                     <input id="count" type="number" name="count" placeholder="Enter Value" value="0"
                                         min="0">
                                 </div>
-                                <small id="child-note" class="form-text text-muted">* Each child over 5 years requires a separate seat.</small><br/>
-                                <small id="child-note" class="form-text text-muted">* All the plans included free fooding(without onion & garlic) and internal travelling charges.</small><br/>
-                                <small id="child-note" class="form-text text-muted">* All train tickets will be booked to/from Gorakhpur (GKP) only.</small><br/>
-                                <small id="child-note" class="form-text text-muted">* Premium plan include train tickets in 2nd AC Couch & Premium A.C room for stay.</small><br/>
-                                <small id="child-note" class="form-text text-muted">* Deluxe plan include train tickets in 3rd AC Couch & A.C room for stay.</small><br/>
-                                <small id="child-note" class="form-text text-muted">* Economy plan include train tickets in Sleepler Couch & Non A.C room for stay.</small><br/>
                                 <input type="hidden" id="checkout" name="checkout">
-
                                 <ul class="list-unstyled sidebar-two__form__add-list">
                                     <li>
+                                        <div class="sidebar-two__form__add">Premium: <span>₹11,000</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="sidebar-two__form__add">Delux: <span>₹7,000</span>
+                                        </div>
+                                    </li>
+                                    <li>
                                         <div class="sidebar-two__form__add">Economy: <span>₹4,500</span></div>
-                                    </li>
-                                    <li>
-                                        <div class="sidebar-two__form__add">Deluxe: <span>₹7,000</span></div>
-                                    </li>
-                                    <li>
-                                        <div class="sidebar-two__form__add">Premium: <span>₹11,000</span></div>
                                     </li>
                                 </ul>
 
@@ -552,6 +582,7 @@
 
                                 <!-- Hidden input to send final total to payment page -->
                                 <input type="hidden" name="final_amount" id="final_amount">
+                                <input type="hidden" name="package_tier" id="package_tier_field">
                                 <button type="button" id="goToCheckout" class="gotur-btn gotur-btn--base">Book Now <i
                                         class="icon-right"></i></button>
                             </form>
@@ -565,7 +596,6 @@
         </div><!-- /.row justify-content-center -->
     </div><!-- /.container -->
 </section><!-- /.tour-listing-details -->
-
 <script>
     const countInput = document.getElementById('count');
     const totalAmountDisplay = document.getElementById('totalAmount');
