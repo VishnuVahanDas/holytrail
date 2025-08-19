@@ -26,8 +26,7 @@ class DashboardTests(TestCase):
             'state': 'State',
             'zip-code': '12345',
             'email': 'john@example.com',
-            'booking_option': 'family',
-            'travel_option': 'Bus',
+            'booking_option': 'economy',
             'count': '2',
             'total_amount': '1000',
         }
@@ -47,8 +46,7 @@ class DashboardTests(TestCase):
             city='Townsville',
             state='State',
             zip_code='12345',
-            booking_option='family',
-            travel_option='Bus',
+            booking_option='economy',
             count=2,
             total_amount=Decimal('1000.00'),
             razorpay_order_id='order_123',
@@ -57,5 +55,4 @@ class DashboardTests(TestCase):
         response = self.client.get(reverse('accounts:dashboard'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'accounts/dashboard.html')
-        self.assertContains(response, 'Bus')
         self.assertEqual(len(response.context['orders']), 1)

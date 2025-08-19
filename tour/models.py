@@ -17,8 +17,9 @@ class Review(models.Model):
 
 class Order(models.Model):
     BOOKING_CHOICES = (
-        ("family", "Family / Individual"),
-        ("youth", "Youth Group"),
+        ("economy", "Economy"),
+        ("delux", "Delux"),
+        ("premium", "Premium"),
     )
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -30,7 +31,6 @@ class Order(models.Model):
     state = models.CharField(max_length=100)
     zip_code = models.CharField(max_length=20)
     booking_option = models.CharField(max_length=20, choices=BOOKING_CHOICES)
-    travel_option = models.CharField(max_length=50, blank=True)
     count = models.PositiveIntegerField(default=1)
     total_amount = models.DecimalField(max_digits=10, decimal_places=2)
     razorpay_order_id = models.CharField(max_length=100)
