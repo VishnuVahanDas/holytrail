@@ -18422,6 +18422,7 @@ figure.image_resized {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   position: relative;
   min-width: 2.2rem;
   cursor: pointer;
@@ -18429,12 +18430,15 @@ figure.image_resized {
 }
 
 .star-rating__option--star {
+
   font-size: 1.8rem;
+
   color: var(--gotur-border-color);
 }
 
 .star-rating__icon {
   pointer-events: none;
+
   line-height: 1;
 }
 
@@ -18448,6 +18452,7 @@ figure.image_resized {
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border: 0 !important;
+
 }
 
 .star-rating__radio {
