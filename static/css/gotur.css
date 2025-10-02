@@ -18422,6 +18422,7 @@ figure.image_resized {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   position: relative;
   min-width: 2.2rem;
   cursor: pointer;
@@ -18437,10 +18438,12 @@ figure.image_resized {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
 }
 
 .star-rating__icon {
   pointer-events: none;
+
   line-height: 1;
   transition: color 0.2s ease;
 }
@@ -18452,7 +18455,7 @@ figure.image_resized {
 .star-rating__icon--filled {
   display: none;
   color: var(--gotur-primary);
-}
+
 
 .visually-hidden {
   position: absolute !important;
@@ -18478,6 +18481,7 @@ figure.image_resized {
   outline: 2px solid var(--gotur-primary);
   outline-offset: 2px;
 }
+
 
 .star-rating__option--star.is-active .star-rating__icon--empty,
 .star-rating__radio:checked + .star-rating__option .star-rating__icon--empty,
