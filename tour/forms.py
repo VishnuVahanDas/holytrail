@@ -3,12 +3,20 @@ from django import forms
 from .models import Feedback
 
 
+STAR_CHOICES = [(value, str(value)) for value in range(5, -1, -1)]
+
+
+class StarRatingWidget(forms.RadioSelect):
+    template_name = "tour/widgets/star_rating.html"
+    option_template_name = "tour/widgets/star_rating_option.html"
+
+
 class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
         fields = [
             "name",
-            "mobile_number",
+            "email",
             "overall_rating",
             "travel_experience",
             "accommodation",
@@ -20,7 +28,7 @@ class FeedbackForm(forms.ModelForm):
         ]
         labels = {
             "name": "Name",
-            "mobile_number": "Mobile Number",
+            "email": "Email Address",
             "overall_rating": "Overall, how would you rate your pilgrimage experience? (0-5)",
             "travel_experience": "How would you rate your travel experience? (0-5)",
             "accommodation": "How would you rate the accommodation arrangements? (0-5)",
@@ -46,13 +54,9 @@ class FeedbackForm(forms.ModelForm):
             if field_name in rating_fields:
                 field.min_value = 0
                 field.max_value = 5
-                field.widget = forms.NumberInput(
-                    attrs={
-                        "class": "form-control",
-                        "min": 0,
-                        "max": 5,
-                    }
-                )
+                field.choices = STAR_CHOICES
+                field.widget = StarRatingWidget()
+                field.widget.choices = STAR_CHOICES
             elif field_name in {"overall_experience", "comments"}:
                 field.widget = forms.Textarea(
                     attrs={
@@ -60,11 +64,10 @@ class FeedbackForm(forms.ModelForm):
                         "rows": 4,
                     }
                 )
-            elif field_name == "mobile_number":
-                field.widget = forms.TextInput(
+            elif field_name == "email":
+                field.widget = forms.EmailInput(
                     attrs={
                         "class": "form-control",
-                        "type": "tel",
                     }
                 )
             else:
