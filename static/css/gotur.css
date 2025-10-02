@@ -18401,3 +18401,101 @@ figure.image_resized {
   width: 100% !important;
   max-width: 100% !important;
 }
+
+/*--------------------------------------------------------------
+# Star Rating Widget
+--------------------------------------------------------------*/
+.star-rating {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.star-rating__stars {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  gap: 0.4rem;
+}
+
+.star-rating__option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-width: 2.2rem;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.star-rating__option--star {
+  font-size: 1.8rem;
+  color: var(--gotur-border-color);
+}
+
+.star-rating__icon {
+  pointer-events: none;
+  line-height: 1;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.star-rating__radio {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+}
+
+.star-rating__radio:focus-visible + .star-rating__option {
+  outline: 2px solid var(--gotur-primary);
+  outline-offset: 2px;
+}
+
+.star-rating__option--star.is-active .star-rating__icon {
+  color: var(--gotur-primary);
+}
+
+.star-rating__option--star:hover .star-rating__icon {
+  color: var(--gotur-primary);
+}
+
+.star-rating__radio:checked + .star-rating__option .star-rating__icon,
+.star-rating__radio:checked + .star-rating__option ~ .star-rating__option .star-rating__icon {
+  color: var(--gotur-primary);
+}
+
+.star-rating__clear {
+  display: inline-flex;
+  align-items: center;
+}
+
+.star-rating__option--clear {
+  font-size: 0.95rem;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--gotur-border-color);
+  border-radius: 999px;
+  color: var(--gotur-text);
+}
+
+.star-rating__option--clear:hover,
+.star-rating__option--clear.is-active {
+  background-color: var(--gotur-primary);
+  border-color: var(--gotur-primary);
+  color: var(--gotur-white);
+}
+
+.star-rating__clear-text {
+  font-weight: 500;
+}

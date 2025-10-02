@@ -1,0 +1,12 @@
+{% if widget.value|stringformat:'s' == '0' %}
+<input type="{{ widget.type }}" name="{{ widget.name }}" value="{{ widget.value|stringformat:'s' }}" class="star-rating__radio star-rating__radio--clear"{% include "django/forms/widgets/attrs.html" %}{% if widget.is_checked %} checked{% endif %}>
+<label for="{{ widget.attrs.id }}" class="star-rating__option star-rating__option--clear" aria-label="Clear rating">
+    <span class="star-rating__clear-text">Clear</span>
+</label>
+{% else %}
+<input type="{{ widget.type }}" name="{{ widget.name }}" value="{{ widget.value|stringformat:'s' }}" class="star-rating__radio"{% include "django/forms/widgets/attrs.html" %}{% if widget.is_checked %} checked{% endif %}>
+<label for="{{ widget.attrs.id }}" class="star-rating__option star-rating__option--star" data-value="{{ widget.value }}" aria-label="{{ widget.label }} star{% if widget.label != '1' %}s{% endif %}">
+    <span class="star-rating__icon" aria-hidden="true">&#9733;</span>
+    <span class="visually-hidden">{{ widget.label }} star{% if widget.label != '1' %}s{% endif %}</span>
+</label>
+{% endif %}
