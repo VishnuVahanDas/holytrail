@@ -197,6 +197,9 @@
                                 <li>
                                     <a href="/contact">Contact</a>
                                 </li>
+                                <li>
+                                    <a href="{% url 'tour:feedback' %}">Feedback</a>
+                                </li>
                                 {% if user.is_authenticated %}
                                 <li>
                                     <a href="{% url 'accounts:dashboard' %}">Dashboard</a>

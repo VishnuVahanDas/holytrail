@@ -10,4 +10,5 @@ urlpatterns = [
     path("vrindavan-yatra/", views.vrindavanyatra_view, name="vrindavan-yatra"),
     path("jagannathpuri-yatra/", views.jagannathpuriyatra_view, name="jagannathpuri-yatra"),
     path("tour-details/", views.tourdetails_view, name="tour-details"),
+    path("feedback/", views.feedback_view, name="feedback"),
 ]
