@@ -4,7 +4,7 @@
         {% for group, options, index in widget.optgroups %}
             {% for option in options %}
                 {% if option.value|stringformat:'s' != '0' %}
-                    {% include option.template_name with widget=option %}
+                    {% include widget.option_template_name with widget=option %}
                 {% endif %}
             {% endfor %}
         {% endfor %}
@@ -13,8 +13,7 @@
         {% for group, options, index in widget.optgroups %}
             {% for option in options %}
                 {% if option.value|stringformat:'s' == '0' %}
-                    {% include option.template_name with widget=option %}
-
+                    {% include widget.option_template_name with widget=option %}
                 {% endif %}
             {% endfor %}
         {% endfor %}
