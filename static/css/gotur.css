@@ -18422,6 +18422,7 @@ figure.image_resized {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   position: relative;
   min-width: 2.2rem;
   cursor: pointer;
@@ -18437,10 +18438,12 @@ figure.image_resized {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
 }
 
 .star-rating__icon {
   pointer-events: none;
+
   line-height: 1;
   transition: color 0.2s ease;
 }
@@ -18452,6 +18455,7 @@ figure.image_resized {
 .star-rating__icon--filled {
   display: none;
   color: var(--gotur-primary);
+
 }
 
 .visually-hidden {
@@ -18464,6 +18468,7 @@ figure.image_resized {
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border: 0 !important;
+
 }
 
 .star-rating__radio {
@@ -18497,6 +18502,7 @@ figure.image_resized {
 
 .star-rating__option--star:hover .star-rating__icon--empty {
   display: none;
+
 }
 
 .star-rating__clear {

@@ -1,23 +1,19 @@
 {% load static %}
 <div class="star-rating" data-field-name="{{ widget.name }}">
-
-    <div class="product-details__form-ratings wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="300ms">
-        <div class="star-rating__stars" role="radiogroup">
-
+    <div class="star-rating__stars" role="radiogroup">
         {% for group, options, index in widget.optgroups %}
             {% for option in options %}
                 {% if option.value|stringformat:'s' != '0' %}
-                    {% include option.template_name with widget=option %}
+                    {% include widget.option_template_name with widget=option %}
                 {% endif %}
             {% endfor %}
         {% endfor %}
-        </div>
     </div>
     <div class="star-rating__clear">
         {% for group, options, index in widget.optgroups %}
             {% for option in options %}
                 {% if option.value|stringformat:'s' == '0' %}
-                    {% include option.template_name with widget=option %}
+                    {% include widget.option_template_name with widget=option %}
                 {% endif %}
             {% endfor %}
         {% endfor %}
