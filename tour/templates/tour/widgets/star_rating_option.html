@@ -7,10 +7,7 @@
 <input type="{{ widget.type }}" name="{{ widget.name }}" value="{{ widget.value|stringformat:'s' }}" class="star-rating__radio"{% include "django/forms/widgets/attrs.html" %}{% if widget.is_checked %} checked{% endif %}>
 <label for="{{ widget.attrs.id }}" class="star-rating__option star-rating__option--star" data-value="{{ widget.value }}" aria-label="{{ widget.label }} star{% if widget.label != '1' %}s{% endif %}">
 
-    <span class="star-rating__icon-wrapper" aria-hidden="true">
-        <span class="star-rating__icon star-rating__icon--empty far fa-star"></span>
-        <span class="star-rating__icon star-rating__icon--filled fas fa-star"></span>
-    </span>
+    <span class="star-rating__icon" aria-hidden="true">&#9733;</span>
 
     <span class="visually-hidden">{{ widget.label }} star{% if widget.label != '1' %}s{% endif %}</span>
 </label>
