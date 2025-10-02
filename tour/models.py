@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 
@@ -13,6 +14,25 @@ class Review(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.rating} Stars"
+
+
+class Feedback(models.Model):
+    RATING_VALIDATORS = [MinValueValidator(0), MaxValueValidator(5)]
+
+    name = models.CharField(max_length=100)
+    mobile_number = models.CharField(max_length=20)
+    overall_rating = models.PositiveSmallIntegerField(validators=RATING_VALIDATORS)
+    travel_experience = models.PositiveSmallIntegerField(validators=RATING_VALIDATORS)
+    accommodation = models.PositiveSmallIntegerField(validators=RATING_VALIDATORS)
+    fooding = models.PositiveSmallIntegerField(validators=RATING_VALIDATORS)
+    tour_guide = models.PositiveSmallIntegerField(validators=RATING_VALIDATORS)
+    knowledge_sharing = models.PositiveSmallIntegerField(validators=RATING_VALIDATORS)
+    overall_experience = models.TextField()
+    comments = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.name} - {self.overall_rating} Stars"
 
 
 class Order(models.Model):

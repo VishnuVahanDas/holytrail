@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.contrib import messages
+from django.shortcuts import redirect, render
+
+from .forms import FeedbackForm
 from .models import Review
 
 # Create your views here.
@@ -45,3 +48,17 @@ def vrindavanyatra_view(request):
 
 def jagannathpuriyatra_view(request):
     return render(request, "tour/jagannathpuri-yatra.html")
+
+
+def feedback_view(request):
+    if request.method == "POST":
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Thank you for sharing your feedback!")
+            return redirect("tour:feedback")
+        messages.error(request, "Please correct the errors below.")
+    else:
+        form = FeedbackForm()
+
+    return render(request, "tour/feedback.html", {"form": form})
