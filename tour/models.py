@@ -20,7 +20,7 @@ class Feedback(models.Model):
     RATING_VALIDATORS = [MinValueValidator(0), MaxValueValidator(5)]
 
     name = models.CharField(max_length=100)
-    mobile_number = models.CharField(max_length=20)
+    email = models.EmailField()
     overall_rating = models.PositiveSmallIntegerField(validators=RATING_VALIDATORS)
     travel_experience = models.PositiveSmallIntegerField(validators=RATING_VALIDATORS)
     accommodation = models.PositiveSmallIntegerField(validators=RATING_VALIDATORS)

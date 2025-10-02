@@ -53,11 +53,11 @@
                                 {% endif %}
                             </div>
                             <div class="form-one__control">
-                                <label for="{{ form.mobile_number.id_for_label }}">{{ form.mobile_number.label }}</label>
-                                {{ form.mobile_number }}
-                                {% if form.mobile_number.errors %}
+                                <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+                                {{ form.email }}
+                                {% if form.email.errors %}
                                 <div class="invalid-feedback d-block">
-                                    {% for error in form.mobile_number.errors %}{{ error }}{% endfor %}
+                                    {% for error in form.email.errors %}{{ error }}{% endfor %}
                                 </div>
                                 {% endif %}
                             </div>
