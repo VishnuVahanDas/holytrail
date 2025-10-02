@@ -17,6 +17,7 @@ class FeedbackForm(forms.ModelForm):
         fields = [
             "name",
             "email",
+            "yatra",
             "overall_rating",
             "travel_experience",
             "accommodation",
@@ -29,6 +30,7 @@ class FeedbackForm(forms.ModelForm):
         labels = {
             "name": "Name",
             "email": "Email Address",
+            "yatra": "Which yatra did you join?",
             "overall_rating": "Overall, how would you rate your pilgrimage experience? (0-5)",
             "travel_experience": "How would you rate your travel experience? (0-5)",
             "accommodation": "How would you rate the accommodation arrangements? (0-5)",
@@ -70,6 +72,19 @@ class FeedbackForm(forms.ModelForm):
                         "class": "form-control",
                     }
                 )
+            elif field_name == "yatra":
+                choices = [
+                    ("", "Select your yatra"),
+                    *Feedback.YATRA_CHOICES,
+                ]
+                field.choices = choices
+                field.widget = forms.Select(
+                    attrs={
+                        "class": "form-control",
+                    }
+                )
+                field.widget.choices = choices
+                field.initial = ""
             else:
                 field.widget = forms.TextInput(
                     attrs={

@@ -61,6 +61,15 @@
                                 </div>
                                 {% endif %}
                             </div>
+                            <div class="form-one__control">
+                                <label for="{{ form.yatra.id_for_label }}">{{ form.yatra.label }}</label>
+                                {{ form.yatra }}
+                                {% if form.yatra.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {% for error in form.yatra.errors %}{{ error }}{% endfor %}
+                                </div>
+                                {% endif %}
+                            </div>
                             {% with rating_field_names='overall_rating travel_experience accommodation fooding tour_guide knowledge_sharing' %}
                             {% for field in form %}
                             {% if field.name in rating_field_names %}

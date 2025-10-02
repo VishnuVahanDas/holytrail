@@ -19,6 +19,7 @@
                 <p style="margin: 0 0 16px;">
                     <strong>Name:</strong> {{ feedback.name }}<br>
                     <strong>Email:</strong> {{ feedback.email }}<br>
+                    <strong>Yatra:</strong> {{ feedback.get_yatra_display }}<br>
                     <strong>Submitted on:</strong> {{ feedback.created_at|date:"F j, Y g:i A" }}
                 </p>
 
