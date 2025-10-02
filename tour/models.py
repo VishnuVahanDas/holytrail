@@ -18,9 +18,19 @@ class Review(models.Model):
 
 class Feedback(models.Model):
     RATING_VALIDATORS = [MinValueValidator(0), MaxValueValidator(5)]
+    YATRA_CHOICES = (
+        ("vrindavan", "Vrindavan"),
+        ("dwarika", "Dwarika"),
+        ("jagannath_puri", "Jagannath Puri"),
+        ("mayapur", "Mayapur"),
+        ("barsana", "Barsana"),
+    )
 
     name = models.CharField(max_length=100)
-    mobile_number = models.CharField(max_length=20)
+    email = models.EmailField()
+    yatra = models.CharField(
+        max_length=50, choices=YATRA_CHOICES, default=YATRA_CHOICES[0][0]
+    )
     overall_rating = models.PositiveSmallIntegerField(validators=RATING_VALIDATORS)
     travel_experience = models.PositiveSmallIntegerField(validators=RATING_VALIDATORS)
     accommodation = models.PositiveSmallIntegerField(validators=RATING_VALIDATORS)

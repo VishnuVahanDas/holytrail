@@ -18456,6 +18456,7 @@ figure.image_resized {
   display: none;
   color: var(--gotur-primary);
 
+}
 
 .visually-hidden {
   position: absolute !important;
@@ -18467,6 +18468,7 @@ figure.image_resized {
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border: 0 !important;
+
 }
 
 .star-rating__radio {
@@ -18481,7 +18483,6 @@ figure.image_resized {
   outline: 2px solid var(--gotur-primary);
   outline-offset: 2px;
 }
-
 
 .star-rating__option--star.is-active .star-rating__icon--empty,
 .star-rating__radio:checked + .star-rating__option .star-rating__icon--empty,
@@ -18501,6 +18502,7 @@ figure.image_resized {
 
 .star-rating__option--star:hover .star-rating__icon--empty {
   display: none;
+
 }
 
 .star-rating__clear {
