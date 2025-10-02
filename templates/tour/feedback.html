@@ -61,61 +61,24 @@
                                 </div>
                                 {% endif %}
                             </div>
-                            <div class="form-one__control form-one__control--full">
-                                <label for="{{ form.overall_rating.id_for_label }}">{{ form.overall_rating.label }}</label>
-                                {{ form.overall_rating }}
-                                <small class="form-text text-muted">Rate your journey overall on a scale of 0 to 5.</small>
-                                {% if form.overall_rating.errors %}
+                            {% with rating_field_names='overall_rating travel_experience accommodation fooding tour_guide knowledge_sharing' %}
+                            {% for field in form %}
+                            {% if field.name in rating_field_names %}
+                            <div class="form-one__control{% if field.name == 'overall_rating' %} form-one__control--full{% endif %}">
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {{ field }}
+                                {% if field.name == 'overall_rating' %}
+                                <small class="form-text text-muted">Select up to five stars to rate your journey overall.</small>
+                                {% endif %}
+                                {% if field.errors %}
                                 <div class="invalid-feedback d-block">
-                                    {% for error in form.overall_rating.errors %}{{ error }}{% endfor %}
+                                    {% for error in field.errors %}{{ error }}{% endfor %}
                                 </div>
                                 {% endif %}
                             </div>
-                            <div class="form-one__control">
-                                <label for="{{ form.travel_experience.id_for_label }}">{{ form.travel_experience.label }}</label>
-                                {{ form.travel_experience }}
-                                {% if form.travel_experience.errors %}
-                                <div class="invalid-feedback d-block">
-                                    {% for error in form.travel_experience.errors %}{{ error }}{% endfor %}
-                                </div>
-                                {% endif %}
-                            </div>
-                            <div class="form-one__control">
-                                <label for="{{ form.accommodation.id_for_label }}">{{ form.accommodation.label }}</label>
-                                {{ form.accommodation }}
-                                {% if form.accommodation.errors %}
-                                <div class="invalid-feedback d-block">
-                                    {% for error in form.accommodation.errors %}{{ error }}{% endfor %}
-                                </div>
-                                {% endif %}
-                            </div>
-                            <div class="form-one__control">
-                                <label for="{{ form.fooding.id_for_label }}">{{ form.fooding.label }}</label>
-                                {{ form.fooding }}
-                                {% if form.fooding.errors %}
-                                <div class="invalid-feedback d-block">
-                                    {% for error in form.fooding.errors %}{{ error }}{% endfor %}
-                                </div>
-                                {% endif %}
-                            </div>
-                            <div class="form-one__control">
-                                <label for="{{ form.tour_guide.id_for_label }}">{{ form.tour_guide.label }}</label>
-                                {{ form.tour_guide }}
-                                {% if form.tour_guide.errors %}
-                                <div class="invalid-feedback d-block">
-                                    {% for error in form.tour_guide.errors %}{{ error }}{% endfor %}
-                                </div>
-                                {% endif %}
-                            </div>
-                            <div class="form-one__control">
-                                <label for="{{ form.knowledge_sharing.id_for_label }}">{{ form.knowledge_sharing.label }}</label>
-                                {{ form.knowledge_sharing }}
-                                {% if form.knowledge_sharing.errors %}
-                                <div class="invalid-feedback d-block">
-                                    {% for error in form.knowledge_sharing.errors %}{{ error }}{% endfor %}
-                                </div>
-                                {% endif %}
-                            </div>
+                            {% endif %}
+                            {% endfor %}
+                            {% endwith %}
                             <div class="form-one__control form-one__control--full">
                                 <label for="{{ form.overall_experience.id_for_label }}">{{ form.overall_experience.label }}</label>
                                 {{ form.overall_experience }}
@@ -146,4 +109,5 @@
         </div>
     </div>
 </section>
+<script src="{% static 'js/feedback-rating.js' %}"></script>
 {% endblock %}

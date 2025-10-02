@@ -3,6 +3,14 @@ from django import forms
 from .models import Feedback
 
 
+STAR_CHOICES = [(value, str(value)) for value in range(5, -1, -1)]
+
+
+class StarRatingWidget(forms.RadioSelect):
+    template_name = "tour/widgets/star_rating.html"
+    option_template_name = "tour/widgets/star_rating_option.html"
+
+
 class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
@@ -46,13 +54,9 @@ class FeedbackForm(forms.ModelForm):
             if field_name in rating_fields:
                 field.min_value = 0
                 field.max_value = 5
-                field.widget = forms.NumberInput(
-                    attrs={
-                        "class": "form-control",
-                        "min": 0,
-                        "max": 5,
-                    }
-                )
+                field.choices = STAR_CHOICES
+                field.widget = StarRatingWidget()
+                field.widget.choices = STAR_CHOICES
             elif field_name in {"overall_experience", "comments"}:
                 field.widget = forms.Textarea(
                     attrs={
