@@ -1,0 +1,21 @@
+{% load static %}
+<div class="star-rating" data-field-name="{{ widget.name }}">
+    <div class="star-rating__stars" role="radiogroup">
+        {% for group, options, index in widget.optgroups %}
+            {% for option in options %}
+                {% if option.value|stringformat:'s' != '0' %}
+                    {% include option.template_name with widget=option %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+    <div class="star-rating__clear">
+        {% for group, options, index in widget.optgroups %}
+            {% for option in options %}
+                {% if option.value|stringformat:'s' == '0' %}
+                    {% include option.template_name with widget=option %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+</div>
