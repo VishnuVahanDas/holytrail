@@ -24,7 +24,6 @@ def ensure_email_field(apps, schema_editor):
         return
 
     Feedback = apps.get_model("tour", "Feedback")
-
     nullable_email_field = Feedback._meta.get_field("email").clone()
     nullable_email_field.set_attributes_from_name("email")
     nullable_email_field.null = True
@@ -43,6 +42,7 @@ def ensure_email_field(apps, schema_editor):
         nullable_email_field,
         Feedback._meta.get_field("email"),
     )
+
 
 
 class Migration(migrations.Migration):
