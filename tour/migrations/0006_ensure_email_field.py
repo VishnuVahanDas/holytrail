@@ -24,9 +24,25 @@ def ensure_email_field(apps, schema_editor):
         return
 
     Feedback = apps.get_model("tour", "Feedback")
-    field = Feedback._meta.get_field("email")
-    field.set_attributes_from_name("email")
-    schema_editor.add_field(Feedback, field)
+    nullable_email_field = Feedback._meta.get_field("email").clone()
+    nullable_email_field.set_attributes_from_name("email")
+    nullable_email_field.null = True
+
+    schema_editor.add_field(Feedback, nullable_email_field)
+
+    schema_editor.execute(
+        "UPDATE {table} SET {column} = '' WHERE {column} IS NULL".format(
+            table=schema_editor.quote_name(table_name),
+            column=schema_editor.quote_name("email"),
+        )
+    )
+
+    schema_editor.alter_field(
+        Feedback,
+        nullable_email_field,
+        Feedback._meta.get_field("email"),
+    )
+
 
 
 class Migration(migrations.Migration):
