@@ -1,10 +1,13 @@
+import logging
+
 from django.contrib.auth import authenticate, login, logout
+
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from allauth.socialaccount.signals import pre_social_login
 from django.dispatch import receiver
-from django.core.mail import EmailMultiAlternatives
+from django.core.mail import BadHeaderError, EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.conf import settings
@@ -14,8 +17,12 @@ from django.http import HttpResponseBadRequest
 from django.utils import timezone
 import razorpay
 
+from .forms import EmailSubmissionForm, RegistrationForm
 from .models import EmailOTP, PasswordResetOTP, Subscription
 from tour.models import Order
+
+
+logger = logging.getLogger(__name__)
 
 @receiver(pre_social_login)
 def social_account_login(sender, request, sociallogin, **kwargs):
@@ -43,23 +50,17 @@ def login_view(request):
 
 
 def register_view(request):
-    error = ""
     if request.method == "POST":
-        username = request.POST.get("username")
-        email = request.POST.get("email")
-        password1 = request.POST.get("password1")
-        password2 = request.POST.get("password2")
-        if password1 != password2:
-            error = "Passwords do not match"
-        elif User.objects.filter(username=username).exists():
-            error = "Username already exists"
-        elif User.objects.filter(email=email).exists():
-            error = "Email already exists"
-        else:
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data["username"]
+            email = form.cleaned_data["email"]
+            password = form.cleaned_data["password1"]
+
             user = User.objects.create_user(
                 username=username,
                 email=email,
-                password=password1,
+                password=password,
                 is_active=False,
             )
 
@@ -81,27 +82,12 @@ def register_view(request):
             email_message.attach_alternative(html_content, "text/html")
             email_message.send()
 
-            welcome_html = render_to_string(
-                "emails/welcome_email.html",
-                {
-                    "username": username,
-                    "email": email,
-                    "password": password1,
-                },
-            )
-            welcome_text = strip_tags(welcome_html)
-            welcome_email = EmailMultiAlternatives(
-                "Welcome to Holytrail",
-                welcome_text,
-                settings.DEFAULT_FROM_EMAIL,
-                [email],
-            )
-            welcome_email.attach_alternative(welcome_html, "text/html")
-            welcome_email.send()
-
             request.session["otp_user_id"] = user.id
             return redirect("accounts:verify_email")
-    return render(request, "accounts/register.html", {"error": error})
+    else:
+        form = RegistrationForm()
+
+    return render(request, "accounts/register.html", {"form": form})
 
 
 def logout_view(request):
@@ -129,11 +115,39 @@ def verify_email_view(request):
             otp.save()
             login(request, user)
             request.session.pop("otp_user_id", None)
+            _send_welcome_email(user)
             return redirect("home:home")
         else:
             error = "Invalid code"
 
     return render(request, "accounts/verify_email.html", {"error": error})
+
+
+def _send_welcome_email(user):
+    welcome_html = render_to_string(
+        "emails/welcome_email.html",
+        {
+            "username": user.username,
+            "email": user.email,
+        },
+    )
+    welcome_text = strip_tags(welcome_html)
+    welcome_email = EmailMultiAlternatives(
+        "Welcome to Holytrail",
+        welcome_text,
+        settings.DEFAULT_FROM_EMAIL,
+        [user.email],
+    )
+    welcome_email.attach_alternative(welcome_html, "text/html")
+    try:
+        welcome_email.send()
+    except BadHeaderError:
+        logger.warning(
+            "Rejected welcome email for user %s due to header injection attempt",
+            user.pk,
+        )
+    except Exception:
+        logger.exception("Unable to send welcome email for user %s", user.pk)
 
 
 def resend_otp_view(request):
@@ -169,34 +183,37 @@ def resend_otp_view(request):
 
 def forgot_password_view(request):
     """Send an OTP to the user's email for resetting password."""
-    error = ""
     if request.method == "POST":
-        email = request.POST.get("email")
-        user = User.objects.filter(email=email).first()
-        if user:
-            otp_code = get_random_string(6, allowed_chars="0123456789")
-            PasswordResetOTP.objects.create(user=user, code=otp_code)
+        form = EmailSubmissionForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data["email"]
+            user = User.objects.filter(email__iexact=email).first()
+            if user:
+                otp_code = get_random_string(6, allowed_chars="0123456789")
+                PasswordResetOTP.objects.create(user=user, code=otp_code)
 
-            html_content = render_to_string(
-                "emails/password_reset_otp_email.html",
-                {"username": user.username, "code": otp_code},
-            )
-            text_content = strip_tags(html_content)
-            subject = "Reset your password"
-            email_message = EmailMultiAlternatives(
-                subject,
-                text_content,
-                settings.DEFAULT_FROM_EMAIL,
-                [email],
-            )
-            email_message.attach_alternative(html_content, "text/html")
-            email_message.send()
+                html_content = render_to_string(
+                    "emails/password_reset_otp_email.html",
+                    {"username": user.username, "code": otp_code},
+                )
+                text_content = strip_tags(html_content)
+                subject = "Reset your password"
+                email_message = EmailMultiAlternatives(
+                    subject,
+                    text_content,
+                    settings.DEFAULT_FROM_EMAIL,
+                    [email],
+                )
+                email_message.attach_alternative(html_content, "text/html")
+                email_message.send()
 
-            request.session["reset_user_id"] = user.id
-            return redirect("accounts:verify_reset_otp")
-        else:
-            error = "No user with that email"
-    return render(request, "accounts/forgot_password.html", {"error": error})
+                request.session["reset_user_id"] = user.id
+                return redirect("accounts:verify_reset_otp")
+            form.add_error("email", "No user with that email")
+    else:
+        form = EmailSubmissionForm()
+
+    return render(request, "accounts/forgot_password.html", {"form": form})
 
 
 def verify_reset_otp_view(request):

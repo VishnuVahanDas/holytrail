@@ -41,7 +41,7 @@ class AccountsTests(TestCase):
         self.assertEqual(self.client.session.get('otp_user_id'), user.id)
         self.assertIsNone(self.client.session.get('_auth_user_id'))
 
-    def test_registration_sends_otp_email(self):
+    def test_registration_sends_only_otp_email_initially(self):
         data = {
             'username': 'emailuser',
             'email': 'email@example.com',
@@ -49,9 +49,8 @@ class AccountsTests(TestCase):
             'password2': 'pass12345'
         }
         self.client.post(reverse('accounts:register'), data)
-        self.assertEqual(len(mail.outbox), 2)
+        self.assertEqual(len(mail.outbox), 1)
         self.assertEqual(mail.outbox[0].subject, 'Verify your email')
-        self.assertEqual(mail.outbox[1].subject, 'Welcome to Holytrail')
 
     def test_email_verification(self):
         data = {
@@ -67,6 +66,11 @@ class AccountsTests(TestCase):
         self.assertRedirects(response, reverse('home:home'))
         user.refresh_from_db()
         self.assertTrue(user.is_active)
+        self.assertEqual(len(mail.outbox), 2)
+        self.assertEqual(mail.outbox[1].subject, 'Welcome to Holytrail')
+        self.assertNotIn('pass12345', mail.outbox[1].body)
+        if mail.outbox[1].alternatives:
+            self.assertNotIn('pass12345', mail.outbox[1].alternatives[0][0])
 
     def test_resend_otp(self):
         data = {
@@ -78,7 +82,23 @@ class AccountsTests(TestCase):
         self.client.post(reverse('accounts:register'), data)
         response = self.client.post(reverse('accounts:resend_otp'))
         self.assertRedirects(response, reverse('accounts:verify_email'))
-        self.assertEqual(len(mail.outbox), 3)
+        self.assertEqual(len(mail.outbox), 2)
+
+    def test_welcome_email_only_sent_after_verification(self):
+        data = {
+            'username': 'timinguser',
+            'email': 'timing@example.com',
+            'password1': 'pass12345',
+            'password2': 'pass12345'
+        }
+        self.client.post(reverse('accounts:register'), data)
+        self.assertEqual(len(mail.outbox), 1)
+        user = User.objects.get(username='timinguser')
+        otp = user.email_otps.first()
+
+        self.client.post(reverse('accounts:verify_email'), {'code': otp.code})
+        self.assertEqual(len(mail.outbox), 2)
+        self.assertEqual(mail.outbox[1].subject, 'Welcome to Holytrail')
 
     def test_registration_duplicate_email(self):
         User.objects.create_user(username='existing', email='dup@example.com', password='pass12345')
@@ -92,6 +112,18 @@ class AccountsTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Email already exists')
         self.assertEqual(User.objects.filter(email='dup@example.com').count(), 1)
+
+    def test_registration_rejects_multiple_email_addresses(self):
+        data = {
+            'username': 'bademailuser',
+            'email': 'one@example.com,other@example.com',
+            'password1': 'pass12345',
+            'password2': 'pass12345'
+        }
+        response = self.client.post(reverse('accounts:register'), data)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Enter a valid email address.')
+        self.assertFalse(User.objects.filter(username='bademailuser').exists())
 
     def test_forgot_password_flow(self):
         user = User.objects.create_user(username='resetuser', email='reset@example.com', password='oldpass')
