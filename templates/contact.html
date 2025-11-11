@@ -66,19 +66,27 @@
                         <div class="contact-page__contact">
                             <h2 class="contact-page__title">Ready to Get Started?</h2><!-- /.contact-page__title -->
                             <p class="contact-page__text">Nullam varius, erat quis iaculis dictum, eros urna varius eros, ut blandit felis odio in turpis. Quisque rhoncus</p><!-- /.contact-page__text -->
-                            <form class="comments-form__form contact-form-validated form-one">
+                            <form method="post" action="{% url 'contact' %}" class="comments-form__form contact-form-validated form-one">
+                                {% csrf_token %}
+                                {% if messages %}
+                                <div class="form-messages">
+                                    {% for message in messages %}
+                                    <div class="form-message form-message--{{ message.tags|default:'info' }}">{{ message }}</div>
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
                                 <div class="form-one__group">
                                     <div class="form-one__control">
                                         <label for="name">Your Name*</label>
-                                        <input type="text" name="name" id="name" placeholder="Your Name">
+                                        <input type="text" name="name" id="name" placeholder="Your Name" required>
                                     </div>
                                     <div class="form-one__control">
                                         <label for="email">Your Email*</label>
-                                        <input type="email" name="email" id="email" placeholder="Your Email">
+                                        <input type="email" name="email" id="email" placeholder="Your Email" required>
                                     </div>
                                     <div class="form-one__control form-one__control--full">
                                         <label for="message">Message*</label>
-                                        <textarea name="message" id="message" placeholder="Write Message . . "></textarea>
+                                        <textarea name="message" id="message" placeholder="Write Message . . " required></textarea>
                                     </div>
                                     <div class="form-one__control form-one__control--full">
                                         <button type="submit" class="gotur-btn gotur-btn--base">Send Message<i class="icon-arrow-right"></i></button>
