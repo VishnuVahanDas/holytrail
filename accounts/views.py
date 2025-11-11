@@ -14,6 +14,7 @@ from django.http import HttpResponseBadRequest
 from django.utils import timezone
 import razorpay
 
+from .forms import EmailSubmissionForm, RegistrationForm
 from .models import EmailOTP, PasswordResetOTP, Subscription
 from tour.models import Order
 
@@ -43,23 +44,17 @@ def login_view(request):
 
 
 def register_view(request):
-    error = ""
     if request.method == "POST":
-        username = request.POST.get("username")
-        email = request.POST.get("email")
-        password1 = request.POST.get("password1")
-        password2 = request.POST.get("password2")
-        if password1 != password2:
-            error = "Passwords do not match"
-        elif User.objects.filter(username=username).exists():
-            error = "Username already exists"
-        elif User.objects.filter(email=email).exists():
-            error = "Email already exists"
-        else:
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data["username"]
+            email = form.cleaned_data["email"]
+            password = form.cleaned_data["password1"]
+
             user = User.objects.create_user(
                 username=username,
                 email=email,
-                password=password1,
+                password=password,
                 is_active=False,
             )
 
@@ -86,7 +81,6 @@ def register_view(request):
                 {
                     "username": username,
                     "email": email,
-                    "password": password1,
                 },
             )
             welcome_text = strip_tags(welcome_html)
@@ -101,7 +95,10 @@ def register_view(request):
 
             request.session["otp_user_id"] = user.id
             return redirect("accounts:verify_email")
-    return render(request, "accounts/register.html", {"error": error})
+    else:
+        form = RegistrationForm()
+
+    return render(request, "accounts/register.html", {"form": form})
 
 
 def logout_view(request):
@@ -169,34 +166,37 @@ def resend_otp_view(request):
 
 def forgot_password_view(request):
     """Send an OTP to the user's email for resetting password."""
-    error = ""
     if request.method == "POST":
-        email = request.POST.get("email")
-        user = User.objects.filter(email=email).first()
-        if user:
-            otp_code = get_random_string(6, allowed_chars="0123456789")
-            PasswordResetOTP.objects.create(user=user, code=otp_code)
+        form = EmailSubmissionForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data["email"]
+            user = User.objects.filter(email__iexact=email).first()
+            if user:
+                otp_code = get_random_string(6, allowed_chars="0123456789")
+                PasswordResetOTP.objects.create(user=user, code=otp_code)
 
-            html_content = render_to_string(
-                "emails/password_reset_otp_email.html",
-                {"username": user.username, "code": otp_code},
-            )
-            text_content = strip_tags(html_content)
-            subject = "Reset your password"
-            email_message = EmailMultiAlternatives(
-                subject,
-                text_content,
-                settings.DEFAULT_FROM_EMAIL,
-                [email],
-            )
-            email_message.attach_alternative(html_content, "text/html")
-            email_message.send()
+                html_content = render_to_string(
+                    "emails/password_reset_otp_email.html",
+                    {"username": user.username, "code": otp_code},
+                )
+                text_content = strip_tags(html_content)
+                subject = "Reset your password"
+                email_message = EmailMultiAlternatives(
+                    subject,
+                    text_content,
+                    settings.DEFAULT_FROM_EMAIL,
+                    [email],
+                )
+                email_message.attach_alternative(html_content, "text/html")
+                email_message.send()
 
-            request.session["reset_user_id"] = user.id
-            return redirect("accounts:verify_reset_otp")
-        else:
-            error = "No user with that email"
-    return render(request, "accounts/forgot_password.html", {"error": error})
+                request.session["reset_user_id"] = user.id
+                return redirect("accounts:verify_reset_otp")
+            form.add_error("email", "No user with that email")
+    else:
+        form = EmailSubmissionForm()
+
+    return render(request, "accounts/forgot_password.html", {"form": form})
 
 
 def verify_reset_otp_view(request):

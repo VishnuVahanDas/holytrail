@@ -52,6 +52,9 @@ class AccountsTests(TestCase):
         self.assertEqual(len(mail.outbox), 2)
         self.assertEqual(mail.outbox[0].subject, 'Verify your email')
         self.assertEqual(mail.outbox[1].subject, 'Welcome to Holytrail')
+        self.assertNotIn('pass12345', mail.outbox[1].body)
+        if mail.outbox[1].alternatives:
+            self.assertNotIn('pass12345', mail.outbox[1].alternatives[0][0])
 
     def test_email_verification(self):
         data = {
@@ -92,6 +95,18 @@ class AccountsTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Email already exists')
         self.assertEqual(User.objects.filter(email='dup@example.com').count(), 1)
+
+    def test_registration_rejects_multiple_email_addresses(self):
+        data = {
+            'username': 'bademailuser',
+            'email': 'one@example.com,other@example.com',
+            'password1': 'pass12345',
+            'password2': 'pass12345'
+        }
+        response = self.client.post(reverse('accounts:register'), data)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Enter a valid email address.')
+        self.assertFalse(User.objects.filter(username='bademailuser').exists())
 
     def test_forgot_password_flow(self):
         user = User.objects.create_user(username='resetuser', email='reset@example.com', password='oldpass')
