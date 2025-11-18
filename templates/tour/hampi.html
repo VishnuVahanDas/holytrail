@@ -627,12 +627,12 @@
                                 <div class="sidebar-two__form__control">
                                     <label>Package Tier:</label>
                                     <div class="booking-option-choice">
-                                        <label style="margin-left:10px;"><input type="radio" name="package_tier"
+                                        <label style="margin-left:10px;"><input type="radio" name="booking_option"
                                                 value="economy" checked> Economy</label>
-                                        <label style="margin-left:10px;"><input type="radio" name="package_tier"
-                                                value="delux"> Delux</label>
-                                        <label style="margin-left:10px;"><input type="radio" name="package_tier"
-                                                value="premium"> Premium</label>
+                                        <label style="margin-left:10px;"><input type="radio" name="booking_option"
+                                                value="deluxe"> Deluxe</label>
+                                        <label style="margin-left:10px;"><input type="radio" name="booking_option"
+                                                value="youth"> Youth</label>
                                     </div>
                                 </div>
                                 <div class="sidebar-two__form__control">
@@ -645,7 +645,7 @@
 
                                 <!-- Hidden input to send final total to payment page -->
                                 <input type="hidden" name="final_amount" id="final_amount">
-                                <input type="hidden" name="package_tier" id="package_tier_field">
+                                <input type="hidden" name="booking_option" id="package_tier_field">
                                 <button type="button" id="goToCheckout" class="gotur-btn gotur-btn--base">Book Now <i
                                         class="icon-right"></i></button>
                             </form>
@@ -666,22 +666,25 @@
     const checkoutInput = document.getElementById('checkout');
     const goToCheckoutBtn = document.getElementById('goToCheckout');
     const bookingRadios = document.querySelectorAll('input[name="booking_option"]');
+    const packageTierField = document.getElementById('package_tier_field');
 
     const PRICES = {
-        economy: 1200,
+        economy: 12000,
         deluxe: 15000,
         youth: 8000,
     };
 
     function calculateTotal() {
         const count = parseInt(countInput.value) || 0;
-        const option = document.querySelector('input[name="booking_option"]:checked').value.toLowerCase();
+        const selectedOption = document.querySelector('input[name="booking_option"]:checked');
+        const option = selectedOption ? selectedOption.value.toLowerCase() : 'economy';
         const price = PRICES[option] || 0;
         const total = count * price;
 
         totalAmountDisplay.textContent = `₹${total.toLocaleString()}`;
         finalAmountInput.value = total;
         checkoutInput.value = count;
+        packageTierField.value = option;
         goToCheckoutBtn.disabled = count <= 0;
 
         window.calculatedValues = { count, total, booking_option: option };
