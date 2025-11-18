@@ -40,6 +40,9 @@ def tourdetails_view(request):
 
 
 
+def hampi_view(request):
+    return render(request, "tour/hampi.html")
+
 def dwarikayatra_view(request):
     return render(request, "tour/dwarika-yatra.html")
 
