@@ -52,6 +52,9 @@ def vrindavanyatra_view(request):
 def jagannathpuriyatra_view(request):
     return render(request, "tour/jagannathpuri-yatra.html")
 
+def treveniyatra_view(request):
+    return render(request, "tour/treveni.html")
+
 
 def feedback_view(request):
     if request.method == "POST":
